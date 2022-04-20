@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 12:29:25 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/20 14:57:58 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/20 17:41:15 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 
 int main(int argc, char *argv[])
 {
-	std::string	*str = NULL;
+	std::string	str[argc - 1];
 
 	if (argc > 1)
 	{
-		for (int i = 1; i < argc; i++)
+		for (int i = 0; i < argc - 1; i++)
 		{
-			str = new std::string(argv[i]);
-			transform(str->begin(), str->end(), str->begin(), toupper);
-			std::cout << *str;
-			delete str;
+			str[i] = std::string(argv[i + 1]);
+			for (int k = 0; k < str[i].size(); k++)
+			{
+				str[i][k] = toupper(str[i][k]);
+			}
+			std::cout << str[i];
 		}
 	}
 	else
