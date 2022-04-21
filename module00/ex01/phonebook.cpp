@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 16:52:52 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/21 16:56:44 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 int			PhoneBook::replace_ct(void)
 {
-	for (int i = 0; i < 8; i++)
+	int	i;
+
+	i = 0;
+	while (i < 8)
 	{
 		if (contacts[i].age == 8)
 		{
@@ -25,8 +28,11 @@ int			PhoneBook::replace_ct(void)
 			contacts[i].nickname = "";
 			contacts[i].phone_number = "";
 			contacts[i].darkest_secret = "";
+			return (i);
 		}
+		i++;
 	}
+	return (-1);
 }
 
 static int	find_blank_ct(Contact (&contacts)[8])
@@ -50,10 +56,10 @@ void		PhoneBook::add_ct(void)
 	blank_ct = find_blank_ct(contacts);
 	if (blank_ct == -1)
 		blank_ct = replace_ct();
-	for (int k = 0; k < 8; k++)
+	for (int i = 0; i < 8; i++)
 	{
-		if (contacts[k].age != -1)
-			contacts[k].age++;
+		if (contacts[i].age != -1)
+			contacts[i].age++;
 	}
 	contacts[blank_ct].ini_contact();
 }
