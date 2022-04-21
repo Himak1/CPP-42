@@ -6,14 +6,14 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:54:15 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 14:54:56 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/21 17:05:30 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phonebook.hpp"
 
-std::string getLineNoBlanks(void)
+std::string getline_no_blanks(void)
 {
 	std::string	temp;
 
@@ -28,9 +28,10 @@ std::string getLineNoBlanks(void)
 
 void		Contact::ini_contact(void)
 {
-	first_name = getLineNoBlanks();
-	last_name = getLineNoBlanks();
-	nickname = getLineNoBlanks();
-	phone_number = getLineNoBlanks();
-	darkest_secret = getLineNoBlanks();
+	age = 1;
+	first_name = getline_no_blanks();
+	last_name = getline_no_blanks();
+	nickname = getline_no_blanks();
+	phone_number = getline_no_blanks();
+	darkest_secret = getline_no_blanks();
 }

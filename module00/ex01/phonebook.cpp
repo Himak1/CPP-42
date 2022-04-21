@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 16:56:44 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/21 17:02:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,8 @@ void		PhoneBook::add_ct(void)
 	contacts[blank_ct].ini_contact();
 }
 
-/*
-void	search_ct(void)
+void	PhoneBook::search_ct(void)
 {
 	
 }
-*/
+
