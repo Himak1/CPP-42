@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.hpp                                      :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/04/20 18:12:55 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 16:49:20 by jhille        ########   odam.nl         */
+/*   Created: 2022/04/21 12:34:49 by jhille        #+#    #+#                 */
+/*   Updated: 2022/04/21 15:09:58 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-# include <string>
+#include <iostream>
+#include "phonebook.hpp"
 
-class	Contact
+void	ini_phonebook(void)
 {
-	public:
-		int			age;
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
-		void		ini_contact(void);
-};
+	
+}
 
-class	PhoneBook
+int		main(void)
 {
-	public:
-		Contact	contacts[8];
-		int		iter_ct;
-		void	add_ct(void);
-		void	search_ct(void);
-		int		replace_ct(void);
-};
+	PhoneBook	phonebook;
+	std::string	cmd;
 
-#endif
+	
+	while (1)
+	{
+		std::cin >> cmd;
+		if (!cmd.compare("ADD"))
+			phonebook.add_ct();
+		else if (!cmd.compare("SEARCH"))
+			phonebook.search_ct();
+		else if (!cmd.compare("EXIT"))
+			break ;
+	}
+}

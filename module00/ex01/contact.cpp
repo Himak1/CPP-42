@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.hpp                                      :+:    :+:            */
+/*   contact.cpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/04/20 18:12:55 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 16:49:20 by jhille        ########   odam.nl         */
+/*   Created: 2022/04/21 12:54:15 by jhille        #+#    #+#                 */
+/*   Updated: 2022/04/21 14:54:56 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-# include <string>
+#include <iostream>
+#include "phonebook.hpp"
 
-class	Contact
+std::string getLineNoBlanks(void)
 {
-	public:
-		int			age;
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
-		void		ini_contact(void);
-};
+	std::string	temp;
 
-class	PhoneBook
+	while (1)
+	{
+		std::cin >> temp;
+		if (temp.compare(""))
+			break ;
+	}
+	return (temp);
+}
+
+void		Contact::ini_contact(void)
 {
-	public:
-		Contact	contacts[8];
-		int		iter_ct;
-		void	add_ct(void);
-		void	search_ct(void);
-		int		replace_ct(void);
-};
-
-#endif
+	first_name = getLineNoBlanks();
+	last_name = getLineNoBlanks();
+	nickname = getLineNoBlanks();
+	phone_number = getLineNoBlanks();
+	darkest_secret = getLineNoBlanks();
+}

@@ -1,7 +1,9 @@
 
 NAME = phonebook
 
-SRC_FILES = 
+SRC_FILES = main.cpp\
+			phonebook.cpp\
+			contact.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
