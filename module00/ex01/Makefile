@@ -7,15 +7,15 @@ SRC_FILES = main.cpp\
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
-FLAGS = -Wextra -Wall -Werror -std=c++98
+FLAGS = -Wextra -Wall -Werror -std=c++98 -g -fsanitize=address
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 		$(CXX) $(FLAGS) -o $@ $^
 
-%.o: %.c
-	$(CXX) $(FLAGS) -c -o $@ $^
+%.o: %.cpp
+	$(CXX) -c $(FLAGS) -o $@ $^
 
 clean:
 		rm -rf $(OBJ)

@@ -6,16 +6,15 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:34:49 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 15:09:58 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/22 16:08:01 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phonebook.hpp"
 
-void	ini_phonebook(void)
+void	start_message(void)
 {
-	
 }
 
 int		main(void)
@@ -26,6 +25,7 @@ int		main(void)
 	
 	while (1)
 	{
+		std::cout << "Type ADD, SEARCH or EXIT\n";
 		std::cin >> cmd;
 		if (!cmd.compare("ADD"))
 			phonebook.add_ct();

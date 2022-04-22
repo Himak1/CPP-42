@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/21 17:02:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/22 16:14:40 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	find_blank_ct(Contact (&contacts)[8])
 	i = 0;
 	while (i < 8)
 	{
-		if (contacts[i].age == -1)
+		if (contacts[i].age == 0)
 			return (i);
 		i++;
 	}
@@ -58,7 +58,7 @@ void		PhoneBook::add_ct(void)
 		blank_ct = replace_ct();
 	for (int i = 0; i < 8; i++)
 	{
-		if (contacts[i].age != -1)
+		if (contacts[i].age != 0)
 			contacts[i].age++;
 	}
 	contacts[blank_ct].ini_contact();
@@ -66,6 +66,6 @@ void		PhoneBook::add_ct(void)
 
 void	PhoneBook::search_ct(void)
 {
-	
+	std::string = "+------------------"
 }
 
