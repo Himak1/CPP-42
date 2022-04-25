@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/25 16:56:26 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/25 17:03:56 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,13 @@ static void	convert_to_arr(std::string (&strings)[4], Contact c_entry, int i)
 	}
 }
 
+//static void	
+
 void	PhoneBook::search_ct(void)
 {
 	std::string	entries[4] = {"Index", "First name", "Last name", "Nickname"};
+	std::string index_str;
+	int			index;
 
 	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 	print_row(entries);
@@ -105,5 +109,11 @@ void	PhoneBook::search_ct(void)
 		print_row(entries);
 	}
 	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
+	while (1)
+	{
+		std::cout << "Select contact by typing the index number: ";
+		std::cin >> index_str;
+		index = std::stoi(index_str);
+		
+	}
 }
-
