@@ -3,7 +3,8 @@ NAME = phonebook
 
 SRC_FILES = main.cpp\
 			phonebook.cpp\
-			contact.cpp
+			contact.cpp\
+			column_print.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 

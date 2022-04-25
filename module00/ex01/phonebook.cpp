@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/25 17:03:56 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/25 17:10:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,50 +65,12 @@ void		PhoneBook::add_ct(void)
 	contacts[blank_ct].ini_contact();
 }
 
-static void	print_row(const std::string (&strings)[4])
-{
-	for (int i = 0; i < 4; i++)
-	{
-		std::cout << '|' << std::setw(10) << std::setfill(' ') << strings[i];
-	}
-	std::cout << '|' << std::endl;
-}
-
-static void	convert_to_arr(std::string (&strings)[4], Contact c_entry, int i)
-{
-	strings[0] = std::to_string(i);
-	strings[1] = c_entry.first_name;
-	strings[2] = c_entry.last_name;
-	strings[3] = c_entry.nickname;
-	for (int i = 1; i < 4; i++)
-	{
-		if (strings[i].size() > 10)
-		{
-			strings[i].resize(9);
-			strings[i].append(".");
-		}
-	}
-}
-
-//static void	
-
 void	PhoneBook::search_ct(void)
 {
-	std::string	entries[4] = {"Index", "First name", "Last name", "Nickname"};
 	std::string index_str;
 	int			index;
 
-	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
-	print_row(entries);
-	for (int i = 0; i < 8; i++)
-	{
-		if (contacts[i].age == 0)
-			break ;
-		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
-		convert_to_arr(entries, contacts[i], i);
-		print_row(entries);
-	}
-	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
+	column_print();
 	while (1)
 	{
 		std::cout << "Select contact by typing the index number: ";
