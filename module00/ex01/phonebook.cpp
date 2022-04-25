@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/25 16:53:49 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/25 16:56:26 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	PhoneBook::search_ct(void)
 	{
 		if (contacts[i].age == 0)
 			break ;
+		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 		convert_to_arr(entries, contacts[i], i);
 		print_row(entries);
 	}
