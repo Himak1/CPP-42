@@ -1,10 +1,7 @@
 
-NAME = phonebook
+NAME = ex00
 
-SRC_FILES = main.cpp\
-			phonebook.cpp\
-			contact.cpp\
-			column_print.cpp
+SRC_FILES = 
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
