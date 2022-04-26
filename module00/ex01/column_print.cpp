@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/25 17:06:23 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/25 17:12:18 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/26 11:16:46 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,24 @@ static void	convert_to_arr(std::string (&strings)[4], Contact c_entry, int i)
 void	PhoneBook::column_print(void)
 {
 	std::string	entries[4] = {"Index", "First name", "Last name", "Nickname"};
+	int			i;
 
+	i = 0;
 	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 	print_row(entries);
-	for (int i = 0; i < 8; i++)
+	while (i < 8)
 	{
 		if (contacts[i].age == 0)
 			break ;
 		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 		convert_to_arr(entries, contacts[i], i);
+		print_row(entries);
+		i++;
+	}
+	if (i == 0)
+	{
+		entries[0] = entries[1] = entries[2] =  entries[3] = "N/A";
+		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 		print_row(entries);
 	}
 	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
