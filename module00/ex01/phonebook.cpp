@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/26 12:27:44 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/26 12:40:11 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,15 @@ static bool	isnum_str(std::string str)
 	return (true);
 }
 
+static void	print_contact_info(Contact &entry)
+{
+	std::cout << "First name: " << entry.first_name << std::endl
+				<< "Last name: " << entry.last_name << std::endl
+				<< "Nickname: " << entry.nickname << std::endl
+				<< "Phone number: " << entry.phone_number << std::endl
+				<< "Darkest secret: " << entry.darkest_secret << std::endl;
+}
+
 void	PhoneBook::search_ct(void)
 {
 	std::string index_str;
@@ -95,8 +104,11 @@ void	PhoneBook::search_ct(void)
 		{
 			index = std::stoi(index_str);
 			if (contacts[index].age == 0)
-			{
 				std::cout << "Error: selected index is empty" << std::endl;
+			else
+			{
+				print_contact_info(contacts[index]);
+				return ;
 			}
 		}
 		else
