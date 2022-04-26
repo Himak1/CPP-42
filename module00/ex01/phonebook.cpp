@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/25 17:10:31 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/26 11:36:59 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,14 @@ void	PhoneBook::search_ct(void)
 	column_print();
 	while (1)
 	{
-		std::cout << "Select contact by typing the index number: ";
+		std::cout << "Select contact by typing the index number, or EXIT to return to menu: ";
 		std::cin >> index_str;
+		if (index_str.compare("EXIT") == 0)
+			return ;
 		index = std::stoi(index_str);
-		
+		if (contacts[index].age == 0)
+		{
+			std::cout << "Error: Selected index is empty" << std::endl;
+		}
 	}
 }
