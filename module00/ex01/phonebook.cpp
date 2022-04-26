@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/26 11:36:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/04/26 12:27:44 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,20 @@ void		PhoneBook::add_ct(void)
 	contacts[blank_ct].ini_contact();
 }
 
+static bool	isnum_str(std::string str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (isdigit(str[i]) == 0)
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
 void	PhoneBook::search_ct(void)
 {
 	std::string index_str;
@@ -77,10 +91,15 @@ void	PhoneBook::search_ct(void)
 		std::cin >> index_str;
 		if (index_str.compare("EXIT") == 0)
 			return ;
-		index = std::stoi(index_str);
-		if (contacts[index].age == 0)
+		if(isnum_str(index_str) == true)
 		{
-			std::cout << "Error: Selected index is empty" << std::endl;
+			index = std::stoi(index_str);
+			if (contacts[index].age == 0)
+			{
+				std::cout << "Error: selected index is empty" << std::endl;
+			}
 		}
+		else
+			std::cout << "Error: please type a valid number" << std::endl;
 	}
 }
