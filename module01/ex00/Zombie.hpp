@@ -8,17 +8,14 @@ class Zombie
 {
 
 	public:
-
-		Zombie();
-		Zombie( Zombie const & src );
+		Zombie( std::string name_param );
 		~Zombie();
-
-		Zombie &		operator=( Zombie const & rhs );
-
+		void	announce( void );
 	private:
-
+		std::string	name;
 };
 
-std::ostream &			operator<<( std::ostream & o, Zombie const & i );
+Zombie*	newZombie( std::string name );
+void	randomChump( std::string name );
 
-#endif /* ********************************************************** ZOMBIE_H */
+#endif

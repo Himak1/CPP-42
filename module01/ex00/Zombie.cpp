@@ -1,55 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Zombie.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jhille <jhille@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/05/02 14:49:35 by jhille        #+#    #+#                 */
+/*   Updated: 2022/05/02 15:43:00 by jhille        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-Zombie::Zombie()
+Zombie::Zombie( std::string name_param )
 {
+	name = name_param;
 }
-
-Zombie::Zombie( const Zombie & src )
-{
-}
-
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
 Zombie::~Zombie()
 {
+	std::cout << name << " has been destroyed" << std::endl;
 }
 
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-Zombie &				Zombie::operator=( Zombie const & rhs )
+void	Zombie::announce( void )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
+	std::cout << name << " : BraiiiiiiinnnzzzZ..." << std::endl;
 }
-
-std::ostream &			operator<<( std::ostream & o, Zombie const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */

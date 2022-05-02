@@ -1,7 +1,10 @@
 
 NAME = ex00
 
-SRC_FILES = 
+SRC_FILES = main.cpp\
+			Zombie.cpp\
+			newZombie.cpp\
+			randomChump.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
