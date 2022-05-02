@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 18:12:55 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/26 14:53:04 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/02 11:36:26 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 class	Contact
 {
 	public:
+		Contact();
+		void		ini_contact(void);
 		int			age;
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
 		std::string	phone_number;
 		std::string	darkest_secret;
-		void		ini_contact(void);
 	private:
 
 };

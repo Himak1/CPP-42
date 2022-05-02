@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:34:49 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/26 14:30:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/02 11:38:50 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int		main(void)
 	PhoneBook	phonebook;
 	std::string	cmd;
 
-	for (int i = 0; i < 8; i++)
-		phonebook.contacts[i].age = 0;
 	while (1)
 	{
 		std::cout << "Type ADD, SEARCH or EXIT\n";

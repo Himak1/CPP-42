@@ -6,13 +6,18 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/26 14:25:04 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/02 11:38:42 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include "phonebook.hpp"
+
+Contact::Contact(void)
+{
+	age = 0;
+}
 
 int			PhoneBook::replace_ct(void)
 {
