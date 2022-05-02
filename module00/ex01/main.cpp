@@ -6,16 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:34:49 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/02 11:38:50 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/02 12:18:29 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phonebook.hpp"
-
-void	start_message(void)
-{
-}
 
 int		main(void)
 {
