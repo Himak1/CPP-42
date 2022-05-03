@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/25 17:06:23 by jhille        #+#    #+#                 */
-/*   Updated: 2022/04/26 11:16:46 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 12:40:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,41 @@
 #include <iomanip>
 #include "phonebook.hpp"
 
-static void	print_row(const std::string (&strings)[4])
+static std::string	str_cutoff(std::string str)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		std::cout << '|' << std::setw(10) << std::setfill(' ') << strings[i];
-	}
-	std::cout << '|' << std::endl;
+	std::string	temp;
+
+	if (str.size() > 10)
+		return (str.substr(0, 9) + ".");
+	else
+		return (str);
 }
 
-static void	convert_to_arr(std::string (&strings)[4], Contact c_entry, int i)
+static void	print_row(Contact &entry, int index)
 {
-	strings[0] = std::to_string(i);
-	strings[1] = c_entry.first_name;
-	strings[2] = c_entry.last_name;
-	strings[3] = c_entry.nickname;
-	for (int i = 1; i < 4; i++)
-	{
-		if (strings[i].size() > 10)
-		{
-			strings[i].resize(9);
-			strings[i].append(".");
-		}
-	}
+	std::string	temp;
+
+	if (index == -1)
+		std::cout << '|' << std::setw(10) << std::setfill(' ');
+	else
+		std::cout << '|' << std::setw(10) << std::setfill(' ') << index;
+	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.first_name);
+	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.last_name);
+	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.nickname) << "|" << std::endl;
 }
 
 void	PhoneBook::column_print(void)
 {
-	std::string	entries[4] = {"Index", "First name", "Last name", "Nickname"};
 	int			i;
 
 	i = 0;
-	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
-	print_row(entries);
 	while (i < 8)
 	{
 		if (contacts[i].age == 0)
 			break ;
 		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
-		convert_to_arr(entries, contacts[i], i);
-		print_row(entries);
+		print_row(contacts[i], i);
 		i++;
-	}
-	if (i == 0)
-	{
-		entries[0] = entries[1] = entries[2] =  entries[3] = "N/A";
-		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
-		print_row(entries);
 	}
 	std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 }

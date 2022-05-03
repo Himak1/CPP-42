@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 18:12:55 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 11:25:21 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 12:43:40 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Contact
 		std::string	phone_number;
 		std::string	darkest_secret;
 	private:
-		std::string getline_no_blanks(void);
+
 };
 
 class	PhoneBook

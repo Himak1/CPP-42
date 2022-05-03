@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:54:15 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/02 11:52:42 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 12:43:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Contact::Contact(void)
 	age = 0;
 }
 
-std::string Contact::getline_no_blanks(void)
+static std::string	getline_no_blanks(void)
 {
 	std::string	temp;
 

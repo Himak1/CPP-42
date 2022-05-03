@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 11:47:22 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 12:41:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ void	PhoneBook::search_ct(void)
 {
 	int			index;
 
-	column_print();
 	if (contacts[0].age == 0)
 	{
-		std::cout << "Phonebook is empty" << std::endl;
+		std::cout << "Phonebook is empty, add an entry" << std::endl;
 		return ;
 	}
+	column_print();
 	while (1)
 	{
-		std::cout << "Select contact by typing the index number";
+		std::cout << "Select contact by typing the index number:";
 		if(std::cin >> index)
 		{
 			if (contacts[index].age == 0)
