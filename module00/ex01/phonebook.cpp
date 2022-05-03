@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/02 11:52:38 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 11:47:22 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,6 @@ void		PhoneBook::add_ct(void)
 	contacts[blank_ct].ini_contact();
 }
 
-static bool	isnum_str(std::string str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (isdigit(str[i]) == 0)
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
 static void	print_contact_info(Contact &entry)
 {
 	std::cout << "First name: " << entry.first_name << std::endl
@@ -90,19 +76,19 @@ static void	print_contact_info(Contact &entry)
 
 void	PhoneBook::search_ct(void)
 {
-	std::string index_str;
 	int			index;
 
 	column_print();
+	if (contacts[0].age == 0)
+	{
+		std::cout << "Phonebook is empty" << std::endl;
+		return ;
+	}
 	while (1)
 	{
-		std::cout << "Select contact by typing the index number, or EXIT to return to menu: ";
-		std::cin >> index_str;
-		if (index_str.compare("EXIT") == 0)
-			return ;
-		if(isnum_str(index_str) == true)
+		std::cout << "Select contact by typing the index number";
+		if(std::cin >> index)
 		{
-			index = std::stoi(index_str);
 			if (contacts[index].age == 0)
 				std::cout << "Error: selected index is empty" << std::endl;
 			else
