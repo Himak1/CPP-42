@@ -1,7 +1,10 @@
 
 NAME = ex03
 
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp\
+			Weapon.cpp\
+			HumanA.cpp\
+			HumanB.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
