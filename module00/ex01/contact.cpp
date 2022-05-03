@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:54:15 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 13:38:13 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 14:21:04 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ Contact::Contact()
 	age = 0;
 }
 
-static std::string	getline_no_blanks(void)
+static std::string	getline_no_blanks(std::string message)
 {
 	std::string	temp;
 
 	while (1)
 	{
-		std::getline(std::cin, temp);
+		std::cout << message;
+		std::cin >> temp;
 		if (!temp.empty())
 			break ;
 	}
@@ -34,14 +35,9 @@ static std::string	getline_no_blanks(void)
 void		Contact::ini_contact(void)
 {
 	age = 1;
-	std::cout << "First name: ";
-	first_name = getline_no_blanks();
-	std::cout << "Last Name: ";
-	last_name = getline_no_blanks();
-	std::cout << "Nickname: ";
-	nickname = getline_no_blanks();
-	std::cout << "Phone number: ";
-	phone_number = getline_no_blanks();
-	std::cout << "Darkest secret: ";
-	darkest_secret = getline_no_blanks();
+	first_name = getline_no_blanks("First name: ");
+	last_name = getline_no_blanks("Last name: ");
+	nickname = getline_no_blanks("Nickname: ");
+	phone_number = getline_no_blanks("Phone number: ");
+	darkest_secret = getline_no_blanks("Darkest secret: ");
 }
