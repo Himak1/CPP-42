@@ -6,11 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 12:41:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 14:02:36 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits>
 #include <iomanip>
 #include "phonebook.hpp"
 
@@ -87,10 +88,11 @@ void	PhoneBook::search_ct(void)
 	while (1)
 	{
 		std::cout << "Select contact by typing the index number:";
-		if(std::cin >> index)
+		std::cin >> index;
+		if(std::cin.good())
 		{
-			if (contacts[index].age == 0)
-				std::cout << "Error: selected index is empty" << std::endl;
+			if (index < 0 || index > 7 || contacts[index].age == 0)
+				std::cout << "Error: invalid index" << std::endl;
 			else
 			{
 				print_contact_info(contacts[index]);
@@ -98,6 +100,10 @@ void	PhoneBook::search_ct(void)
 			}
 		}
 		else
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Error: please type a valid number" << std::endl;
+		}
 	}
 }

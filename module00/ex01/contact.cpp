@@ -6,14 +6,14 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:54:15 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 12:43:31 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/03 13:38:13 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phonebook.hpp"
 
-Contact::Contact(void)
+Contact::Contact()
 {
 	age = 0;
 }
