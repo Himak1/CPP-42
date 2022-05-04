@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/04 17:20:26 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 17:32:41 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ void	PhoneBook::search_ct(void)
 			print_contact_info(contacts[index]);
 			break ;
 		}
+		else if (std::cin.eof())
+			return ;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Error: please type a valid index value" << std::endl;
