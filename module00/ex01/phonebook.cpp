@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/04 16:11:52 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 17:20:26 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static void	print_contact_info(Contact &entry)
 				<< "Darkest secret: " << entry.getDarkestSecret() << std::endl;
 }
 
+/*
 void	PhoneBook::search_ct(void)
 {
 	int			index;
@@ -90,7 +91,7 @@ void	PhoneBook::search_ct(void)
 	{
 		std::cout << "Select contact by typing the index number:";
 		std::cin >> index;
-		if(std::cin.good())
+		if(std::cin.good() && !(index < 0 || index > 7 || contacts[index].getAge() == 0))
 		{
 			if (index < 0 || index > 7 || contacts[index].getAge() == 0)
 				std::cout << "Error: invalid index" << std::endl;
@@ -108,4 +109,33 @@ void	PhoneBook::search_ct(void)
 		}
 	}
 }
+*/
+
+void	PhoneBook::search_ct(void)
+{
+	int			index;
+
+	if (contacts[0].getAge() == 0)
+	{
+		std::cout << "Phonebook is empty, add an entry" << std::endl;
+		return ;
+	}
+	column_print();
+	while (1)
+	{
+		std::cout << "Select contact by typing the index number:";
+		std::cin >> index;
+		if(std::cin.good() && std::cin.peek() != ' ' &&
+			!(index < 0 || index > 7 || contacts[index].getAge() == 0))
+		{
+			print_contact_info(contacts[index]);
+			break ;
+		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Error: please type a valid index value" << std::endl;
+	}
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 // _______________________________________
