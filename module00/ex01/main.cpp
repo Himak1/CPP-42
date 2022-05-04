@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:34:49 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/02 12:18:29 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 12:29:34 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(void)
 			phonebook.add_ct();
 		else if (!cmd.compare("SEARCH"))
 			phonebook.search_ct();
-		else if (!cmd.compare("EXIT"))
+		else if (std::cin.eof() || !cmd.compare("EXIT"))
 			break ;
 	}
 }
