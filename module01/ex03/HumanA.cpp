@@ -6,38 +6,23 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/03 15:53:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 15:56:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 18:07:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-HumanA::HumanA()
+HumanA::HumanA( std::string givenName, Weapon weaponType )
 {
+	name = givenName;
+	weapon = weaponType;
 }
-
-HumanA::HumanA( const HumanA & src )
-{
-}
-
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
 HumanA::~HumanA()
 {
 }
 
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
 void	HumanA::attack( void )
 {
-	std::cout << name << 
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }

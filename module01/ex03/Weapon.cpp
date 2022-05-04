@@ -6,14 +6,15 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/03 15:53:07 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 15:53:11 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 18:03:08 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon()
+Weapon::Weapon( std::string weaponType )
 {
+	type = weaponType;
 }
 
 Weapon::~Weapon()

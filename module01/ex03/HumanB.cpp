@@ -1,55 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   HumanB.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jhille <jhille@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/05/04 17:55:52 by jhille        #+#    #+#                 */
+/*   Updated: 2022/05/04 18:06:35 by jhille        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "HumanB.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-HumanB::HumanB()
+HumanB::HumanB( std::string givenName )
 {
+	name = givenName;
 }
 
-HumanB::HumanB( const HumanB & src )
+HumanB::HumanB( std::string givenName, Weapon weaponType )
 {
+	name = givenName;
+	weapon = weaponType;
 }
-
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
 HumanB::~HumanB()
 {
 }
 
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-HumanB &				HumanB::operator=( HumanB const & rhs )
+void	HumanB::setWeapon( Weapon weaponType )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
+	weapon = weaponType;
 }
 
-std::ostream &			operator<<( std::ostream & o, HumanB const & i )
+void	HumanB::attack( void )
 {
-	//o << "Value = " << i.getValue();
-	return o;
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */
