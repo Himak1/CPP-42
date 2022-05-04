@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 12:54:15 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/04 13:58:46 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 16:17:09 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ static std::string	getline_no_blanks(std::string message)
 
 	while (1)
 	{
+		std::cout << message;
 		std::getline(std::cin, temp);
-		if (!temp.empty() || std::cin.eof())
+		if (!temp.empty())
 			break ;
 	}
 	return (temp);
@@ -39,6 +40,16 @@ void		Contact::ini_contact(void)
 	nickname = getline_no_blanks("Nickname: ");
 	phone_number = getline_no_blanks("Phone number: ");
 	darkest_secret = getline_no_blanks("Darkest secret: ");
+}
+
+void	Contact::setAge(int new_age)
+{
+	age = new_age;
+}
+
+int	Contact::getAge(void)
+{
+	return (age);
 }
 
 const std::string& Contact::getFirstName(void)

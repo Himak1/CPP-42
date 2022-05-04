@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/20 15:01:27 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 14:02:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 16:11:52 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,24 @@
 #include <iomanip>
 #include "phonebook.hpp"
 
-int			PhoneBook::replace_ct(void)
-{
-	int	i;
+// -------- replace_ct() functions -------- //
 
-	i = 0;
-	while (i < 8)
+int	PhoneBook::replace_ct(void)
+{
+	for (int i = 0; i < 8; i++)
 	{
-		if (contacts[i].age == 8)
+		if (contacts[i].getAge() == 8)
 		{
-			contacts[i].age = 0;
-			contacts[i].first_name = "";
-			contacts[i].last_name = "";
-			contacts[i].nickname = "";
-			contacts[i].phone_number = "";
-			contacts[i].darkest_secret = "";
+			contacts[i].setAge(0);
 			return (i);
 		}
-		i++;
 	}
 	return (-1);
 }
+// _______________________________________
+
+
+// -------- add_ct() functions -------- //
 
 static int	find_blank_ct(Contact (&contacts)[8])
 {
@@ -44,7 +41,7 @@ static int	find_blank_ct(Contact (&contacts)[8])
 	i = 0;
 	while (i < 8)
 	{
-		if (contacts[i].age == 0)
+		if (contacts[i].getAge() == 0)
 			return (i);
 		i++;
 	}
@@ -60,26 +57,30 @@ void		PhoneBook::add_ct(void)
 		blank_ct = replace_ct();
 	for (int i = 0; i < 8; i++)
 	{
-		if (contacts[i].age != 0)
-			contacts[i].age++;
+		if (contacts[i].getAge() != 0)
+			contacts[i].setAge(contacts[i].getAge() + 1);
 	}
 	contacts[blank_ct].ini_contact();
 }
+// _______________________________________
+
+
+// -------- search_ct() functions -------- //
 
 static void	print_contact_info(Contact &entry)
 {
-	std::cout << "First name: " << entry.first_name << std::endl
-				<< "Last name: " << entry.last_name << std::endl
-				<< "Nickname: " << entry.nickname << std::endl
-				<< "Phone number: " << entry.phone_number << std::endl
-				<< "Darkest secret: " << entry.darkest_secret << std::endl;
+	std::cout << "First name: " << entry.getFirstName() << std::endl
+				<< "Last name: " << entry.getLastName() << std::endl
+				<< "Nickname: " << entry.getNickname() << std::endl
+				<< "Phone number: " << entry.getPhoneNumber() << std::endl
+				<< "Darkest secret: " << entry.getDarkestSecret() << std::endl;
 }
 
 void	PhoneBook::search_ct(void)
 {
 	int			index;
 
-	if (contacts[0].age == 0)
+	if (contacts[0].getAge() == 0)
 	{
 		std::cout << "Phonebook is empty, add an entry" << std::endl;
 		return ;
@@ -91,7 +92,7 @@ void	PhoneBook::search_ct(void)
 		std::cin >> index;
 		if(std::cin.good())
 		{
-			if (index < 0 || index > 7 || contacts[index].age == 0)
+			if (index < 0 || index > 7 || contacts[index].getAge() == 0)
 				std::cout << "Error: invalid index" << std::endl;
 			else
 			{
@@ -107,3 +108,4 @@ void	PhoneBook::search_ct(void)
 		}
 	}
 }
+// _______________________________________

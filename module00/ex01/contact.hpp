@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/04 12:20:10 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/04 13:58:58 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 16:15:54 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ class	Contact
 	public:
 		Contact();
 		void			ini_contact(void);
-		int&			getAge(void);
+		int				getAge(void);
+		void			setAge(int new_age);
 		const std::string&	getFirstName(void);
 		const std::string&	getLastName(void);
 		const std::string&	getNickname(void);

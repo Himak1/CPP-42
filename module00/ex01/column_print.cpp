@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/25 17:06:23 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/03 12:40:47 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/04 16:13:29 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void	print_row(Contact &entry, int index)
 		std::cout << '|' << std::setw(10) << std::setfill(' ');
 	else
 		std::cout << '|' << std::setw(10) << std::setfill(' ') << index;
-	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.first_name);
-	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.last_name);
-	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.nickname) << "|" << std::endl;
+	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.getFirstName());
+	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.getLastName());
+	std::cout << '|' << std::setw(10) << std::setfill(' ') << str_cutoff(entry.getNickname()) << "|" << std::endl;
 }
 
 void	PhoneBook::column_print(void)
@@ -44,7 +44,7 @@ void	PhoneBook::column_print(void)
 	i = 0;
 	while (i < 8)
 	{
-		if (contacts[i].age == 0)
+		if (contacts[i].getAge() == 0)
 			break ;
 		std::cout << '+' << std::setw(44) << std::setfill('-') << '+' << std::endl;
 		print_row(contacts[i], i);
