@@ -6,16 +6,15 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/03 15:53:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/04 18:07:47 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/12 11:41:39 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string givenName, Weapon weaponType )
+HumanA::HumanA( std::string givenName, Weapon& weaponType )
+	: weapon(weaponType), name(givenName)
 {
-	name = givenName;
-	weapon = weaponType;
 }
 
 HumanA::~HumanA()

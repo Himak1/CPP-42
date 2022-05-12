@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/04 17:55:52 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/04 18:06:35 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/12 11:52:17 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ HumanB::HumanB( std::string givenName )
 	name = givenName;
 }
 
-HumanB::HumanB( std::string givenName, Weapon weaponType )
+HumanB::HumanB( std::string givenName, Weapon& weaponType )
+	: name(givenName)
 {
-	name = givenName;
-	weapon = weaponType;
+	weapon = &weaponType;
 }
 
 HumanB::~HumanB()
 {
 }
 
-void	HumanB::setWeapon( Weapon weaponType )
+void	HumanB::setWeapon( Weapon& weaponType )
 {
-	weapon = weaponType;
+	weapon = &weaponType;
 }
 
 void	HumanB::attack( void )
 {
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }

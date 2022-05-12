@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   HumanA.hpp                                         :+:    :+:            */
+/*   file_io.h                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/05/04 17:51:34 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/12 11:46:33 by jhille        ########   odam.nl         */
+/*   Created: 2022/05/12 14:36:50 by jhille        #+#    #+#                 */
+/*   Updated: 2022/05/12 15:38:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#ifndef FILE_IO_H
+# define FILE_IO_H
 
-# include <iostream>
-# include "Weapon.hpp"
+# include <fstream>
+# include <string>
 
-class HumanA
-{
-	public:
-		HumanA( std::string givenName, Weapon& weaponType );
-		~HumanA();
-		void	attack( void );
-	private:
-		Weapon&		weapon;
-		std::string	name;
-};
+std::string*    createBuffer(const char *fileName);
+int				createOutputFile(std::fstream& outputFile, const char* inputFile);
 
 #endif

@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   HumanA.hpp                                         :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/05/04 17:51:34 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/12 11:46:33 by jhille        ########   odam.nl         */
+/*   Created: 2022/05/12 12:56:45 by jhille        #+#    #+#                 */
+/*   Updated: 2022/05/12 17:24:42 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#include <iostream>
+#include "file_io.h"
 
-# include <iostream>
-# include "Weapon.hpp"
 
-class HumanA
+
+int main(int argc, char *argv[])
 {
-	public:
-		HumanA( std::string givenName, Weapon& weaponType );
-		~HumanA();
-		void	attack( void );
-	private:
-		Weapon&		weapon;
-		std::string	name;
-};
+	std::fstream	inputFile;
+	std::fstream	outputFile;
+	std::string		*linesbuffer;
 
-#endif
+	if (argc < 4)
+		return (-1);
+	linesbuffer = createBuffer(argv[1]);
+	inputFile.open(argv[1]);
+	if (createOutputFile(outputFile, argv[1]) != -1)
+	{
+		
+	}
+	delete linesbuffer;
+	return (0);
+}
