@@ -20,7 +20,12 @@ clean:
 
 fclean: clean
 		rm -rf $(NAME)
+		rm -rf main.cpp.replace
 
 re: clean all
+
+test:
+		./ex04 main.cpp std yeet
+		cat main.cpp.replace
 
 .PHONY: all clean re
