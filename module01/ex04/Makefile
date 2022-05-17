@@ -24,7 +24,7 @@ fclean: clean
 
 re: clean all
 
-test:
+test: $(NAME)
 		./ex04 main.cpp std yeet
 		cat main.cpp.replace
 
