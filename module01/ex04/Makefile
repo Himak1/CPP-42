@@ -1,13 +1,11 @@
 
 NAME = ex04
 
-SRC_FILES = main.cpp\
-			file_io.cpp
+SRC_FILES = main.cpp
 			
-
 OBJ = $(SRC_FILES:.cpp=.o)
 
-FLAGS = -Wextra -Wall -Werror -std=c++98
+FLAGS = -Wextra -Wall -Werror -std=c++98 -g
 
 all: $(NAME)
 
