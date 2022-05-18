@@ -24,4 +24,12 @@ fclean: clean
 
 re: clean all
 
+test: $(NAME)
+	./ex05 INFO
+	./ex05 DEBUG
+	./ex05 WARNING
+	./ex05 ERROR
+	./ex05 adladladj
+	./ex05
+
 .PHONY: all clean re
