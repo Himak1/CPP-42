@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/17 12:37:38 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/17 17:43:45 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/18 15:12:34 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 Harl::Harl()
 {
+	arr[0] = &Harl::debug;
+	arr[1] = &Harl::info;
+	arr[2] = &Harl::warning;
+	arr[3] = &Harl::error;
+	levels[0] = "DEBUG";
+	levels[1] = "INFO";
+	levels[2] = "WARNING";
+	levels[3] = "ERROR";
 }
 
 Harl::~Harl()
@@ -22,16 +30,10 @@ Harl::~Harl()
 
 void	Harl::complain( std::string level )
 {
-	std::string		levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void	(Harl::*fpointer[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	int				index;
-	std::string*	needle;
-
-	needle = std::find(levels, levels + 4, level);
-	if (needle)
+	for (int i = 0; i < 4; i++)
 	{
-		index = distance(levels, needle);
-		*fpointer[index]();
+		if (!levels[i].compare(level))
+			(this->*arr[i])();
 	}
 }
 
