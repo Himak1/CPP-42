@@ -6,12 +6,14 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/24 17:25:05 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/24 17:58:59 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <tgmath.h>
+
+#include <bitset>
  
 // Setting the frac_bits member
 const int	Fixed::frac_bits = 8;
@@ -29,14 +31,16 @@ Fixed::Fixed( int const int_value ) : value(int_value) {
 
 // Float Constuctor
 Fixed::Fixed( float const float_value ) {
-	//float	mantissa;
+	float	mantissa;
 
 	std::cout << "Float constructor called" << std::endl;
-	//value = (int)float_value;
-	//mantissa = float_value << 9;
-	//value = (int)roundf(1 << 8) * float_value;
-	value = 
-	std::cout << value << std::endl;
+	mantissa = roundf(float_value);
+	mantissa = ((int)mantissa << 9) >> 8;
+	value = value << frac_bits;
+	value = (value & ~0xff) | ((int)mantissa & 0xff);
+
+	//std::bitset<32> x(value); printing bit states
+	//std::cout << x << std::endl;
 }
 
 // Copy Constructor
