@@ -6,12 +6,13 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/20 15:30:53 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/24 17:25:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
+#include <tgmath.h>
+ 
 // Setting the frac_bits member
 const int	Fixed::frac_bits = 8;
 
@@ -21,13 +22,21 @@ Fixed::Fixed() : value(0) {
 }
 
 // Int Constuctor
-Fixed::Fixed( int const int_value ) {
-	setRawBits(int_value);
+Fixed::Fixed( int const int_value ) : value(int_value) {
+	std::cout << "Int constructor called" << std::endl;
+	value = value << frac_bits;
 }
 
 // Float Constuctor
 Fixed::Fixed( float const float_value ) {
-	setRawBits(float_value);
+	//float	mantissa;
+
+	std::cout << "Float constructor called" << std::endl;
+	//value = (int)float_value;
+	//mantissa = float_value << 9;
+	//value = (int)roundf(1 << 8) * float_value;
+	value = 
+	std::cout << value << std::endl;
 }
 
 // Copy Constructor
@@ -46,17 +55,32 @@ Fixed&	Fixed::operator=( Fixed const& rhs ) {
 	return *this;
 }
 
+// ostream operator overload
+std::ostream& operator<<( std::ostream& o, Fixed const& rhs) {
+	o << rhs.toFloat();
+	return (o);
+}
+
 // Destructor
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits( void ) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
 }
 
 void	Fixed::setRawBits( int const raw ) {
-	std::cout << "setRawBits member fuction called" << std::endl;
 	value = raw;
+}
+
+float	Fixed::toFloat( void ) const {
+	float	copy;
+
+	copy = 0;
+	return (copy);
+}
+
+int	Fixed::toInt( void ) const {
+	return (value >> frac_bits);
 }
