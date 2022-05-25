@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/23 11:53:26 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/23 13:34:23 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/25 15:27:51 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Fixed
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 	private:
-		int					value;
-		static const int	frac_bits;
+		int					_value;
+		static const int	_frac_bits;
 };
 
 std::ostream& operator<<( std::ostream& o, Fixed const& rhs);

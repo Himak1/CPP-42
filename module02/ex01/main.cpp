@@ -6,19 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/20 15:12:00 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/24 12:37:01 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/25 15:06:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(void) {
-	Fixed	a( 42.42f );
-
-	std::cout << a << std::endl;
-}
-
-/*
 int main(void) {
 	Fixed a;
 	Fixed const b( 10 );
@@ -36,4 +29,3 @@ int main(void) {
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return 0;
 }
-*/
