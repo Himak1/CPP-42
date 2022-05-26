@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/25 16:03:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/26 15:26:21 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/26 17:32:54 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	main( void ) {
 	std::cout << t2 << " + " << t3 << " = " << (t2 + t3) << std::endl;
 	std::cout << t2 << " - " << t3 << " = " << (t2 - t3) << std::endl;
 	std::cout << t2 << " * " << t3 << " = " << (t2 * t3) << std::endl;
-	std::cout << t2 << " / " << t3 << " = " << (t2 / t3) << std::endl;
+	std::cout << t2 << " / " << t3 << " = " << (t2 / t3) << std::endl << std::endl;
 
-	Fixed	t4( 7.50f );
-	Fixed	t5( 3.8f );
+	Fixed	t4( 9.4f );
+	Fixed	t5( 3.5f );
 
 	std::cout << t4 << " + " << t5 << " = " << (t4 + t5) << std::endl;
 	std::cout << t4 << " - " << t5 << " = " << (t4 - t5) << std::endl;

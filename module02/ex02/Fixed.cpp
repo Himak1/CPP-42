@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/26 17:18:00 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/26 17:41:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Fixed::~Fixed() {
 }
 
 
-// -------- Operator Overloads -------- //
+// -------- Comparison Operator Overloads -------- //
 
 Fixed&	Fixed::operator=( Fixed const& rhs ) {
 	if (this != &rhs)
@@ -69,31 +69,35 @@ bool	Fixed::operator!=( Fixed const& rhs ) {
 	return (this->_value != rhs._value);
 }
 
-Fixed	Fixed::operator+( Fixed const& rhs ) {
-	Fixed	result( this->_value + rhs._value );
+// -------- Arithmetic Operator Overloads -------- //
 
-	result._value = result._value >> _frac_bits;
+Fixed	Fixed::operator+( Fixed const& rhs ) {
+	Fixed	result;
+
+	result._value = (this->_value + rhs._value);
 	return (result);
 }
 
 Fixed	Fixed::operator-( Fixed const& rhs ) {
-	Fixed	result( this->_value - rhs._value );
+	Fixed	result;
 
-	result._value = result._value >> _frac_bits;
+	result._value = (this->_value - rhs._value);
 	return (result);
 }
 
 Fixed	Fixed::operator*( Fixed const& rhs ) {
-	Fixed result( this->_value * rhs._value );
+	Fixed result;
 
-	result._value = result._value >> (_frac_bits * 2);
+	result._value = (this->_value * rhs._value);
 	return (result);
 }
 
 Fixed	Fixed::operator/( Fixed const& rhs ) {
-	Fixed result;
+	Fixed		result;
+	long long	dividend;
 
-	result._value = (this->_value << _frac_bits) / (rhs._value << _frac_bits) << 7;
+	dividend = this->_value << _frac_bits;
+	result._value = (dividend / rhs._value);
 	return (result);
 }
 
