@@ -6,12 +6,13 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/25 16:03:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/25 17:16:04 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/26 15:26:21 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+/*
 void	greater_than(Fixed& x, Fixed& y)
 {
 	if (x > y)
@@ -27,17 +28,32 @@ void	smaller_than(Fixed& x, Fixed& y)
 	else
 		std::cout << "!! " << x << " < " << y << std::endl;
 }
+*/
 
 int	main( void ) {
 	Fixed	a( 42.42f );
 	Fixed	b( 42.25f );
 
+	if (a > b)
+		std::cout << a << " is bigger than " << b << std::endl;
+	if (b < a)
+		std::cout << b << " is smaller than " << a << std::endl;
 
-	greater_than(a, b);
-	smaller_than(a, b);
+	Fixed	t2( 10.50f );
+	Fixed	t3( 5.25f );
 
+	std::cout << t2 << " + " << t3 << " = " << (t2 + t3) << std::endl;
+	std::cout << t2 << " - " << t3 << " = " << (t2 - t3) << std::endl;
+	std::cout << t2 << " * " << t3 << " = " << (t2 * t3) << std::endl;
+	std::cout << t2 << " / " << t3 << " = " << (t2 / t3) << std::endl;
 
+	Fixed	t4( 7.50f );
+	Fixed	t5( 3.8f );
 
+	std::cout << t4 << " + " << t5 << " = " << (t4 + t5) << std::endl;
+	std::cout << t4 << " - " << t5 << " = " << (t4 - t5) << std::endl;
+	std::cout << t4 << " * " << t5 << " = " << (t4 * t5) << std::endl;
+	std::cout << t4 << " / " << t5 << " = " << (t4 / t5) << std::endl;
 	return (0);
 }
 

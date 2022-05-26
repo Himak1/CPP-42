@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/26 12:14:18 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/26 17:18:00 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,29 @@ bool	Fixed::operator!=( Fixed const& rhs ) {
 
 Fixed	Fixed::operator+( Fixed const& rhs ) {
 	Fixed	result( this->_value + rhs._value );
+
+	result._value = result._value >> _frac_bits;
 	return (result);
 }
 
 Fixed	Fixed::operator-( Fixed const& rhs ) {
 	Fixed	result( this->_value - rhs._value );
+
+	result._value = result._value >> _frac_bits;
 	return (result);
 }
 
 Fixed	Fixed::operator*( Fixed const& rhs ) {
 	Fixed result( this->_value * rhs._value );
+
+	result._value = result._value >> (_frac_bits * 2);
 	return (result);
 }
 
 Fixed	Fixed::operator/( Fixed const& rhs ) {
-	Fixed result( this->_value / rhs._value );
+	Fixed result;
+
+	result._value = (this->_value << _frac_bits) / (rhs._value << _frac_bits) << 7;
 	return (result);
 }
 
