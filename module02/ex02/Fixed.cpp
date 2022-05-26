@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/25 17:37:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/26 12:14:18 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,24 @@ bool	Fixed::operator!=( Fixed const& rhs ) {
 	return (this->_value != rhs._value);
 }
 
-Fixed&	Fixed::operator-( Fixed const& rhs ) {
-	
-	return (this)
+Fixed	Fixed::operator+( Fixed const& rhs ) {
+	Fixed	result( this->_value + rhs._value );
+	return (result);
+}
+
+Fixed	Fixed::operator-( Fixed const& rhs ) {
+	Fixed	result( this->_value - rhs._value );
+	return (result);
+}
+
+Fixed	Fixed::operator*( Fixed const& rhs ) {
+	Fixed result( this->_value * rhs._value );
+	return (result);
+}
+
+Fixed	Fixed::operator/( Fixed const& rhs ) {
+	Fixed result( this->_value / rhs._value );
+	return (result);
 }
 
 std::ostream& operator<<( std::ostream& o, Fixed const& rhs) {
