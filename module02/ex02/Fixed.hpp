@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/23 11:53:26 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/26 12:14:13 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/27 14:59:32 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,16 @@ class Fixed
 		bool	operator<=( Fixed const& rhs );
 		bool	operator==( Fixed const& rhs );
 		bool	operator!=( Fixed const& rhs );
+
 		Fixed	operator+( Fixed const& rhs );
 		Fixed	operator-( Fixed const& rhs );
 		Fixed	operator*( Fixed const& rhs );
 		Fixed	operator/( Fixed const& rhs );
+
+		Fixed&	operator++();
+		Fixed&	operator--();
+		Fixed	operator++( int );
+		Fixed	operator--( int );
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
