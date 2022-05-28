@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/27 14:59:29 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/28 15:05:02 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,3 +152,26 @@ int	Fixed::toInt( void ) const {
 	return (this->_value >> _frac_bits);
 }
 
+Fixed&	Fixed::min( Fixed& a, Fixed& b ) {
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed&	Fixed::min( Fixed const& a, Fixed const& b ) const {
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+Fixed&	Fixed::max( Fixed const& a, Fixed const& b ) const {
+	if (a > b)
+		return (a);
+	return (b);
+}

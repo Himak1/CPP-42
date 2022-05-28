@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/23 11:53:26 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/27 14:59:32 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/28 15:01:50 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ class Fixed
 		Fixed&	operator--();
 		Fixed	operator++( int );
 		Fixed	operator--( int );
+
+		Fixed&	min( Fixed& a, Fixed& b );
+		Fixed&	min( Fixed const& a, Fixed const& b ) const;
+		Fixed&	max( Fixed& a, Fixed& b );
+		Fixed&	max( Fixed const& a, Fixed const& b ) const;
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
