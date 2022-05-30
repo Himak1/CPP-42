@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/28 15:05:02 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 14:19:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ const int	Fixed::_frac_bits = 8;
 
 // -------- Constructors and Destructor -------- //
 
-Fixed::Fixed() : _value(0) {
+Fixed::Fixed( void ) : _value(0) {
 }
 
 Fixed::Fixed( int const int_value ) : _value(int_value) {
@@ -33,7 +33,7 @@ Fixed::Fixed( Fixed const& src ) {
 	*this = src;
 }
 
-Fixed::~Fixed() {
+Fixed::~Fixed( void ) {
 }
 
 
@@ -158,10 +158,8 @@ Fixed&	Fixed::min( Fixed& a, Fixed& b ) {
 	return (b);
 }
 
-Fixed&	Fixed::min( Fixed const& a, Fixed const& b ) const {
-	if (a < b)
-		return (a);
-	return (b);
+Fixed&	Fixed::min( Fixed const& a, Fixed const& b ) {
+	return (min(a, b));
 }
 
 Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
@@ -170,7 +168,17 @@ Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
 	return (b);
 }
 
-Fixed&	Fixed::max( Fixed const& a, Fixed const& b ) const {
+Fixed&	Fixed::max( Fixed const& a, Fixed const& b ) {
+	return (b);
+}
+
+Fixed	&min( Fixed const& a, Fixed const& b ) {
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed	&max( Fixed const& a, Fixed const& b ) {
 	if (a > b)
 		return (a);
 	return (b);

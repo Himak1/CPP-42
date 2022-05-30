@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/23 11:53:26 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/28 15:01:50 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 14:18:30 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class Fixed
 {
 	public:
-		Fixed();
+		Fixed( void );
 		Fixed( Fixed const& src );
 		Fixed( int const int_value );
 		Fixed( float const float_value );
-		~Fixed();
+		~Fixed( void );
 
 		Fixed&	operator=( Fixed const& rhs );
 		bool	operator>( Fixed const& rhs );
@@ -42,10 +42,10 @@ class Fixed
 		Fixed	operator++( int );
 		Fixed	operator--( int );
 
-		Fixed&	min( Fixed& a, Fixed& b );
-		Fixed&	min( Fixed const& a, Fixed const& b ) const;
-		Fixed&	max( Fixed& a, Fixed& b );
-		Fixed&	max( Fixed const& a, Fixed const& b ) const;
+		static Fixed&	min( Fixed& a, Fixed& b );
+		static Fixed&	min( Fixed const& a, Fixed const& b );
+		static Fixed&	max( Fixed& a, Fixed& b );
+		static Fixed&	max( Fixed const& a, Fixed const& b );
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
@@ -55,6 +55,9 @@ class Fixed
 		int					_value;
 		static const int	_frac_bits;
 };
+
+static Fixed	&min( Fixed const& a, Fixed const& b );
+static Fixed	&max( Fixed const& a, Fixed const& b );
 
 std::ostream& operator<<( std::ostream& o, Fixed const& rhs);
 

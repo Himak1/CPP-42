@@ -6,30 +6,13 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/25 16:03:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/26 17:32:54 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 12:06:59 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 /*
-void	greater_than(Fixed& x, Fixed& y)
-{
-	if (x > y)
-		std::cout << "   " << x << " > " << y << std::endl;
-	else
-		std::cout << "!! " << x << " > " << y << std::endl;
-}
-
-void	smaller_than(Fixed& x, Fixed& y)
-{
-	if (x < y)
-		std::cout << "   " << x << " < " << y << std::endl;
-	else
-		std::cout << "!! " << x << " < " << y << std::endl;
-}
-*/
-
 int	main( void ) {
 	Fixed	a( 42.42f );
 	Fixed	b( 42.25f );
@@ -56,8 +39,9 @@ int	main( void ) {
 	std::cout << t4 << " / " << t5 << " = " << (t4 / t5) << std::endl;
 	return (0);
 }
+*/
 
-/*
+
 int	main( void ) {
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
@@ -70,4 +54,4 @@ int	main( void ) {
 	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
-*/
+
