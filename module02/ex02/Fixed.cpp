@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/30 14:19:05 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 15:21:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@ const int	Fixed::_frac_bits = 8;
 // -------- Constructors and Destructor -------- //
 
 Fixed::Fixed( void ) : _value(0) {
+	std::cout << "Default" << std::endl;
 }
 
 Fixed::Fixed( int const int_value ) : _value(int_value) {
 	_value = _value << _frac_bits;
+	std::cout << "Int" << std::endl;
 }
 
 Fixed::Fixed( float const float_value ) {
 	_value = roundf(float_value * (1 << _frac_bits));
+	std::cout << "Float" << std::endl;
 }
 
 Fixed::Fixed( Fixed const& src ) {
@@ -36,36 +39,35 @@ Fixed::Fixed( Fixed const& src ) {
 Fixed::~Fixed( void ) {
 }
 
-
-// -------- Comparison Operator Overloads -------- //
-
 Fixed&	Fixed::operator=( Fixed const& rhs ) {
 	if (this != &rhs)
 		this->_value = rhs.getRawBits();
 	return *this;
 }
 
-bool	Fixed::operator>( Fixed const& rhs) {
+// -------- Comparison Operator Overloads -------- //
+
+bool	Fixed::operator>( Fixed const& rhs) const {
 	return (this->_value > rhs._value);
 }
 
-bool	Fixed::operator<( Fixed const& rhs) {
+bool	Fixed::operator<( Fixed const& rhs) const{
 	return (this->_value < rhs._value);
 }
 
-bool	Fixed::operator>=( Fixed const& rhs ) {
+bool	Fixed::operator>=( Fixed const& rhs ) const{
 	return (this->_value >= rhs._value);
 }
 
-bool	Fixed::operator<=( Fixed const& rhs ) {
+bool	Fixed::operator<=( Fixed const& rhs ) const{
 	return (this->_value <= rhs._value);
 }
 
-bool	Fixed::operator==( Fixed const& rhs ) {
+bool	Fixed::operator==( Fixed const& rhs ) const{
 	return (this->_value == rhs._value);
 }
 
-bool	Fixed::operator!=( Fixed const& rhs ) {
+bool	Fixed::operator!=( Fixed const& rhs ) const{
 	return (this->_value != rhs._value);
 }
 
@@ -158,8 +160,10 @@ Fixed&	Fixed::min( Fixed& a, Fixed& b ) {
 	return (b);
 }
 
-Fixed&	Fixed::min( Fixed const& a, Fixed const& b ) {
-	return (min(a, b));
+Fixed const&	Fixed::min( Fixed const& a, Fixed const& b ) {
+	if (a < b)
+		return (a);
+	return (b);
 }
 
 Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
@@ -168,18 +172,26 @@ Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
 	return (b);
 }
 
-Fixed&	Fixed::max( Fixed const& a, Fixed const& b ) {
-	return (b);
-}
-
-Fixed	&min( Fixed const& a, Fixed const& b ) {
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-Fixed	&max( Fixed const& a, Fixed const& b ) {
+Fixed const&	Fixed::max( Fixed const& a, Fixed const& b ) {
 	if (a > b)
 		return (a);
 	return (b);
+}
+
+// -------- Non-Method functions -------- //
+
+Fixed&	min( Fixed& a, Fixed& b ) {
+	return (Fixed::min(a, b));
+}
+
+Fixed&	max( Fixed& a, Fixed& b ) {
+	return (Fixed::max(a ,b));
+}
+
+Fixed const&	min( Fixed const& a, Fixed const& b ) {
+	return (Fixed::min(a, b));
+}
+
+Fixed const&	max( Fixed const& a, Fixed const& b ) {
+	return (Fixed::max(a, b));
 }

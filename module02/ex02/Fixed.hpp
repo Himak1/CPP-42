@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/23 11:53:26 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/30 14:18:30 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 15:21:07 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,19 @@ class Fixed
 {
 	public:
 		Fixed( void );
-		Fixed( Fixed const& src );
 		Fixed( int const int_value );
 		Fixed( float const float_value );
+		Fixed( Fixed const& src );
 		~Fixed( void );
 
 		Fixed&	operator=( Fixed const& rhs );
-		bool	operator>( Fixed const& rhs );
-		bool	operator<( Fixed const& rhs );
-		bool	operator>=( Fixed const& rhs );
-		bool	operator<=( Fixed const& rhs );
-		bool	operator==( Fixed const& rhs );
-		bool	operator!=( Fixed const& rhs );
+
+		bool	operator>( Fixed const& rhs ) const;
+		bool	operator<( Fixed const& rhs ) const;
+		bool	operator>=( Fixed const& rhs ) const;
+		bool	operator<=( Fixed const& rhs ) const;
+		bool	operator==( Fixed const& rhs ) const;
+		bool	operator!=( Fixed const& rhs ) const;
 
 		Fixed	operator+( Fixed const& rhs );
 		Fixed	operator-( Fixed const& rhs );
@@ -43,9 +44,9 @@ class Fixed
 		Fixed	operator--( int );
 
 		static Fixed&	min( Fixed& a, Fixed& b );
-		static Fixed&	min( Fixed const& a, Fixed const& b );
+		static Fixed const&	min( Fixed const& a, Fixed const& b );
 		static Fixed&	max( Fixed& a, Fixed& b );
-		static Fixed&	max( Fixed const& a, Fixed const& b );
+		static Fixed const&	max( Fixed const& a, Fixed const& b );
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
@@ -56,8 +57,10 @@ class Fixed
 		static const int	_frac_bits;
 };
 
-static Fixed	&min( Fixed const& a, Fixed const& b );
-static Fixed	&max( Fixed const& a, Fixed const& b );
+Fixed const&	min( Fixed const& a, Fixed const& b );
+Fixed const&	max( Fixed const& a, Fixed const& b );
+Fixed&	min( Fixed& a, Fixed& b );
+Fixed&	max( Fixed& a, Fixed& b );
 
 std::ostream& operator<<( std::ostream& o, Fixed const& rhs);
 
