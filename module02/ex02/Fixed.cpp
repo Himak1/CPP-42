@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/30 15:21:03 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 15:30:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ const int	Fixed::_frac_bits = 8;
 // -------- Constructors and Destructor -------- //
 
 Fixed::Fixed( void ) : _value(0) {
-	std::cout << "Default" << std::endl;
 }
 
-Fixed::Fixed( int const int_value ) : _value(int_value) {
-	_value = _value << _frac_bits;
-	std::cout << "Int" << std::endl;
+Fixed::Fixed( int const int_value ) {
+	_value = int_value << _frac_bits;
 }
 
 Fixed::Fixed( float const float_value ) {
 	_value = roundf(float_value * (1 << _frac_bits));
-	std::cout << "Float" << std::endl;
 }
 
 Fixed::Fixed( Fixed const& src ) {
@@ -90,7 +87,7 @@ Fixed	Fixed::operator-( Fixed const& rhs ) {
 Fixed	Fixed::operator*( Fixed const& rhs ) {
 	Fixed result;
 
-	result._value = (this->_value * rhs._value);
+	result._value = (this->_value * rhs._value) >> _frac_bits;
 	return (result);
 }
 

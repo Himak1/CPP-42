@@ -6,13 +6,13 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/25 16:03:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/30 14:51:34 by jhille        ########   odam.nl         */
+/*   Updated: 2022/05/30 15:29:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/*
+
 int	main( void ) {
 	Fixed	a( 42.42f );
 	Fixed	b( 42.25f );
@@ -39,21 +39,21 @@ int	main( void ) {
 	std::cout << t4 << " / " << t5 << " = " << (t4 / t5) << std::endl;
 	return (0);
 }
-*/
 
 
+/*
 int	main( void ) {
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	/*
+	
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
-	*/
+	
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
-
+*/
