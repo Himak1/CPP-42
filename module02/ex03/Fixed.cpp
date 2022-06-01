@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/30 15:44:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/01 13:55:49 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ Fixed::Fixed( Fixed const& src ) {
 
 Fixed::~Fixed( void ) {
 }
+
+// -------- Copy Assignment Overload -------- //
 
 Fixed&	Fixed::operator=( Fixed const& rhs ) {
 	if (this != &rhs)

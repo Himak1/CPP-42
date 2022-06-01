@@ -2,7 +2,9 @@
 NAME = ex02
 
 SRC_FILES = main.cpp\
-			Fixed.cpp
+			Fixed.cpp\
+			Point.cpp\
+			bsp.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 

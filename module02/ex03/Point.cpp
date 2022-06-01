@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:10:35 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/01 12:19:56 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/01 14:15:54 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,38 @@ Point::~Point()
 {
 }
 
+// -------- Copy Assignment Overload -------- //
+
 Point&				Point::operator=( Point const& rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_x = rhs.();
+		this->_x = rhs._x;
+		this->_y = rhs._y;
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Point const & i )
+// -------- ostream Operator Overload -------- //
+
+std::ostream&			operator<<( std::ostream& o, Point const& i )
 {
-	//o << "Value = " << i.getValue();
+	o << "["
+		<< i.getX()
+		<< ", "
+		<< i.getY()
+		<< "]";
 	return o;
 }
+
+// -------- Methods -------- //
+
+float	Point::getX( void ) const {
+	return (this->_x.toFloat());
+}
+
+float	Point::getY( void ) const {
+	return (this->_y.toFloat());
+}
+
+
