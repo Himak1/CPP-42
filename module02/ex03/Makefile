@@ -1,5 +1,5 @@
 
-NAME = ex02
+NAME = ex03
 
 SRC_FILES = main.cpp\
 			Fixed.cpp\
