@@ -1,32 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Point.cpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jhille <jhille@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/06/01 12:10:35 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/01 12:19:56 by jhille        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
+// -------- Constructors and Destructor -------- //
 
-Point::Point()
-{
+Point::Point() : _x(0), _y(0) {
 }
 
-Point::Point( const Point & src )
-{
+Point::Point( float const x_float, float const y_float ) {
+	this->_x = Fixed(x_float);
+	this->_y = Fixed(y_float);
 }
 
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
+Point::Point( Point const& src ) {
+	*this = src;
+}
 
 Point::~Point()
 {
 }
 
-Point &				Point::operator=( Point const & rhs )
+Point&				Point::operator=( Point const& rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		this->_x = rhs.();
+	}
 	return *this;
 }
 
