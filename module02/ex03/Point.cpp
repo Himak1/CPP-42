@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:10:35 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/02 15:41:09 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/02 17:35:22 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,24 @@ std::ostream&			operator<<( std::ostream& o, Point const& i )
 	return o;
 }
 
+// -------- Arithmetic Operators -------- //
+
+Point	Point::operator-( Point const& rhs ) {
+	Point	result;
+
+	result._x = this->_x - rhs._x;
+	result._y = this->_y - rhs._y;
+	return (result);
+}
+
 // -------- Methods -------- //
+
+void	Point::setX( Fixed & x ) {
+	this->_x = x;
+}
+void	Point::setY( Fixed & y ) {
+	this->_y = y;
+}
 
 Fixed	Point::getX( void ) const {
 	return (_x);
