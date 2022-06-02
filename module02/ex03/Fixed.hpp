@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/23 11:53:26 by jhille        #+#    #+#                 */
-/*   Updated: 2022/05/30 15:21:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/02 16:02:36 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Fixed
 		Fixed	operator-( Fixed const& rhs );
 		Fixed	operator*( Fixed const& rhs );
 		Fixed	operator/( Fixed const& rhs );
+		Fixed	operator-( void );
 
 		Fixed&	operator++();
 		Fixed&	operator--();

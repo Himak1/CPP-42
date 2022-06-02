@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:09:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/01 17:50:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/02 15:39:58 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ class Point
 		~Point();
 
 		Point&	operator=( Point const& rhs );
-
-		float	getX( void ) const;
-		float	getY( void ) const;
+		
+		Fixed	getX( void ) const;
+		Fixed	getY( void ) const;
+		float	toFloatX( void ) const;
+		float	toFloatY( void ) const;
 	private:
 		Fixed	_x;
 		Fixed	_y;

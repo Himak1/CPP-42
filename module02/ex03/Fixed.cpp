@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/19 17:03:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/01 13:55:49 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/02 16:04:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,13 @@ Fixed	Fixed::operator/( Fixed const& rhs ) {
 
 	dividend = this->_value << _frac_bits;
 	result._value = (dividend / rhs._value);
+	return (result);
+}
+
+Fixed	Fixed::operator-( void ) {
+	Fixed	result;
+
+	result._value = -_value;
 	return (result);
 }
 

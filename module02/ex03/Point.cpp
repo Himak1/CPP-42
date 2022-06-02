@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:10:35 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/01 14:15:54 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/02 15:41:09 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,18 @@ std::ostream&			operator<<( std::ostream& o, Point const& i )
 
 // -------- Methods -------- //
 
-float	Point::getX( void ) const {
+Fixed	Point::getX( void ) const {
+	return (_x);
+}
+
+Fixed	Point::getY( void ) const {
+	return (_y);
+}
+
+float	Point::toFloatX( void ) const {
 	return (this->_x.toFloat());
 }
 
-float	Point::getY( void ) const {
+float	Point::toFloatY( void ) const {
 	return (this->_y.toFloat());
 }
-
-
