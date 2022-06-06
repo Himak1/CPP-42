@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:09:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/02 17:34:00 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/03 16:15:58 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ class Point
 
 		Point	operator-( Point const& rhs );
 
-		Point	crossProduct( Point p1, Point p2 );
-
-		void	setX( Fixed & x );
-		void	setY( Fixed & y );
+		void	setX( Fixed x );
+		void	setY( Fixed y );
 		Fixed	getX( void ) const;
 		Fixed	getY( void ) const;
 		float	toFloatX( void ) const;

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:10:35 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/02 17:35:22 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/03 16:16:04 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ Point::~Point()
 {
 }
 
-// -------- Copy Assignment Overload -------- //
+// -------- Assignment Overloads -------- //
 
-Point&				Point::operator=( Point const& rhs )
-{
+Point&				Point::operator=( Point const& rhs ) {
 	if ( this != &rhs )
 	{
 		this->_x = rhs._x;
@@ -54,7 +53,7 @@ std::ostream&			operator<<( std::ostream& o, Point const& i )
 	return o;
 }
 
-// -------- Arithmetic Operators -------- //
+// -------- Arithmetic Overload -------- //
 
 Point	Point::operator-( Point const& rhs ) {
 	Point	result;
@@ -66,10 +65,10 @@ Point	Point::operator-( Point const& rhs ) {
 
 // -------- Methods -------- //
 
-void	Point::setX( Fixed & x ) {
+void	Point::setX( Fixed x ) {
 	this->_x = x;
 }
-void	Point::setY( Fixed & y ) {
+void	Point::setY( Fixed y ) {
 	this->_y = y;
 }
 
