@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/06 14:46:24 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/07 15:12:23 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/07 16:50:30 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/07 16:59:44 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int	main(void)
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	ClapTrap	bob("Bob");
+	public:
+		ScavTrap( void );
+		ScavTrap( std::string givenName );
+		ScavTrap( ScavTrap const& src );
+		~ScavTrap( void );
 
-	bob.attack("Kevin");
-	bob.takeDamage(4);
-	bob.beRepaired(4);
+		ScavTrap&		operator=( ScavTrap const& rhs );
+	private:
 
-	ClapTrap	kev;
+};
 
-	kev = bob;
-	kev.takeDamage(10);
-	kev.beRepaired(4);
-}
+#endif

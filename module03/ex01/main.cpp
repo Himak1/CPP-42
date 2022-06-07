@@ -5,15 +5,16 @@
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/06 14:46:24 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/07 15:12:23 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/07 16:50:22 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/07 16:55:13 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int	main(void)
+int	main( void )
 {
+	/*
 	ClapTrap	bob("Bob");
 
 	bob.attack("Kevin");
@@ -25,4 +26,10 @@ int	main(void)
 	kev = bob;
 	kev.takeDamage(10);
 	kev.beRepaired(4);
+	*/
+
+	ScavTrap	kate("Kate");
+
+	kate.attack("Kevin");
+	kate.takeDamage(4);
 }
