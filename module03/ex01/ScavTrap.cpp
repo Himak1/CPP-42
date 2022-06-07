@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 15:50:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/07 17:12:10 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/07 17:42:22 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap()
 ScavTrap::ScavTrap( std::string givenName )
 	: ClapTrap(givenName)
 {
-	std::cout << "ClapTrap "  << " evolved into a ScavTrap" << std::endl;
+	std::cout << "ClapTrap " << givenName << " evolved into a ScavTrap" << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap& src )
@@ -48,4 +48,11 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 
 // -------- Methods -------- //
 
-
+void	ScavTrap::attack( const std::string& target )
+{
+	if (!isAlive() || !hasEnergy())
+		return ;	
+	std::cout << "ClapTrap " << name << " attacks " << target << ", causing "
+			<< attackDamage << " points of damage" << std::endl;
+	energyPoints -= 1;
+}

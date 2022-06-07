@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 16:50:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/07 16:55:13 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/07 17:38:54 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ int	main( void )
 
 	kate.attack("Kevin");
 	kate.takeDamage(4);
+	kate.beRepaired(4);
 }
