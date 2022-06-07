@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:09:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/03 16:15:58 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/07 14:05:27 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Point
 		Point( void );
 		Point( float const x_float, float const y_float );
 		Point( Point const& src );
-		~Point();
+		~Point( void );
 
 		Point&	operator=( Point const& rhs );
 

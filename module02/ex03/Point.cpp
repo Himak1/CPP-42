@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/01 12:10:35 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/03 16:16:04 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/07 14:05:37 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Point::Point( Point const& src ) {
 	*this = src;
 }
 
-Point::~Point()
+Point::~Point( void )
 {
 }
 
