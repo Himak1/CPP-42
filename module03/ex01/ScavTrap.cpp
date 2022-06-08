@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 15:50:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/07 17:42:22 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/08 17:49:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,52 @@
 
 // -------- Constructors and Destructor -------- //
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap( void )
+	: ClapTrap()
 {
+	std::cout << "ClapTrap " << getName() << " upgraded itself into a ScavTrap" << std::endl;
+	setHP(100);
+	setEP(50);
+	setAtkDmg(20);
 }
 
 ScavTrap::ScavTrap( std::string givenName )
 	: ClapTrap(givenName)
 {
-	std::cout << "ClapTrap " << givenName << " evolved into a ScavTrap" << std::endl;
+	std::cout << "ClapTrap " << givenName << " is upgrading itself into a ScavTrap" << std::endl;
+	setHP(100);
+	setEP(50);
+	setAtkDmg(20);
 }
 
 ScavTrap::ScavTrap( const ScavTrap& src )
 	: ClapTrap(src)
 {
+	std::cout << "ClapTrap " << src.getName() << " is upgrading itself into a ScavTrap" << std::endl;
+	setName(src.getName());
+	setHP(src.getHP());
+	setEP(src.getEP());
+	setAtkDmg(src.getAtkDmg());
 }
 
 ScavTrap::~ScavTrap()
 {
+	std::cout << "ScavTrap " << getName() << " is downgrading itself into a ClapTrap" << std::endl;
 }
 
 // -------- Operator Overload -------- //
 
-/*
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+ScavTrap &				ScavTrap::operator=( ScavTrap const& rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_value = rhs.getValue();
+		setName(rhs.getName());
+		setHP(rhs.getHP());
+		setEP(rhs.getEP());
+		setAtkDmg(rhs.getAtkDmg());
 	}
 	return *this;
 }
-*/
 
 // -------- Methods -------- //
 
@@ -52,7 +67,7 @@ void	ScavTrap::attack( const std::string& target )
 {
 	if (!isAlive() || !hasEnergy())
 		return ;	
-	std::cout << "ClapTrap " << name << " attacks " << target << ", causing "
-			<< attackDamage << " points of damage" << std::endl;
-	energyPoints -= 1;
+	std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing "
+			<< getAtkDmg() << " points of damage" << std::endl;
+	setEP(getEP() - 1);
 }

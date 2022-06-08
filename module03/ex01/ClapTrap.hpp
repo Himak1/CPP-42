@@ -10,7 +10,7 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( const std::string givenName );
 		ClapTrap( ClapTrap const& src );
-		~ClapTrap( void );	
+		~ClapTrap();	
 
 		ClapTrap&	operator=( ClapTrap const& rhs );
 
@@ -19,6 +19,16 @@ class ClapTrap
 		void		beRepaired( unsigned int amount );
 		bool		isAlive( void );
 		bool		hasEnergy( void );
+
+		// ---- Getters and Setters ---- //
+		std::string	getName( void ) const;
+		int			getHP( void ) const;
+		int			getEP( void) const;
+		int			getAtkDmg( void ) const;
+		void		setName( std::string givenName );
+		void		setHP( int hp );
+		void		setEP( int ep );
+		void		setAtkDmg( int AtkDmg );
 	private:
 		std::string	name;
 		int			hitPoints;
