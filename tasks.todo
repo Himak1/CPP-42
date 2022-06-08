@@ -1,14 +1,3 @@
 Tasks:
-
-    ✔ ini_contact method @done(22-05-04 16:49)
-
-    ✔ replace all instances of cin with getline() @done(22-05-04 17:23)
-        ✔ getline_no_blanks @done(22-05-04 16:49)
-        ✔ main @done(22-05-04 16:49)
-        ✔ search_ct() index input @done(22-05-04 17:23)
-
-    ☐ cin.eof() edge case handling with break statement
-        ✔ in search_ct() function @done(22-05-04 17:37)
-        ✔ get_line_blanks() @done(22-05-04 17:38)
-        ✔ ini_contact() @done(22-05-04 17:38)
-        ✔ main loop() @done(22-05-04 17:38)
+    ☐ inline getters and setters
+    ☐ create tests for ex01 and ex02
