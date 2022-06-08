@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 16:50:30 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/08 17:31:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/08 17:53:37 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap&		operator=( ScavTrap const& rhs );
 
 		void		attack( const std::string& target );
+		void		guardGate( void );
 	private:
 
 };

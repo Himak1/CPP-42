@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 15:50:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/08 17:49:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/08 17:54:34 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,9 @@ void	ScavTrap::attack( const std::string& target )
 	std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing "
 			<< getAtkDmg() << " points of damage" << std::endl;
 	setEP(getEP() - 1);
+}
+
+void	ScavTrap::guardGate( void )
+{
+	std::cout << "ScavTrap " << getName() << " is now in Guard Gate mode!" << std::endl;
 }
