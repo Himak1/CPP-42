@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/06 14:50:45 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/08 17:38:23 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:37:15 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,37 +106,37 @@ std::string	ClapTrap::getName( void ) const
 	return (name);
 }
 
-int			ClapTrap::getHP( void ) const
+unsigned int	ClapTrap::getHP( void ) const
 {
 	return (hitPoints);
 }
 
-int			ClapTrap::getEP( void) const
+unsigned int	ClapTrap::getEP( void) const
 {
 	return (energyPoints);
 }
 
-int			ClapTrap::getAtkDmg( void ) const
+unsigned int	ClapTrap::getAtkDmg( void ) const
 {
 	return (attackDamage);
 }
 
-void		ClapTrap::setName( std::string givenName )
+void	ClapTrap::setName( std::string givenName )
 {
 	name = givenName;
 }
 
-void		ClapTrap::setHP( int hp )
+void	ClapTrap::setHP( unsigned int hp )
 {
 	hitPoints = hp;
 }
 
-void		ClapTrap::setEP( int ep )
+void	ClapTrap::setEP( unsigned int ep )
 {
 	energyPoints = ep;
 }
 
-void		ClapTrap::setAtkDmg( int AtkDmg )
+void	ClapTrap::setAtkDmg( unsigned int AtkDmg )
 {
 	attackDamage = AtkDmg;
 }
