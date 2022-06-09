@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 16:50:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 16:17:47 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:49:34 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,15 @@ int	main( void )
 	FragTrap	karenina("PLACEHOLDER");
 	std::cout << std::endl;
 
+	temp4.takeDamage(20);
+
 	karenina = temp4;
 	karenina.attack("Kevin");
 	karenina.takeDamage(4);
 	karenina.beRepaired(4);
 	karenina.highFivesGuys();
+	std::cout << "Karenina Health: " << karenina.getHP() << std::endl;
 	std::cout << std::endl;
+
+	return (0);
 }

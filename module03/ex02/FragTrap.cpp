@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 15:50:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/08 18:07:34 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:50:55 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,6 @@ FragTrap::FragTrap( const FragTrap& src )
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap " << getName() << " is downgrading itself into a ClapTrap" << std::endl;
-}
-
-// -------- Operator Overload -------- //
-
-FragTrap&				FragTrap::operator=( FragTrap const& rhs )
-{
-	if ( this != &rhs )
-	{
-		setName(rhs.getName());
-		setHP(rhs.getHP());
-		setEP(rhs.getEP());
-		setAtkDmg(rhs.getAtkDmg());
-	}
-	return *this;
 }
 
 // -------- Methods -------- //

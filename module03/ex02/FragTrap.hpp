@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 16:50:30 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 15:33:16 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:50:38 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ class FragTrap : public ClapTrap
 		FragTrap( std::string givenName );
 		FragTrap( FragTrap const& src );
 		~FragTrap();
-
-		FragTrap&		operator=( FragTrap const& rhs );
 
 		void		attack( const std::string& target );
 		void		highFivesGuys( void );

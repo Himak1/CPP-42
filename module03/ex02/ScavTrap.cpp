@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 15:50:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 16:23:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:51:01 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,6 @@ ScavTrap::ScavTrap( const ScavTrap& src )
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << getName() << " is downgrading itself into a ClapTrap" << std::endl;
-}
-
-// -------- Operator Overload -------- //
-
-ScavTrap &				ScavTrap::operator=( ScavTrap const& rhs )
-{
-	if ( this != &rhs )
-	{
-		setName(rhs.getName());
-		setHP(rhs.getHP());
-		setEP(rhs.getEP());
-		setAtkDmg(rhs.getAtkDmg());
-	}
-	return *this;
 }
 
 // -------- Methods -------- //
