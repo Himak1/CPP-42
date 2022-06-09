@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/06 14:46:24 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 15:52:47 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:08:14 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	main(void)
 {
-	ClapTrap	bob("Bob");
+	ClapTrap	temp1("Kev");
+	ClapTrap	temp2(temp1);
+	ClapTrap	kev("PLACEHOLDER");
+	
 
-	bob.attack("Kevin");
-	bob.takeDamage(4);
-	bob.beRepaired(4);
+	kev = temp2;
+	std::cout << std::endl;
 
-	ClapTrap	kev;
-
-	kev = bob;
 	kev.takeDamage(10);
 	kev.beRepaired(4);
+	std::cout << std::endl;
 }

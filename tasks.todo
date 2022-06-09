@@ -1,3 +1,8 @@
 Tasks:
     ☐ inline getters and setters
-    ☐ create tests for ex01 and ex02
+    ✔ create tests for ex01 and ex02 @done(22-06-09 16:16)
+        ✔ test copy assignment operator for every exercise @done(22-06-09 16:16)
+            ✔ ex00 @done(22-06-09 16:10)
+            ✔ ex01 @done(22-06-09 16:10)
+            ✔ ex02 @done(22-06-09 16:16)
+    ☐ use the ClapTrap assignment operator 

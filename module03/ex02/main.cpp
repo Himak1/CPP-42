@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 16:50:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 15:41:19 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/09 16:17:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,35 @@
 
 int	main( void )
 {
-	ClapTrap	karenina("Karenina");
+	ClapTrap	bob("Bob");
 
-	karenina.attack("Kevin");
-	karenina.takeDamage(4);
-	karenina.beRepaired(4);
+	bob.attack("Kevin");
+	bob.takeDamage(4);
+	bob.beRepaired(4);
 	std::cout << std::endl;
 
-	ScavTrap	konizhev("Konizhev");
 
-	konizhev.attack("Kevin");
-	konizhev.takeDamage(4);
-	konizhev.beRepaired(4);
-	konizhev.guardGate();
-
+	ScavTrap	temp1("Kate");
+	ScavTrap	temp2(temp1);
+	ScavTrap	kate("PLACEHOLDER");
 	std::cout << std::endl;
-	FragTrap	kate("Kate");
 
+	kate = temp2;
 	kate.attack("Kevin");
 	kate.takeDamage(4);
 	kate.beRepaired(4);
-	kate.highFivesGuys();
+	kate.guardGate();
+	std::cout << std::endl;
 
+	FragTrap	temp3("Karenina");
+	FragTrap	temp4(temp3);
+	FragTrap	karenina("PLACEHOLDER");
+	std::cout << std::endl;
+
+	karenina = temp4;
+	karenina.attack("Kevin");
+	karenina.takeDamage(4);
+	karenina.beRepaired(4);
+	karenina.highFivesGuys();
 	std::cout << std::endl;
 }
