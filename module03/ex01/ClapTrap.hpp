@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/09 15:47:47 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 15:47:48 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/09 15:47:53 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/09 16:35:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,21 @@ class ClapTrap
 		bool		hasEnergy( void );
 
 		// ---- Getters and Setters ---- //
-		std::string	getName( void ) const;
-		int			getHP( void ) const;
-		int			getEP( void) const;
-		int			getAtkDmg( void ) const;
-		void		setName( std::string givenName );
-		void		setHP( int hp );
-		void		setEP( int ep );
-		void		setAtkDmg( int AtkDmg );
+		std::string		getName( void ) const;
+		unsigned int	getHP( void ) const;
+		unsigned int	getEP( void) const;
+		unsigned int	getAtkDmg( void ) const;
+		void			setName( std::string givenName );
+		void			setHP( unsigned int hp );
+		void			setEP( unsigned int ep );
+		void			setAtkDmg( unsigned int AtkDmg );
 	protected:
 		ClapTrap( void );
 	private:
-		std::string	name;
-		int			hitPoints;
-		int			energyPoints;
-		int			attackDamage;
+		std::string		name;
+		unsigned int	hitPoints;
+		unsigned int	energyPoints;
+		unsigned int	attackDamage;
 };
 
 #endif
