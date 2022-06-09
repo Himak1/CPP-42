@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/06 14:50:45 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/07 17:09:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/08 17:38:23 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,6 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const & rhs )
 
 // -------- Methods -------- //
 
-bool	ClapTrap::isAlive( void )
-{
-	if (hitPoints <= 0)
-	{
-		std::cout << "ClapTrap " << name
-					<< " is knocked out..." << std::endl;
-		return (false);
-	}
-	return (true);
-}
-
-bool	ClapTrap::hasEnergy( void )
-{
-	if (energyPoints <= 0)
-	{
-		std::cout << "ClapTrap " << name
-				<< " doesn't have any energy points left..." << std::endl;
-		return (false);
-	}
-	return (true);
-}
-
 void	ClapTrap::attack( const std::string& target )
 {
 	if (!isAlive() || !hasEnergy())
@@ -99,4 +77,66 @@ void	ClapTrap::beRepaired( unsigned int amount )
 			<< "regaining " << amount << " hit points!" << std::endl;
 	hitPoints += amount;
 	energyPoints -= 1;
+}
+
+bool	ClapTrap::isAlive( void )
+{
+	if (hitPoints <= 0)
+	{
+		std::cout << "ClapTrap " << name
+					<< " is knocked out..." << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
+bool	ClapTrap::hasEnergy( void )
+{
+	if (energyPoints <= 0)
+	{
+		std::cout << "ClapTrap " << name
+				<< " doesn't have any energy points left..." << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
+std::string	ClapTrap::getName( void ) const
+{
+	return (name);
+}
+
+int			ClapTrap::getHP( void ) const
+{
+	return (hitPoints);
+}
+
+int			ClapTrap::getEP( void) const
+{
+	return (energyPoints);
+}
+
+int			ClapTrap::getAtkDmg( void ) const
+{
+	return (attackDamage);
+}
+
+void		ClapTrap::setName( std::string givenName )
+{
+	name = givenName;
+}
+
+void		ClapTrap::setHP( int hp )
+{
+	hitPoints = hp;
+}
+
+void		ClapTrap::setEP( int ep )
+{
+	energyPoints = ep;
+}
+
+void		ClapTrap::setAtkDmg( int AtkDmg )
+{
+	attackDamage = AtkDmg;
 }
