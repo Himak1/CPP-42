@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/13 15:23:41 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/13 13:41:52 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/13 15:23:58 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include <string>
+# include "Animal.hpp"
 
-class Animal
+class Cat : public Animal
 {
 	public:
-		Animal();
-		Animal( Animal const & src );
-		~Animal();
-	
-		Animal&		operator=( Animal const & rhs );
+		Cat();
+		Cat( Cat const & src );
+		~Cat();
+		Cat &		operator=( Cat const & rhs );
 
-		virtual void	makeSound() const;
-		std::string		getType() const;
-	protected:
-		std::string	type;
+		void	makeSound() const;
 	private:
 };
 

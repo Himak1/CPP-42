@@ -2,9 +2,9 @@
 NAME = ex00
 
 SRC_FILES = main.cpp\
-			ClapTrap.cpp\
-			ScavTrap.cpp\
-			FragTrap.cpp
+			Animal.cpp\
+			Dog.cpp\
+			Cat.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
