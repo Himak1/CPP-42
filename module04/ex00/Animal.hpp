@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Animal.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jhille <jhille@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/13 13:40:12 by jhille        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
@@ -11,10 +23,9 @@ class Animal
 		Animal( Animal const & src );
 		~Animal();
 		Animal &		operator=( Animal const & rhs );
-	private:
+	protected:
 		std::string	type;
+	private:
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
-
-#endif /* ********************************************************** ANIMAL_H */
+#endif
