@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.cpp                                            :+:    :+:            */
+/*   WrongWrongCat.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:42:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/13 15:39:28 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/13 15:35:57 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog()
+WrongCat::WrongCat()
 {
-	std::cout << "It is a dog" << std::endl;
-	type = "Dog";
+	std::cout << "It is a Wrongcat" << std::endl;
+	type = "WrongCat";
 }
 
-Dog::Dog( const Dog & src )
+WrongCat::WrongCat( const WrongCat & src )
 {
-	std::cout << "A dog has been copied" << std::endl;
+	std::cout << "A WrongCat has been copied" << std::endl;
 	*this = src;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "A dog has been deconstructed" << std::endl;
+	std::cout << "A WrongCat has been deconstructed" << std::endl;
 }
 
-Dog &	Dog::operator=( Dog const & rhs )
+WrongCat &	WrongCat::operator=( WrongCat const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -38,7 +38,3 @@ Dog &	Dog::operator=( Dog const & rhs )
 	return *this;
 }
 
-void	Dog::makeSound() const
-{
-	std::cout << "Woof Woof" << std::endl;
-}

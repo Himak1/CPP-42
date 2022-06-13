@@ -4,7 +4,9 @@ NAME = ex00
 SRC_FILES = main.cpp\
 			Animal.cpp\
 			Dog.cpp\
-			Cat.cpp
+			Cat.cpp\
+			WrongAnimal.cpp\
+			WrongCat.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
