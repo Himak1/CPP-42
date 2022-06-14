@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 16:50:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 16:49:34 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 17:17:44 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main( void )
 	karenina.takeDamage(4);
 	karenina.beRepaired(4);
 	karenina.highFivesGuys();
-	std::cout << "Karenina Health: " << karenina.getHP() << std::endl;
 	std::cout << std::endl;
 
 	return (0);

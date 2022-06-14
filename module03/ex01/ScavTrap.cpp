@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/07 15:50:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 16:51:01 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 17:10:26 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,31 @@
 ScavTrap::ScavTrap( void )
 	: ClapTrap()
 {
-	std::cout << "ClapTrap " << getName() << " upgraded itself into a ScavTrap" << std::endl;
-	setHP(100);
-	setEP(50);
-	setAtkDmg(20);
+	std::cout << "ClapTrap " << name << " upgraded itself into a ScavTrap" << std::endl;
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
 }
 
 ScavTrap::ScavTrap( std::string givenName )
 	: ClapTrap(givenName)
 {
 	std::cout << "ClapTrap " << givenName << " is upgrading itself into a ScavTrap" << std::endl;
-	setHP(100);
-	setEP(50);
-	setAtkDmg(20);
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
 }
 
 ScavTrap::ScavTrap( const ScavTrap& src )
 	: ClapTrap(src)
 {
-	std::cout << "ClapTrap " << src.getName() << " is upgrading itself into a ScavTrap" << std::endl;
-	setName(src.getName());
-	setHP(src.getHP());
-	setEP(src.getEP());
-	setAtkDmg(src.getAtkDmg());
+	std::cout << "ClapTrap " << src.name << " is upgrading itself into a ScavTrap" << std::endl;
+	*this = src;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << getName() << " is downgrading itself into a ClapTrap" << std::endl;
+	std::cout << "ScavTrap " << name << " is downgrading itself into a ClapTrap" << std::endl;
 }
 
 // -------- Methods -------- //
@@ -53,12 +50,12 @@ void	ScavTrap::attack( const std::string& target )
 {
 	if (!isAlive() || !hasEnergy())
 		return ;	
-	std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing "
-			<< getAtkDmg() << " points of damage" << std::endl;
-	setEP(getEP() - 1);
+	std::cout << "ScavTrap " << name << " attacks " << target << ", causing "
+			<< attackDamage << " points of damage" << std::endl;
+	energyPoints -= -1;
 }
 
 void	ScavTrap::guardGate( void )
 {
-	std::cout << "ScavTrap " << getName() << " is now in Guard Gate mode!" << std::endl;
+	std::cout << "ScavTrap " << name << " is now in Guard Gate mode!" << std::endl;
 }

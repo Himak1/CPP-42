@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/06 14:50:45 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 16:37:15 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 17:13:14 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	std::cout << "ClapTrap " << name << " takes " 
 				<< amount << " points of damage!" << std::endl;
-	hitPoints -= amount;
+	if (hitPoints < amount)
+		hitPoints = 0;
+	else
+		hitPoints -= amount;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
@@ -99,44 +102,4 @@ bool	ClapTrap::hasEnergy( void )
 		return (false);
 	}
 	return (true);
-}
-
-std::string	ClapTrap::getName( void ) const
-{
-	return (name);
-}
-
-unsigned int	ClapTrap::getHP( void ) const
-{
-	return (hitPoints);
-}
-
-unsigned int	ClapTrap::getEP( void) const
-{
-	return (energyPoints);
-}
-
-unsigned int	ClapTrap::getAtkDmg( void ) const
-{
-	return (attackDamage);
-}
-
-void	ClapTrap::setName( std::string givenName )
-{
-	name = givenName;
-}
-
-void	ClapTrap::setHP( unsigned int hp )
-{
-	hitPoints = hp;
-}
-
-void	ClapTrap::setEP( unsigned int ep )
-{
-	energyPoints = ep;
-}
-
-void	ClapTrap::setAtkDmg( unsigned int AtkDmg )
-{
-	attackDamage = AtkDmg;
 }
