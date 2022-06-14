@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Brain.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/14 14:14:33 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/14 14:09:10 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/14 14:11:51 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
-# include "Brain.hpp"
 
-class Animal
+class Brain
 {
 	public:
-		Animal();
-		Animal( Animal const & src );
-		~Animal();
-	
-		Animal&		operator=( Animal const & rhs );
 
-		virtual void	makeSound() const;
-		std::string		getType() const;
-	protected:
-		std::string	type;
+		Brain();
+		Brain( Brain const & src );
+		~Brain();
+
+		Brain &		operator=( Brain const & rhs );
+
 	private:
-		Brain*	brain;
+		std::string	brain[100];
 };
 
 #endif

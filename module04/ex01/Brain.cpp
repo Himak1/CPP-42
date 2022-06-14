@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Brain.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/14 14:14:33 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/14 14:09:43 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/14 14:10:19 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Brain.hpp"
 
-# include <iostream>
-# include <string>
-# include "Brain.hpp"
+// -------- Constructors and Destructors -------- //
 
-class Animal
+Brain::Brain()
 {
-	public:
-		Animal();
-		Animal( Animal const & src );
-		~Animal();
-	
-		Animal&		operator=( Animal const & rhs );
+}
 
-		virtual void	makeSound() const;
-		std::string		getType() const;
-	protected:
-		std::string	type;
-	private:
-		Brain*	brain;
-};
+Brain::Brain( const Brain & src )
+{
+}
 
-#endif
+Brain::~Brain()
+{
+}
+
+// -------- Operator Overloads -------- //
+
+Brain &				Brain::operator=( Brain const & rhs )
+{
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
+	return *this;
+}
