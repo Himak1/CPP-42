@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/14 15:21:09 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 15:41:08 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class Animal
 	public:
 		Animal();
 		Animal( Animal const & src );
-		~Animal();
+		//~Animal();
+		virtual ~Animal();
 	
 		Animal&		operator=( Animal const & rhs );
 
