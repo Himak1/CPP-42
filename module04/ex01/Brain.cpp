@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/14 14:09:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/14 14:10:19 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 15:20:35 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Brain::Brain()
 
 Brain::Brain( const Brain & src )
 {
+	*this = src;
 }
 
 Brain::~Brain()
@@ -30,9 +31,12 @@ Brain::~Brain()
 
 Brain &				Brain::operator=( Brain const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < 100; i++)
+		{
+			this->brain[i] = rhs.brain[i];
+		}
+	}
 	return *this;
 }

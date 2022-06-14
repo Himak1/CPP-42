@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:19:12 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/13 15:23:09 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 14:40:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 Animal::Animal()
 {
 	std::cout << "An animal has been created" << std::endl;
+	brain = new Brain;
 }
 
 Animal::Animal( const Animal & src )
@@ -28,6 +29,7 @@ Animal::Animal( const Animal & src )
 Animal::~Animal()
 {
 	std::cout << "An animal has been deconstructed" << std::endl;
+	delete brain;
 }
 
 // -------- Operator Overloads -------- //

@@ -6,7 +6,8 @@ SRC_FILES = main.cpp\
 			Dog.cpp\
 			Cat.cpp\
 			WrongAnimal.cpp\
-			WrongCat.cpp
+			WrongCat.cpp\
+			Brain.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
