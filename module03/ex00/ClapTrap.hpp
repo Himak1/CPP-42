@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/09 15:47:53 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/09 16:35:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/14 17:25:16 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,6 @@ class ClapTrap
 		bool		isAlive( void );
 		bool		hasEnergy( void );
 
-		// ---- Getters and Setters ---- //
-		std::string		getName( void ) const;
-		unsigned int	getHP( void ) const;
-		unsigned int	getEP( void) const;
-		unsigned int	getAtkDmg( void ) const;
-		void			setName( std::string givenName );
-		void			setHP( unsigned int hp );
-		void			setEP( unsigned int ep );
-		void			setAtkDmg( unsigned int AtkDmg );
 	protected:
 		ClapTrap( void );
 	private:
