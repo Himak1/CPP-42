@@ -11,7 +11,8 @@ SRC_FILES = main.cpp\
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
-FLAGS = -Wextra -Wall -Werror -std=c++98
+CXX = c++
+FLAGS = -Wextra -Wall -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
