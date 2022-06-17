@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/17 17:53:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/17 18:01:04 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@
 int main(void)
 {
 	AMateria*	temp = new Ice();
-
 	std::cout << temp->getType() << std::endl;
 
-	Ice		i;
-	Cure	c;
-
-	c = i;
+	temp = new Cure();
+	std::cout << temp->getType() << std::endl;
 	return (0);
 }
 
