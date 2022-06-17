@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 16:47:52 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/16 17:37:38 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/17 17:51:57 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@
 class Ice : public AMateria
 {
 	public:
+		Ice();
 		Ice( Ice const& src );
 		~Ice();
 
-		Ice &		operator=( Ice const& rhs );
-
-
+		AMateria*	clone() const;
 	private:
-		Ice();
 };
 
 #endif

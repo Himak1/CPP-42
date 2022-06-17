@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Ice.cpp                                            :+:    :+:            */
+/*   Cure.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/16 16:48:16 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/17 17:35:18 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/16 16:47:52 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/17 17:52:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-// -------- Constructors and Destructors -------- //
+# include "AMateria.hpp"
 
-Ice::Ice() : AMateria("ice")
+class Cure : public AMateria
 {
-}
+	public:
+		Cure();
+		Cure( Cure const& src );
+		~Cure();
 
-Ice::Ice( const Ice& src ) : AMateria(src)
-{
-}
+		//Cure &		operator=( Cure const& rhs );
+		AMateria*	clone() const;
+	private:
+};
 
-Ice::~Ice()
-{
-}
-
-// -------- Methods -------- //
-
-AMateria*	Ice::clone() const
-{
-	return (new Ice());
-}
+#endif

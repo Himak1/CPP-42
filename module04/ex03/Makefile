@@ -3,7 +3,9 @@ NAME = ex03
 
 SRC_FILES = main.cpp\
 			AMateria.cpp\
-			Ice.cpp
+			Ice.cpp\
+			Cure.cpp
+
 OBJ = $(SRC_FILES:.cpp=.o)
 
 CXX = c++
