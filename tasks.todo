@@ -1,7 +1,12 @@
 Tasks:
-    ☐ implement ice class
+    ☐ figure out whether types should be changed by assignment operator
+    ☐ implement character class partially
 
-    ☐ should I delete wronganimal class?
+
+
+
+
+    ☐ implement ice class
     
     ☐ default constructor is non protected?
     ☐ turn Animal into a virtual class
