@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:23:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/17 18:04:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/20 16:43:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ AMateria&	AMateria::operator=( AMateria const& rhs )
 std::string const&	AMateria::getType() const
 {
 	return (type);
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	std::cout << "generic use action on " << target.getName() << std::endl;
 }

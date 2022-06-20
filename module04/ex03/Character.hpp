@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   AMateria.hpp                                       :+:    :+:            */
+/*   Character.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/16 14:23:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/20 16:42:31 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/20 16:05:09 by jhille        #+#    #+#                 */
+/*   Updated: 2022/06/20 16:05:59 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-# include <iostream>
-# include <string>
 # include "ICharacter.hpp"
 
-class AMateria
+class Character : public ICharacter
 {
-	protected:
-		virtual	~AMateria();
-
-		std::string	type;
 	public:
-		AMateria( std::string const& type_param );
-		AMateria( const AMateria& src );
+		Character();
+		Character( Character const & src );
+		~Character();
 
-		AMateria&	operator=( AMateria const& rhs );
+		Character &		operator=( Character const & rhs );
 
-		std::string const & getType() const; //Returns the materia type
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+	private:
+
 };
+
+std::ostream &			operator<<( std::ostream & o, Character const & i );
 
 #endif

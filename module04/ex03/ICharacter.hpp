@@ -6,15 +6,16 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 15:06:24 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/16 17:37:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/20 16:43:07 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include "AMateria.hpp"
 # include <string>
+
+class AMateria;
 
 class ICharacter
 {
