@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:09 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/20 16:05:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/20 18:01:52 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,22 @@
 class Character : public ICharacter
 {
 	public:
-		Character();
-		Character( Character const & src );
+		Character( std::string nameParam );
+		Character( Character const& src );
 		~Character();
 
 		Character &		operator=( Character const & rhs );
 
+		std::string const&	getName() const;
+		void				equip( AMateria* m );
+		void				unequip( int idx );
+		void				use( int idx, ICharacter& target );
 	private:
+		Character();
 
+		std::string	name;
+		AMateria*	inventory[4];
+		AMateria*	trashItem;
 };
-
-std::ostream &			operator<<( std::ostream & o, Character const & i );
 
 #endif

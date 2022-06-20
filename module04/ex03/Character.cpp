@@ -6,35 +6,89 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/20 16:05:25 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/20 18:08:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
+// -------- Constructors and Destructors -------- //
+
 Character::Character()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		inventory[i] = NULL;
+	}
+	trashItem = NULL;
+}
+
+Character::Character( std::string nameParam ) : name(nameParam)
 {
 }
 
-Character::Character( const Character & src )
+Character::Character( const Character& src )
 {
+	*this = src;
 }
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (inventory[i] != NULL)
+			delete inventory[i];
+	}
 }
+
+// -------- Operator Overloads -------- //
 
 Character &				Character::operator=( Character const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	AMateria*	temp;
+
+	if ( this != &rhs )
+	{
+		this->name = rhs.name;
+		for (int i = 0; i < 4; i++)
+		{
+			if (inventory[i] != NULL)
+			{
+				temp = rhs.inventory[i].clone();
+				delete inventory[i];
+			}
+		}
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Character const & i )
+// -------- Methods -------- //
+
+std::string const&	Character::getName() const
 {
-	//o << "Value = " << i.getValue();
-	return o;
+	return (name);
+}
+
+void	Character::equip( AMateria* m )
+{
+	int	i
+
+	i = 0;
+	while (i < 4 && inventory[i] != NULL)
+		i++;
+	if (i < 4)
+		inventory[i] = m;
+}
+
+void	Character::unequip( int idx )
+{
+	if (trashItem != NULL)
+		delete trashItem;
+	trashItem = inventory[idx];
+	inventory[idx] = NULL;
+}
+
+void	Character::use(int idx, ICharacter& target)
+{
+	
 }
