@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/20 18:08:31 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 13:32:20 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,8 @@ void	Character::unequip( int idx )
 
 void	Character::use(int idx, ICharacter& target)
 {
-	
+	if (idx >= 0 && idx < 4)
+	{
+		inventory[idx].use(target);
+	}
 }

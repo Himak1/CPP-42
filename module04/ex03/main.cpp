@@ -6,14 +6,16 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/17 18:01:04 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 14:45:15 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "MateriaSource.hpp"
 
+/*
 int main(void)
 {
 	AMateria*	temp = new Ice();
@@ -23,8 +25,8 @@ int main(void)
 	std::cout << temp->getType() << std::endl;
 	return (0);
 }
+*/
 
-/*
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
@@ -45,4 +47,3 @@ int main()
 	delete src;
 	return 0;
 }
-*/

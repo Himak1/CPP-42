@@ -4,7 +4,9 @@ NAME = ex03
 SRC_FILES = main.cpp\
 			AMateria.cpp\
 			Ice.cpp\
-			Cure.cpp
+			Cure.cpp\
+			Character.cpp\
+			MateriaSource.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
