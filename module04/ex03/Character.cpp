@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 17:33:50 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 17:55:29 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ Character::~Character()
 		if (inventory[i] != NULL)
 			delete inventory[i];
 	}
+	if (trashItem)
+		delete trashItem;
 }
 
 // -------- Operator Overloads -------- //

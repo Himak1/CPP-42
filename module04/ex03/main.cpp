@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 17:52:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 18:12:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
+int	main()
+{
+	Ice		t1;
+	Cure	t2;
+
+	t1 = t2;
+}
+
+/* 
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
@@ -36,3 +45,4 @@ int main()
 	delete src;
 	return 0;
 }
+*/

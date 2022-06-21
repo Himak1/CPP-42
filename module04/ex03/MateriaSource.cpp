@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 17:20:05 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 17:52:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 17:57:07 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ MateriaSource::MateriaSource( const MateriaSource& src )
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (storage[i])
+			delete storage[i];
+	}
 }
 
 // -------- Methods -------- //
