@@ -6,16 +6,16 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 17:20:12 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 14:08:53 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 14:47:56 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include "IMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class MateriaSource : IMateria
+class MateriaSource : public IMateriaSource
 {
 	public:
 		MateriaSource();

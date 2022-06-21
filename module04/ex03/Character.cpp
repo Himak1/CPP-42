@@ -54,7 +54,7 @@ Character &				Character::operator=( Character const & rhs )
 		{
 			if (inventory[i] != NULL)
 			{
-				temp = rhs.inventory[i].clone();
+				temp = rhs.inventory[i]->clone();
 				delete inventory[i];
 			}
 		}
@@ -71,7 +71,7 @@ std::string const&	Character::getName() const
 
 void	Character::equip( AMateria* m )
 {
-	int	i
+	int	i;
 
 	i = 0;
 	while (i < 4 && inventory[i] != NULL)
@@ -92,6 +92,6 @@ void	Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < 4)
 	{
-		inventory[idx].use(target);
+		inventory[idx]->use(target);
 	}
 }
