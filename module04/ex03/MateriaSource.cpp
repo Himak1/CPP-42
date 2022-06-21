@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 17:20:05 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 14:37:11 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 17:52:07 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ MateriaSource::MateriaSource()
 	}
 }
 
-MateriaSource::MateriaSource( const MateriaSource & src )
+MateriaSource::MateriaSource( const MateriaSource& src )
 {
+	*this = src;
 }
 
 MateriaSource::~MateriaSource()
@@ -37,9 +38,9 @@ void	MateriaSource::learnMateria( AMateria* newMat )
 	int	i;
 
 	i = 0;
-	while (i < 4 && storage[i] == NULL)
+	while (i < 4 && storage[i] != NULL)
 		i++;
-	if (i < 4 && storage[i] != NULL)
+	if (i < 4 && storage[i] == NULL)
 		storage[i] = newMat;
 }
 
@@ -50,11 +51,11 @@ AMateria*	MateriaSource::createMateria( std::string const& type)
 
 	i = 0;
 	temp = NULL;
-	while (i < 4 && inventory[i] != NULL)
+	while (i < 4 && storage[i] != NULL)
 	{
-		if (type == inventory[i].getType())
+		if (type == storage[i]->getType())
 		{
-			temp = inventory[i].clone();
+			temp = storage[i]->clone();
 			break ;
 		}
 		i++;
@@ -66,9 +67,10 @@ AMateria*	MateriaSource::createMateria( std::string const& type)
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const& rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i< 4; i++)
+			this->storage[i] = rhs.storage[i];
+	}
 	return *this;
 }

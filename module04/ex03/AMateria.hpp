@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:23:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/20 16:42:31 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 17:16:50 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@
 class AMateria
 {
 	protected:
-		virtual	~AMateria();
-
 		std::string	type;
 	public:
 		AMateria( std::string const& type_param );
 		AMateria( const AMateria& src );
+		virtual	~AMateria();
 
 		AMateria&	operator=( AMateria const& rhs );
 

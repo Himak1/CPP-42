@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 13:32:20 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 17:33:50 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ Character::Character()
 
 Character::Character( std::string nameParam ) : name(nameParam)
 {
+	for (int i = 0; i < 4; i++)
+	{
+		inventory[i] = NULL;
+	}
+	trashItem = NULL;
 }
 
 Character::Character( const Character& src )
@@ -43,10 +48,11 @@ Character::~Character()
 
 // -------- Operator Overloads -------- //
 
-Character &				Character::operator=( Character const & rhs )
+Character&				Character::operator=( Character const & rhs )
 {
 	AMateria*	temp;
 
+	temp = NULL;
 	if ( this != &rhs )
 	{
 		this->name = rhs.name;
@@ -56,6 +62,7 @@ Character &				Character::operator=( Character const & rhs )
 			{
 				temp = rhs.inventory[i]->clone();
 				delete inventory[i];
+				inventory[i] = temp;
 			}
 		}
 	}

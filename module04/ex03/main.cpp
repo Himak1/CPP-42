@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 14:48:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/21 17:52:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,6 @@
 #include "Cure.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
-
-/*
-int main(void)
-{
-	AMateria*	temp = new Ice();
-	std::cout << temp->getType() << std::endl;
-
-	temp = new Cure();
-	std::cout << temp->getType() << std::endl;
-	return (0);
-}
-*/
 
 int main()
 {
