@@ -11,7 +11,7 @@ SRC_FILES = main.cpp\
 OBJ = $(SRC_FILES:.cpp=.o)
 
 CXX = c++
-FLAGS = -Wextra -Wall -Werror -std=c++98 -pedantic -g -fno-omit-frame-pointer
+FLAGS = -Wextra -Wall -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
