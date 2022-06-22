@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:19:12 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/13 15:23:09 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 12:48:02 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal()
 	std::cout << "An animal has been created" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
+Animal::Animal( const Animal& src )
 {
 	std::cout << "An animal has been copied" << std::endl;
 	*this = src;
@@ -32,7 +32,7 @@ Animal::~Animal()
 
 // -------- Operator Overloads -------- //
 
-Animal &				Animal::operator=( Animal const & rhs )
+Animal&		Animal::operator=( Animal const& rhs )
 {
 	if ( this != &rhs )
 	{

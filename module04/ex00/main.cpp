@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:55:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/13 15:38:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 12:50:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,17 @@ int main(void)
 	std::cout << wrong_i->getType() << " " << std::endl;
 	wrong_i->makeSound(); //will output the cat sound!
 	wrong_meta->makeSound();
+
+	// assignment operator compiler test
+	/*
+	std::cout << std::endl;
+	Dog	dog;
+	Cat	cat;
+
+	dog = cat;
+	dog.makeSound();
+	std::cout << dog.getType() << std::endl;
+	std::cout << std::endl;
+	*/
 	return (0);
 }

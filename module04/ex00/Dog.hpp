@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:41:52 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/13 15:18:02 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 12:49:15 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ class Dog : public Animal
 		Dog();
 		Dog( Dog const & src );
 		~Dog();
-
-		Dog &	operator=( Dog const & rhs );
 
 		void	makeSound() const;
 	private:
