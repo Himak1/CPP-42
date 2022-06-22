@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 16:46:02 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 16:52:15 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Bureaucrat
 
 		std::string	getName( void );
 		uint		getGrade( void );
+		void		raiseGrade( void );
+		void		lowerGrade( void );
 	private:
 		Bureaucrat();
 

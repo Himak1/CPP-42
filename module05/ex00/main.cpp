@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 16:45:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 16:52:30 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	main()
 	std::cout << ike.getName() << std::endl;
 	std::cout << ike.getGrade() << std::endl;
 
-	
+	ike.raiseGrade();	
 	return (0);
 }

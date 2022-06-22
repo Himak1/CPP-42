@@ -1,7 +1,2 @@
 Tasks:
-    ☐ figure out whether types should be changed by assignment operator
-    ☐ implement character class partially
-
-    ☐ implement ice class    
-    ☐ default constructor is non protected?
-    ☐ turn Animal into a virtual class
+    ☐ implement iostream operator overload for module05/ex00"

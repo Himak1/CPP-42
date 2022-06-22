@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 16:47:40 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 16:53:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,34 @@ std::string	Bureaucrat::getName( void )
 uint	Bureaucrat::getGrade( void )
 {
 	return (grade);
+}
+
+void	Bureaucrat::raiseGrade( void )
+{
+	grade--;
+	try
+	{
+		if (grade < 1)
+			throw GradeTooHigh();
+	}
+	catch (GradeTooHigh e)
+	{
+		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::lowerGrade( void )
+{
+	grade++;
+	try
+	{
+		if (grade > 150)
+			throw GradeTooLow();
+	}
+	catch (GradeTooLow e)
+	{
+		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
+	}
 }
 
 /*
