@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:23:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 18:03:44 by jhille        ########   odam.nl         */
+/*   Updated: 2022/06/22 11:50:10 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ AMateria&	AMateria::operator=( AMateria const& rhs )
 {
 	if ( this != &rhs )
 	{
-		// type should not be copied
-		this->type = rhs.type;
 	}
 	return *this;
 }
