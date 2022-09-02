@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/15 16:36:22 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/02 12:28:30 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		WrongAnimal( WrongAnimal const & src );
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 	
 		WrongAnimal&		operator=( WrongAnimal const & rhs );
 

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/15 17:53:13 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/02 14:50:32 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class Animal
 	public:
 		Animal();
 		Animal( Animal const & src );
-		virtual ~Animal() = 0;
+		virtual ~Animal();
 	
 		Animal&		operator=( Animal const & rhs );
 
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 		std::string		getType() const;
 	protected:
 		std::string	type;

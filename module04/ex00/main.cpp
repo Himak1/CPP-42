@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:55:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 13:49:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/02 12:21:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,11 @@ int main(void)
 	std::cout << dog.getType() << std::endl;
 	std::cout << std::endl;
 	*/
+	
+	delete meta;
+	delete j;
+	delete i;
+	delete wrong_meta;
+	delete wrong_i;
 	return (0);
 }
