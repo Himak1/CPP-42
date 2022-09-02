@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 11:30:14 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/02 15:16:23 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main()
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->unequip(1);
 	delete bob;
 	delete me;
 	delete src;
