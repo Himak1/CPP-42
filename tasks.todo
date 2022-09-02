@@ -1,10 +1,10 @@
 Tasks:
     ☐ implement iostream operator overload for module05/ex00"
 
-
-
 Module 04:
     ☐ destructors for the animal class should be virtual
     ☐ the brain class needs to be in cat and dog classes. not in animal
     ☐ ex03 has issues with the trashItem and unequip functions
     ☐ The overflow of items can be bigger than 1. Must be handled
+
+    ☐ call the animal() constructor in every cat and dog constructor in all files

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/15 16:37:29 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/02 16:01:18 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class Animal
 	protected:
 		std::string	type;
 	private:
-		Brain*	brain;
 };
 
 #endif

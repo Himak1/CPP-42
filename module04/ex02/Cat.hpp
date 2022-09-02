@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:41:52 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/15 16:36:11 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/02 15:28:06 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ class Cat : public Animal
 		Cat();
 		Cat( Cat const & src );
 		~Cat();
-		Cat &		operator=( Cat const & rhs );
+		Cat &	operator=( Cat const & rhs );
 
 		void	makeSound() const;
 	private:
+		Brain*	brain;
 };
 
 #endif
