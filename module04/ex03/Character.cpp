@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/21 17:55:29 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/05 16:53:25 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 
 Character::Character()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < INV_SIZE; i++)
 	{
 		inventory[i] = NULL;
 	}
-	trashItem = NULL;
+	ground = NULL;
 }
 
 Character::Character( std::string nameParam ) : name(nameParam)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < INV_SIZE; i++)
 	{
 		inventory[i] = NULL;
 	}
-	trashItem = NULL;
+	ground = NULL;
 }
 
 Character::Character( const Character& src )
@@ -39,33 +39,35 @@ Character::Character( const Character& src )
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < INV_SIZE; i++)
 	{
 		if (inventory[i] != NULL)
 			delete inventory[i];
 	}
-	if (trashItem)
-		delete trashItem;
+	if (ground)
+		lst_clear();
 }
 
 // -------- Operator Overloads -------- //
 
-Character&				Character::operator=( Character const & rhs )
+Character&				Character::operator=( Character const & rhs)
 {
-	AMateria*	temp;
-
-	temp = NULL;
 	if ( this != &rhs )
 	{
-		this->name = rhs.name;
-		for (int i = 0; i < 4; i++)
+		name = rhs.name;
+		for (int i = 0; i < INV_SIZE; i++)
 		{
-			if (inventory[i] != NULL)
-			{
-				temp = rhs.inventory[i]->clone();
+			if (inventory[i])
 				delete inventory[i];
-				inventory[i] = temp;
-			}
+			if (rhs.inventory[i])
+				inventory[i] = rhs.inventory[i]->clone();
+			else
+				inventory[i] = NULL;
+		}
+		if (ground)
+		{
+			lst_clear();
+			ground = NULL;
 		}
 	}
 	return *this;
@@ -80,26 +82,64 @@ std::string const&	Character::getName() const
 
 void	Character::equip( AMateria* m )
 {
-	int	i;
+	for (int i = 0; i < INV_SIZE; i++)
+	{
+		if (!inventory[i])
+		{
+			inventory[i] = m;
+			return ;
+		}
+	}
+}
 
-	i = 0;
-	while (i < 4 && inventory[i] != NULL)
-		i++;
-	if (i < 4)
-		inventory[i] = m;
+t_lst*	Character::new_lst( int idx )
+{
+	t_lst*	tmp;
+
+	tmp = new t_lst;
+	tmp->m = inventory[idx];
+	tmp->next = NULL;
+	return (tmp);
+}
+
+void	Character::lst_append( int idx )
+{
+	t_lst*	iter;
+
+	iter = ground;
+	while (iter->next)
+		iter = iter->next;
+	iter->next = new_lst(idx);
+}
+
+void	Character::lst_clear()
+{
+	t_lst*	iter = ground;
+	t_lst*	tmp;
+
+	while (iter)
+	{
+		tmp = iter;
+		iter = iter->next;
+		delete tmp->m;
+		delete tmp;
+	}
 }
 
 void	Character::unequip( int idx )
 {
-	if (trashItem != NULL)
-		delete trashItem;
-	trashItem = inventory[idx];
+	if (idx < 0 || idx > INV_SIZE || !inventory[idx])
+		return ;
+	if (!ground)
+		ground = new_lst(idx);
+	else
+		lst_append(idx);
 	inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx < 4)
+	if ((idx >= 0 && idx < 4) && inventory[idx])
 	{
 		inventory[idx]->use(target);
 	}
