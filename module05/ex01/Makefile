@@ -1,12 +1,8 @@
 
-NAME = ex03
+NAME = ex00
 
 SRC_FILES = main.cpp\
-			AMateria.cpp\
-			Ice.cpp\
-			Cure.cpp\
-			Character.cpp\
-			MateriaSource.cpp
+			Bureaucrat.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
@@ -19,7 +15,7 @@ $(NAME): $(OBJ)
 		$(CXX) $(FLAGS) -o $@ $^
 
 %.o: %.cpp
-	$(CXX) -c $(FLAGS) -o $@ $^
+		$(CXX) -c $(FLAGS) -o $@ $^
 
 clean:
 		rm -rf $(OBJ)
