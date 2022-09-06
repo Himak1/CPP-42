@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:42:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 13:51:06 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 14:56:14 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog()
 	type = "Dog";
 }
 
-Dog::Dog( const Dog& src )
+Dog::Dog( const Dog& src ) : Animal()
 {
 	std::cout << "A dog has been copied" << std::endl;
 	*this = src;

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:42:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 12:51:21 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 14:56:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat()
 	type = "Cat";
 }
 
-Cat::Cat( const Cat& src )
+Cat::Cat( const Cat& src ) : Animal()
 {
 	std::cout << "A cat has been copied" << std::endl;
 	*this = src;
