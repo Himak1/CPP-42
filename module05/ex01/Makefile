@@ -2,7 +2,8 @@
 NAME = ex00
 
 SRC_FILES = main.cpp\
-			Bureaucrat.cpp
+			Bureaucrat.cpp\
+			Form.cpp
 
 OBJ = $(SRC_FILES:.cpp=.o)
 
