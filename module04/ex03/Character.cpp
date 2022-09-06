@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/06 13:59:55 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 15:13:28 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void	Character::lst_clear()
 
 void	Character::unequip( int idx )
 {
-	if (idx < 0 || idx > INV_SIZE || !inventory[idx])
+	if (idx < 0 || idx >= INV_SIZE || !inventory[idx])
 		return ;
 	if (!ground)
 		ground = new_lst(inventory[idx]);

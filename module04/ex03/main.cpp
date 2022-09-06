@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/06 14:02:44 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 15:12:00 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,21 @@ int main()
 	tmp = src->createMateria("ice");
 	john.equip(tmp);
 	// Copy assignment test end
+
+	// Copy assignment pointer test
+	ICharacter* t1 = new Character("anna");
+	ICharacter*	t2 = new Character("vasily");
+
+	tmp = src->createMateria("ice");
+	t1->equip(tmp);
+	tmp = src->createMateria("cure");
+	t2->equip(tmp);
+	t2->unequip(0);
+
+	*t2 = *t2;
+	delete t2;
+	delete t1;
+	// Copy assignment pointer test end
 
 	delete src;
 }
