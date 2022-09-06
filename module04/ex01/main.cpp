@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:55:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/15 16:48:20 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 14:46:33 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,12 @@ int	main(void)
 	{
 		delete array[i];
 	}
-	return 0;
+
+	Dog*	d1 = new Dog();
+	Dog*	d2 = new Dog(*d1);
+
+	d2->makeSound();
+	delete d1;
+	delete d2;
+	return (0);
 }
