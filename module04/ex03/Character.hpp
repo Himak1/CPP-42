@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:09 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/05 15:29:22 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 13:58:52 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ class Character : public ICharacter
 		AMateria*	inventory[INV_SIZE];
 		t_lst*		ground;
 
-		t_lst*	new_lst( int idx );
-		void	lst_append( int idx );
+		t_lst*	new_lst( AMateria* m);
+		void	lst_append( AMateria* m );
 		void	lst_clear();
 };
 

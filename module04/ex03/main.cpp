@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/16 14:24:41 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/05 16:54:41 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 14:02:44 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main()
 	delete me;
 	// Subject main end
 
-	// Copy assignment test
+	// Copy assignment and equip overflow test
 	Character	kerry("kerry");
 	Character	john("john");
 
@@ -52,6 +52,17 @@ int main()
 	kerry.equip(tmp);
 	kerry.unequip(1);
 	john = kerry;
+
+	tmp = src->createMateria("ice");
+	john.equip(tmp);
+	tmp = src->createMateria("ice");
+	john.equip(tmp);
+	tmp = src->createMateria("ice");
+	john.equip(tmp);
+	tmp = src->createMateria("ice");
+	john.equip(tmp);
+	tmp = src->createMateria("ice");
+	john.equip(tmp);
 	// Copy assignment test end
 
 	delete src;

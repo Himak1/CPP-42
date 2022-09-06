@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 16:05:11 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/05 16:53:25 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 13:59:55 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,26 +90,30 @@ void	Character::equip( AMateria* m )
 			return ;
 		}
 	}
+	if (!ground)
+		ground = new_lst(m);
+	else
+		lst_append(m);
 }
 
-t_lst*	Character::new_lst( int idx )
+t_lst*	Character::new_lst( AMateria* m )
 {
 	t_lst*	tmp;
 
 	tmp = new t_lst;
-	tmp->m = inventory[idx];
+	tmp->m = m;
 	tmp->next = NULL;
 	return (tmp);
 }
 
-void	Character::lst_append( int idx )
+void	Character::lst_append( AMateria* m )
 {
 	t_lst*	iter;
 
 	iter = ground;
 	while (iter->next)
 		iter = iter->next;
-	iter->next = new_lst(idx);
+	iter->next = new_lst(m);
 }
 
 void	Character::lst_clear()
@@ -131,9 +135,9 @@ void	Character::unequip( int idx )
 	if (idx < 0 || idx > INV_SIZE || !inventory[idx])
 		return ;
 	if (!ground)
-		ground = new_lst(idx);
+		ground = new_lst(inventory[idx]);
 	else
-		lst_append(idx);
+		lst_append(inventory[idx]);
 	inventory[idx] = NULL;
 }
 
