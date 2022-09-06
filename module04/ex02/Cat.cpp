@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:42:21 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/02 15:57:28 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 14:31:56 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cat::Cat() : Animal()
 Cat::Cat( const Cat & src ) : Animal()
 {
 	std::cout << "A cat has been copied" << std::endl;
+	brain = new Brain;
 	*this = src;
 }
 
@@ -37,6 +38,7 @@ Cat &	Cat::operator=( Cat const & rhs )
 	{
 		this->type = rhs.type;
 	}
+	*brain = *rhs.brain;
 	return *this;
 }
 

@@ -12,7 +12,7 @@ SRC_FILES = main.cpp\
 OBJ = $(SRC_FILES:.cpp=.o)
 
 CXX = c++
-FLAGS = -Wextra -Wall -Werror -std=c++98 -pedantic
+FLAGS = -Wextra -Wall -Werror -std=c++98 -pedantic -g
 
 all: $(NAME)
 

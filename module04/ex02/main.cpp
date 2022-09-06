@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:55:29 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/15 17:52:47 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/06 14:34:17 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(void)
 	delete j;//should not create a leak
 	delete i;
 
-
 	const Animal*	array[10];
 	for (int i = 0; i < 10; i++)
 	{
@@ -35,5 +34,12 @@ int	main(void)
 	{
 		delete array[i];
 	}
+
+	Dog*	d1 = new Dog();
+	Dog*	d2 = new Dog(*d1);
+
+	d2->makeSound();
+	delete d1;
+	delete d2;
 	return 0;
 }
