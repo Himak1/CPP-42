@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:23:03 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:53:49 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ class Bureaucrat
 
 		Bureaucrat&	operator=( const Bureaucrat& rhs );
 
-		std::string	getName( void );
-		uint		getGrade( void );
+		std::string	getName( void ) const;
+		uint		getGrade( void ) const;
 		void		raiseGrade( void );
 		void		lowerGrade( void );
 	private:
 		Bureaucrat();
 
-		const std::string	name;
-		uint				grade;
+		const std::string	_name;
+		uint				_grade;
 
 		// -- Custom Exceptions -- //
 		class GradeTooHighException : public std::exception

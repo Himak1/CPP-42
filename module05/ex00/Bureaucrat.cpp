@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:25:33 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:54:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@ Bureaucrat::Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat( const std::string& nameArg, const uint gradeArg )
-	: name(nameArg), grade(gradeArg)
+	: _name(nameArg), _grade(gradeArg)
 {
 	try
 	{
-		if (grade < 1)
+		if (_grade < 1)
 			throw GradeTooHighException();
-		else if (grade > 150)
+		else if (_grade > 150)
 			throw GradeTooLowException();
 	}
 	catch (GradeTooHighException e)
 	{
-		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
+		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
 	}
 	catch (GradeTooLowException f)
 	{
-		std::cout << "Bureaucrat " << name << ": " << f.what() << std::endl;
+		std::cout << "Bureaucrat " << _name << ": " << f.what() << std::endl;
 	}
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& src )
-	:name(src.name)
+	: _name(src._name)
 {
 	*this = src;
 }
@@ -64,7 +64,7 @@ Bureaucrat&				Bureaucrat::operator=( Bureaucrat const& rhs )
 {
 	if ( this != &rhs )
 	{
-		this->grade = rhs.grade;
+		this->_grade = rhs._grade;
 	}
 	return *this;
 }
@@ -73,41 +73,41 @@ Bureaucrat&				Bureaucrat::operator=( Bureaucrat const& rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string	Bureaucrat::getName( void )
+std::string	Bureaucrat::getName( void ) const
 {
-	return (name);
+	return (_name);
 }
 
-uint	Bureaucrat::getGrade( void )
+uint	Bureaucrat::getGrade( void ) const
 {
-	return (grade);
+	return (_grade);
 }
 
 void	Bureaucrat::raiseGrade( void )
 {
-	grade--;
+	_grade--;
 	try
 	{
-		if (grade < 1)
+		if (_grade < 1)
 			throw GradeTooHighException();
 	}
 	catch (GradeTooHighException e)
 	{
-		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
+		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
 	}
 }
 
 void	Bureaucrat::lowerGrade( void )
 {
-	grade++;
+	_grade++;
 	try
 	{
-		if (grade > 150)
+		if (_grade > 150)
 			throw GradeTooLowException();
 	}
 	catch (GradeTooLowException e)
 	{
-		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
+		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
 	}
 }
 

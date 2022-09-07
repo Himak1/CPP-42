@@ -6,12 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/05 17:02:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:28:15 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:42:12 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
-
 
 /* ------------------------------- CONSTRUCTOR ------------------------------ */
 
@@ -85,6 +85,14 @@ inline uint	Form::getSignGrade() const
 inline uint	Form::getExecGrade() const
 {
 	return (_execGrade);
+}
+
+void		Form::beSigned( Bureaucrat const &signer )
+{
+	if (signer.getGrade() <= _signGrade )
+		_isSigned = true;
+	else
+		throw GradeTooLowException();
 }
 
 /* #endregion */
