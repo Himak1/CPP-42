@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 16:53:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:25:33 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ Bureaucrat::Bureaucrat( const std::string& nameArg, const uint gradeArg )
 	try
 	{
 		if (grade < 1)
-			throw GradeTooHigh();
+			throw GradeTooHighException();
 		else if (grade > 150)
-			throw GradeTooLow();
+			throw GradeTooLowException();
 	}
-	catch (GradeTooHigh e)
+	catch (GradeTooHighException e)
 	{
 		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
 	}
-	catch (GradeTooLow f)
+	catch (GradeTooLowException f)
 	{
 		std::cout << "Bureaucrat " << name << ": " << f.what() << std::endl;
 	}
@@ -89,9 +89,9 @@ void	Bureaucrat::raiseGrade( void )
 	try
 	{
 		if (grade < 1)
-			throw GradeTooHigh();
+			throw GradeTooHighException();
 	}
-	catch (GradeTooHigh e)
+	catch (GradeTooHighException e)
 	{
 		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
 	}
@@ -103,9 +103,9 @@ void	Bureaucrat::lowerGrade( void )
 	try
 	{
 		if (grade > 150)
-			throw GradeTooLow();
+			throw GradeTooLowException();
 	}
-	catch (GradeTooLow e)
+	catch (GradeTooLowException e)
 	{
 		std::cout << "Bureaucrat " << name << ": " << e.what() << std::endl;
 	}
@@ -115,12 +115,12 @@ void	Bureaucrat::lowerGrade( void )
 ** ------------------------------- EXCEPTIONS ---------------------------------
 */
 
-const char*	Bureaucrat::GradeTooHigh::what() const throw()
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("grade is above maximum value 1");
 }
 
-const char*	Bureaucrat::GradeTooLow::what() const throw()
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("grade is below minimum value 150");
 }

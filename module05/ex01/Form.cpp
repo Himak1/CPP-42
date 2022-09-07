@@ -6,36 +6,36 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/05 17:02:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/06 18:29:53 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:28:15 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
+
+/* ------------------------------- CONSTRUCTOR ------------------------------ */
+
 
 Form::Form()
-	: _name(""), _isSigned(false), _signPerm(0), _execPerm(0)
+	: _name(""), _isSigned(false), _signGrade(0), _execGrade(0)
 {
 	
 }
 
-Form::Form( std::string name, uint signPerm, uint execPerm )
-	: _name(name), _isSigned(false), _signPerm(signPerm), _execPerm(execPerm)
+Form::Form( std::string name, uint signGrade, uint execGrade )
+	: _name(name), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade)
 {
 
 }
 
 Form::Form(const Form &src)
 	: _name(src.getName()), _isSigned(src.getIsSigned()),\
-	_signPerm(src.getSignPerm()), _execPerm(src.getExecPerm())
+	_signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
 {
 	*this = src;
 }
 
-/* #region ------------------------- DESTRUCTOR ------------------------------ */
+/* #region ------------------------- DESTRUCTOR ----------------------------- */
 
 Form::~Form()
 {
@@ -57,9 +57,9 @@ Form &Form::operator=(Form const &rhs)
 std::ostream &operator<<(std::ostream &o, Form const &i)
 {
 	o << "name: " << i.getName() << std::endl
-			<< "Signed:" << i.getIsSigned() << std::endl
-			<< "Signing Permission Grade:" << i.getSignPerm() << std::endl
-			<< "Execute Permission Grade:" << i.getExecPerm() << std::endl;
+		<< "Signed: " << i.getIsSigned() << std::endl
+		<< "Signing Grade: " << i.getSignGrade() << std::endl
+		<< "Execute Grade: " << i.getExecGrade();
 	return (o);
 }
 
@@ -67,24 +67,38 @@ std::ostream &operator<<(std::ostream &o, Form const &i)
 
 /* #region ------------------------- METHODS -------------------------------- */
 
-inline std::string	Form::getName()
+inline std::string	Form::getName() const
 {
 	return (_name);
 }
 
-inline bool	Form::getIsSigned()
+inline bool	Form::getIsSigned() const
 {
 	return (_isSigned);
 }
 
-inline uint	Form::getSignPerm()
+inline uint	Form::getSignGrade() const
 {
-	return (_signPerm);
+	return (_signGrade);
 }
 
-inline uint	Form::getExecPerm()
+inline uint	Form::getExecGrade() const
 {
-	return (_execPerm);
+	return (_execGrade);
+}
+
+/* #endregion */
+
+/* #region ------------------------- Exceptions ----------------------------- */
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return ("grade is above maximum value 1");
+}
+
+const char*	Form::GradeTooLowException::what() const throw()
+{
+	return ("grade is below minimum value 150");
 }
 
 /* #endregion */

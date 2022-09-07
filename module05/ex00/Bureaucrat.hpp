@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/06/22 16:52:15 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:23:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ class Bureaucrat
 		uint				grade;
 
 		// -- Custom Exceptions -- //
-		class GradeTooHigh : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char*	what() const throw();
 		};
-		class GradeTooLow : public std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char*	what() const throw();

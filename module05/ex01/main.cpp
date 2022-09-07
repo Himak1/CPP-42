@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/06 16:39:03 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 11:26:42 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int	main()
 	Bureaucrat	alex("Alexey", 151);
 	Form		f1("f1", 100, 50);
 
+	std::cout << f1 << std::endl;
 	return (0);
 }
