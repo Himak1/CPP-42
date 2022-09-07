@@ -6,11 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:54:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 17:48:41 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -108,6 +109,19 @@ void	Bureaucrat::lowerGrade( void )
 	catch (GradeTooLowException e)
 	{
 		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm( Form &f ) const
+{
+	try
+	{
+		f.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << _name << " couldn't sign " << f.getName()
+					<< " because their signing " << e.what() << std::endl;
 	}
 }
 

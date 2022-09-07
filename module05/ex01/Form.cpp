@@ -6,14 +6,14 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/05 17:02:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:42:12 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 17:47:26 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-/* ------------------------------- CONSTRUCTOR ------------------------------ */
+/* #region ------------------------- CONSTRUCTOR ---------------------------- */
 
 
 Form::Form()
@@ -25,7 +25,10 @@ Form::Form()
 Form::Form( std::string name, uint signGrade, uint execGrade )
 	: _name(name), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade)
 {
-
+	if (_signGrade > 150 || _execGrade > 150)
+		throw GradeTooLowException();
+	else if (_signGrade < 1 || _execGrade < 1)
+		throw GradeTooHighException();
 }
 
 Form::Form(const Form &src)
@@ -34,6 +37,7 @@ Form::Form(const Form &src)
 {
 	*this = src;
 }
+/* #endregion */
 
 /* #region ------------------------- DESTRUCTOR ----------------------------- */
 
@@ -62,42 +66,40 @@ std::ostream &operator<<(std::ostream &o, Form const &i)
 		<< "Execute Grade: " << i.getExecGrade();
 	return (o);
 }
-
 /* #endregion */
 
 /* #region ------------------------- METHODS -------------------------------- */
 
-inline std::string	Form::getName() const
+inline std::string	Form::getName( void ) const
 {
 	return (_name);
 }
 
-inline bool	Form::getIsSigned() const
+inline bool	Form::getIsSigned( void ) const
 {
 	return (_isSigned);
 }
 
-inline uint	Form::getSignGrade() const
+inline uint	Form::getSignGrade( void ) const
 {
 	return (_signGrade);
 }
 
-inline uint	Form::getExecGrade() const
+inline uint	Form::getExecGrade( void ) const
 {
 	return (_execGrade);
 }
 
 void		Form::beSigned( Bureaucrat const &signer )
 {
-	if (signer.getGrade() <= _signGrade )
+	if (signer.getGrade() <= _signGrade)
 		_isSigned = true;
 	else
 		throw GradeTooLowException();
 }
-
 /* #endregion */
 
-/* #region ------------------------- Exceptions ----------------------------- */
+/* #region ------------------------- EXCEPTIONS ----------------------------- */
 
 const char* Form::GradeTooHighException::what() const throw()
 {
@@ -106,7 +108,6 @@ const char* Form::GradeTooHighException::what() const throw()
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("grade is below minimum value 150");
+	return ("grade is too low");
 }
-
 /* #endregion */

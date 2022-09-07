@@ -6,18 +6,20 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:53:49 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 17:49:36 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <exception>
+# include <stdexcept>
 # include <iostream>
 # include <string>
 
 typedef unsigned int	uint;
+
+class Form;
 
 class Bureaucrat
 {
@@ -30,15 +32,16 @@ class Bureaucrat
 
 		std::string	getName( void ) const;
 		uint		getGrade( void ) const;
+
 		void		raiseGrade( void );
 		void		lowerGrade( void );
+		void		signForm( Form &f ) const;
 	private:
 		Bureaucrat();
 
 		const std::string	_name;
 		uint				_grade;
 
-		// -- Custom Exceptions -- //
 		class GradeTooHighException : public std::exception
 		{
 			public:
