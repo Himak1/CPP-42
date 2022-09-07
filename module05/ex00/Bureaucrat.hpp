@@ -6,14 +6,14 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 11:53:49 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 18:08:19 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <exception>
+# include <stdexcept>
 # include <iostream>
 # include <string>
 
@@ -30,6 +30,7 @@ class Bureaucrat
 
 		std::string	getName( void ) const;
 		uint		getGrade( void ) const;
+
 		void		raiseGrade( void );
 		void		lowerGrade( void );
 	private:
@@ -38,7 +39,6 @@ class Bureaucrat
 		const std::string	_name;
 		uint				_grade;
 
-		// -- Custom Exceptions -- //
 		class GradeTooHighException : public std::exception
 		{
 			public:

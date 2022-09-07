@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 17:48:41 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/07 17:58:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,10 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat( const std::string& nameArg, const uint gradeArg )
 	: _name(nameArg), _grade(gradeArg)
 {
-	try
-	{
-		if (_grade < 1)
-			throw GradeTooHighException();
-		else if (_grade > 150)
-			throw GradeTooLowException();
-	}
-	catch (GradeTooHighException e)
-	{
-		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
-	}
-	catch (GradeTooLowException f)
-	{
-		std::cout << "Bureaucrat " << _name << ": " << f.what() << std::endl;
-	}
+	if (_grade < 1)
+		throw GradeTooHighException();
+	else if (_grade > 150)
+		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& src )
@@ -87,29 +76,15 @@ uint	Bureaucrat::getGrade( void ) const
 void	Bureaucrat::raiseGrade( void )
 {
 	_grade--;
-	try
-	{
-		if (_grade < 1)
-			throw GradeTooHighException();
-	}
-	catch (GradeTooHighException e)
-	{
-		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
-	}
+	if (_grade < 1)
+		throw GradeTooHighException();
 }
 
 void	Bureaucrat::lowerGrade( void )
 {
 	_grade++;
-	try
-	{
-		if (_grade > 150)
-			throw GradeTooLowException();
-	}
-	catch (GradeTooLowException e)
-	{
-		std::cout << "Bureaucrat " << _name << ": " << e.what() << std::endl;
-	}
+	if (_grade > 150)
+		throw GradeTooLowException();
 }
 
 void	Bureaucrat::signForm( Form &f ) const
@@ -120,7 +95,7 @@ void	Bureaucrat::signForm( Form &f ) const
 	}
 	catch (Form::GradeTooLowException &e)
 	{
-		std::cout << _name << " couldn't sign " << f.getName()
+		std::cerr << _name << " couldn't sign " << f.getName()
 					<< " because their signing " << e.what() << std::endl;
 	}
 }
