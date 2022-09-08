@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/08 14:16:55 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/08 16:50:20 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Bureaucrat::Bureaucrat( const Bureaucrat& src )
 {
 	*this = src;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -87,7 +86,7 @@ void	Bureaucrat::lowerGrade( void )
 		throw GradeTooLowException();
 }
 
-void	Bureaucrat::signForm( Form &f ) const
+void	Bureaucrat::signForm( AForm &f ) const
 {
 	try
 	{
@@ -96,6 +95,19 @@ void	Bureaucrat::signForm( Form &f ) const
 	catch (AForm::GradeTooLowException &e)
 	{
 		std::cerr << _name << " couldn't sign " << f.getName()
+					<< " because their signing " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm( AForm const &f ) const
+{
+	try
+	{
+		f.execute(*this);
+	}
+	catch (AForm::GradeTooLowException &e)
+	{
+		std::cerr << _name << " couldn't execute " << f.getName()
 					<< " because their signing " << e.what() << std::endl;
 	}
 }

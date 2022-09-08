@@ -6,12 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 18:02:32 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/08 17:04:50 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main()
 {
@@ -26,20 +26,18 @@ int	main()
 
 	try
 	{
-		Form	failedform("form 99A", 0, 10);
+		ShrubberyCreationForm	failedform("home");
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Form 99A's " << e.what() << '\n';
+		std::cerr << "ShrubberyCreationForm" << e.what() << '\n';
 	}
 
-	Bureaucrat	bob("Bob", 100);
-	Form		f1("form 24D", 100, 50);
-	Form		f2("form 55C", 40, 50);
+	Bureaucrat				Bob("Bob", 130);
+	ShrubberyCreationForm	form1("home");
 
-	std::cout << std::endl;
-	std::cout << f1 << std::endl;
-	bob.signForm(f1);
-	bob.signForm(f2);
+	Bob.signForm(form1);
+	Bob.executeForm(form1);
+	std::cout << form1 << std::endl;
 	return (0);
 }

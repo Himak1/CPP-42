@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 17:49:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/08 16:48:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef unsigned int	uint;
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -35,7 +35,8 @@ class Bureaucrat
 
 		void		raiseGrade( void );
 		void		lowerGrade( void );
-		void		signForm( Form &f ) const;
+		void		signForm( AForm &f ) const;
+		void		executeForm( AForm const &f ) const;
 	private:
 		Bureaucrat();
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.cpp                                           :+:    :+:            */
+/*   AForm.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
@@ -16,13 +16,13 @@
 /* #region ------------------------- CONSTRUCTOR ---------------------------- */
 
 
-Form::Form()
+AForm::AForm()
 	: _name(""), _isSigned(false), _signGrade(0), _execGrade(0)
 {
 	
 }
 
-Form::Form( std::string name, uint signGrade, uint execGrade )
+AForm::AForm( std::string name, uint signGrade, uint execGrade )
 	: _name(name), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade)
 {
 	if (_signGrade > 150 || _execGrade > 150)
@@ -31,7 +31,7 @@ Form::Form( std::string name, uint signGrade, uint execGrade )
 		throw GradeTooHighException();
 }
 
-Form::Form(const Form &src)
+AForm::AForm(const AForm &src)
 	: _name(src.getName()), _isSigned(src.getIsSigned()),\
 	_signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
 {
@@ -41,7 +41,7 @@ Form::Form(const Form &src)
 
 /* #region ------------------------- DESTRUCTOR ----------------------------- */
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
@@ -49,16 +49,16 @@ Form::~Form()
 
 /* #region ------------------------- OVERLOAD ------------------------------- */
 
-Form &Form::operator=(Form const &rhs)
+AForm &AForm::operator=(AForm const &rhs)
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
+	
 	}
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &o, Form const &i)
+std::ostream &operator<<(std::ostream &o, AForm const &i)
 {
 	o << "name: " << i.getName() << std::endl
 		<< "Signed: " << i.getIsSigned() << std::endl
@@ -70,27 +70,27 @@ std::ostream &operator<<(std::ostream &o, Form const &i)
 
 /* #region ------------------------- METHODS -------------------------------- */
 
-inline std::string	Form::getName( void ) const
+inline std::string	AForm::getName( void ) const
 {
 	return (_name);
 }
 
-inline bool	Form::getIsSigned( void ) const
+inline bool	AForm::getIsSigned( void ) const
 {
 	return (_isSigned);
 }
 
-inline uint	Form::getSignGrade( void ) const
+inline uint	AForm::getSignGrade( void ) const
 {
 	return (_signGrade);
 }
 
-inline uint	Form::getExecGrade( void ) const
+inline uint	AForm::getExecGrade( void ) const
 {
 	return (_execGrade);
 }
 
-void		Form::beSigned( Bureaucrat const &signer )
+void		AForm::beSigned( Bureaucrat const &signer )
 {
 	if (signer.getGrade() <= _signGrade)
 		_isSigned = true;
@@ -101,12 +101,12 @@ void		Form::beSigned( Bureaucrat const &signer )
 
 /* #region ------------------------- EXCEPTIONS ----------------------------- */
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("grade is above maximum value 1");
 }
 
-const char*	Form::GradeTooLowException::what() const throw()
+const char*	AForm::GradeTooLowException::what() const throw()
 {
 	return ("grade is too low");
 }
