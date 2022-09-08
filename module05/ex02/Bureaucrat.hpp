@@ -1,58 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
+/*   Bureaucrat.hpp                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/05 17:02:55 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/08 14:18:04 by jhille        ########   odam.nl         */
+/*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
+/*   Updated: 2022/09/07 17:49:36 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
+# include <stdexcept>
 # include <iostream>
 # include <string>
 
-class Bureaucrat;
+typedef unsigned int	uint;
 
-class Form
+class Form;
+
+class Bureaucrat
 {
 	public:
-		Form( std::string name, uint signGrade, uint execGrade );	
-		Form( Form const &src );
-		~Form();
+		Bureaucrat( const std::string& nameArg, const uint gradeArg );
+		Bureaucrat( const Bureaucrat& src );
+		~Bureaucrat();
 
-		Form &		operator=( Form const &rhs );
+		Bureaucrat&	operator=( const Bureaucrat& rhs );
 
 		std::string	getName( void ) const;
-		bool		getIsSigned( void ) const;
-		uint		getSignGrade( void ) const;
-		uint		getExecGrade( void ) const;
-		void		beSigned( Bureaucrat const &signer );
+		uint		getGrade( void ) const;
 
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				const char*	what() const throw();
-		};
+		void		raiseGrade( void );
+		void		lowerGrade( void );
+		void		signForm( Form &f ) const;
 	private:
-		Form();
+		Bureaucrat();
 
 		const std::string	_name;
-		bool				_isSigned;
-		const uint			_signGrade;
-		const uint			_execGrade;
+		uint				_grade;
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char*	what() const throw();
 		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char*	what() const throw();
+		};
 };
 
-std::ostream&		operator<<( std::ostream& o, Form const &i );
-
-#endif
+#endif /* ****************************************************** BUREAUCRAT_H */

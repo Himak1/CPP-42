@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
+/*   AForm.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/05 17:02:55 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/08 14:18:04 by jhille        ########   odam.nl         */
+/*   Updated: 2022/09/08 14:06:17 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
-		Form( std::string name, uint signGrade, uint execGrade );	
-		Form( Form const &src );
-		~Form();
+		AForm( std::string name, uint signGrade, uint execGrade );	
+		AForm( AForm const &src );
+		~AForm();
 
-		Form &		operator=( Form const &rhs );
+		AForm&	operator=( AForm const &rhs );
 
-		std::string	getName( void ) const;
-		bool		getIsSigned( void ) const;
-		uint		getSignGrade( void ) const;
-		uint		getExecGrade( void ) const;
-		void		beSigned( Bureaucrat const &signer );
+		std::string		getName( void ) const;
+		bool			getIsSigned( void ) const;
+		uint			getSignGrade( void ) const;
+		uint			getExecGrade( void ) const;
+		virtual void	beSigned( Bureaucrat const &signer ) = 0;
 
 		class GradeTooLowException : public std::exception
 		{
@@ -39,7 +39,7 @@ class Form
 				const char*	what() const throw();
 		};
 	private:
-		Form();
+		AForm();
 
 		const std::string	_name;
 		bool				_isSigned;
@@ -53,6 +53,6 @@ class Form
 		};
 };
 
-std::ostream&		operator<<( std::ostream& o, Form const &i );
+std::ostream&		operator<<( std::ostream& o, AForm const &i );
 
 #endif
