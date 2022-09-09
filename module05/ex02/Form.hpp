@@ -18,15 +18,18 @@
 
 class Bureaucrat;
 
+typedef unsigned int	uint;
+
 class AForm
 {
 	public:
-		AForm( std::string name, uint signGrade, uint execGrade );	
+		AForm( std::string name, std::string target, uint signGrade, uint execGrade );
 		AForm( AForm const &src );
 		~AForm();
 		AForm&	operator=( AForm const &rhs );
 
 		std::string		getName( void ) const;
+		std::string		getTarget( void ) const;
 		bool			getIsSigned( void ) const;
 		uint			getSignGrade( void ) const;
 		uint			getExecGrade( void ) const;
@@ -42,6 +45,7 @@ class AForm
 		AForm();
 	private:
 		const std::string	_name;
+		const std::string	_target;
 		bool				_isSigned;
 		const uint			_signGrade;
 		const uint			_execGrade;

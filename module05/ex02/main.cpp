@@ -36,8 +36,9 @@ int	main()
 	Bureaucrat				Bob("Bob", 130);
 	ShrubberyCreationForm	form1("home");
 
+	std::cout << form1 << std::endl;
+
 	Bob.signForm(form1);
 	Bob.executeForm(form1);
-	std::cout << form1 << std::endl;
 	return (0);
 }

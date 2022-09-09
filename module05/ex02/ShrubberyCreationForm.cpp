@@ -20,11 +20,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target )
-	: AForm("ShrubberyCreationForm", 145, 137), _target(target)
+	: AForm("ShrubberyCreationForm", target, 145, 137)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src )
+	: AForm()
 {
 	*this = src;
 }
@@ -50,9 +51,9 @@ ShrubberyCreationForm& 	ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 	return *this;
 }
 
-std::ostream&			operator<<( std::ostream &o, ShrubberyCreationForm const &i )
+std::ostream&	operator<<( std::ostream &o, ShrubberyCreationForm const &i )
 {
-	o << (AForm&)i << std::endl;
+	o << (AForm&)i;
 	return o;
 }
 
@@ -62,7 +63,7 @@ std::ostream&			operator<<( std::ostream &o, ShrubberyCreationForm const &i )
 
 void	ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
 {
-	//std::string	filename = _target + "shrubbery";
+	std::string	filename = getTarget() + "shrubbery";
 
 	if (executor.getGrade() <= getExecGrade())
 		return ;
