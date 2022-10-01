@@ -6,12 +6,13 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/08 17:04:50 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/01 17:04:53 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main()
 {
@@ -33,11 +34,15 @@ int	main()
 		std::cerr << "ShrubberyCreationForm" << e.what() << '\n';
 	}
 
-	Bureaucrat				Bob("Bob", 130);
+	Bureaucrat				Bob("Bob", 140);
+	Bureaucrat				Tom("Tom", 40);
 	ShrubberyCreationForm	form1("home");
+	RobotomyRequestForm		form2("Keith");
 
+	std::cout << form1 << std::endl;
 	Bob.signForm(form1);
 	Bob.executeForm(form1);
-	std::cout << form1 << std::endl;
+	Tom.signForm(form2);
+	Tom.executeForm(form2);
 	return (0);
 }

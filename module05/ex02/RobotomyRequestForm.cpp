@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.cpp                          :+:    :+:            */
+/*   RobotomyRequestForm.cpp                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/08 14:27:00 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 15:39:57 by jhille        ########   odam.nl         */
+/*   Created: 2022/10/01 15:34:53 by jhille        #+#    #+#                 */
+/*   Updated: 2022/10/01 17:10:32 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include <ctime>
+#include <cstdlib>
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
 /* #region ------------------------- CONSTRUCTOR ---------------------------- */
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
+RobotomyRequestForm::RobotomyRequestForm() : AForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target )
-	: AForm("ShrubberyCreationForm", 145, 137), _target(target)
+RobotomyRequestForm::RobotomyRequestForm( std::string target )
+	: AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src )
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
 {
 	*this = src;
 }
@@ -33,7 +35,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src )
 
 /* #region ------------------------- DESTRUCTOR ----------------------------- */
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
@@ -41,7 +43,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 /* #region ------------------------- OVERLOAD ------------------------------- */
 
-ShrubberyCreationForm& 	ShrubberyCreationForm::operator=( ShrubberyCreationForm const &rhs )
+RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -50,7 +52,7 @@ ShrubberyCreationForm& 	ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 	return *this;
 }
 
-std::ostream&			operator<<( std::ostream &o, ShrubberyCreationForm const &i )
+std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 {
 	o << (AForm&)i << std::endl;
 	return o;
@@ -60,10 +62,18 @@ std::ostream&			operator<<( std::ostream &o, ShrubberyCreationForm const &i )
 
 /* #region ------------------------- METHODS -------------------------------- */
 
-void	ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
+void	RobotomyRequestForm::execute( Bureaucrat const &executor ) const
 {
 	if (executor.getGrade() <= getExecGrade())
-		return ;
+	{
+		srand(time(NULL));
+		int	success = rand() % 9;
+		std::cout << "GRGRGRGRGRGRGRG" << std::endl;
+		if (success < 5)
+			std::cout << _target << " has been robotomized successfully" << std::endl;
+		else
+			std::cout << _target << " has not been robotomized" << std::endl;
+	}
 	else
 		throw AForm::GradeTooLowException();
 	return ;
