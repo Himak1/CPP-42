@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/08 14:27:00 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 15:39:57 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/01 17:12:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target )
-	: AForm("ShrubberyCreationForm", 145, 137), _target(target)
+	: AForm("ShrubberyCreationForm", target, 145, 137)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &src )
+	: AForm()
 {
 	*this = src;
 }
@@ -50,9 +51,9 @@ ShrubberyCreationForm& 	ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 	return *this;
 }
 
-std::ostream&			operator<<( std::ostream &o, ShrubberyCreationForm const &i )
+std::ostream&	operator<<( std::ostream &o, ShrubberyCreationForm const &i )
 {
-	o << (AForm&)i << std::endl;
+	o << (AForm&)i;
 	return o;
 }
 

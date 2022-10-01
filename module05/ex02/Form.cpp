@@ -22,8 +22,8 @@ AForm::AForm()
 	
 }
 
-AForm::AForm( std::string name, uint signGrade, uint execGrade )
-	: _name(name), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade)
+AForm::AForm( std::string name, std::string target, uint signGrade, uint execGrade )
+	: _name(name), _target(target), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade)
 {
 	if (_signGrade > 150 || _execGrade > 150)
 		throw GradeTooLowException();
@@ -61,9 +61,10 @@ AForm &AForm::operator=(AForm const &rhs)
 std::ostream &operator<<(std::ostream &o, AForm const &i)
 {
 	o << "name: " << i.getName() << std::endl
-		<< "Signed: " << i.getIsSigned() << std::endl
-		<< "Signing Grade: " << i.getSignGrade() << std::endl
-		<< "Execute Grade: " << i.getExecGrade();
+		<< "target: " << i.getTarget() << std::endl
+		<< "signed: " << i.getIsSigned() << std::endl
+		<< "signing grade: " << i.getSignGrade() << std::endl
+		<< "execute grade: " << i.getExecGrade();
 	return (o);
 }
 /* #endregion */
@@ -73,6 +74,11 @@ std::ostream &operator<<(std::ostream &o, AForm const &i)
 inline std::string	AForm::getName( void ) const
 {
 	return (_name);
+}
+
+inline std::string	AForm::getTarget( void ) const
+{
+	return (_target);
 }
 
 inline bool	AForm::getIsSigned( void ) const
