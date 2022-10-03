@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/08 14:27:00 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/03 15:42:16 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/03 15:52:26 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
 		std::string		filename = getTarget() + "_shrubbery";
 		std::ofstream	file(filename);
 	
-		file << "text" << std::endl;
+		file << "Hi I'm a tree. " << std::endl;
 		file.close();
 	}
 	else
