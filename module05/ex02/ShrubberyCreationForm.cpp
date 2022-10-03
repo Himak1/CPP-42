@@ -6,10 +6,11 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/08 14:27:00 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 17:12:31 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/03 15:42:16 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fstream>
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -64,7 +65,13 @@ std::ostream&	operator<<( std::ostream &o, ShrubberyCreationForm const &i )
 void	ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
 {
 	if (executor.getGrade() <= getExecGrade())
-		return ;
+	{
+		std::string		filename = getTarget() + "_shrubbery";
+		std::ofstream	file(filename);
+	
+		file << "text" << std::endl;
+		file.close();
+	}
 	else
 		throw AForm::GradeTooLowException();
 	return ;

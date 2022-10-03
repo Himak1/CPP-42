@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 15:34:37 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 15:55:55 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/03 15:23:22 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ class RobotomyRequestForm : public AForm
 		void	execute( Bureaucrat const &executor ) const;
 	private:
 		RobotomyRequestForm();
-
-		const std::string	_target;
 };
 
 std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );

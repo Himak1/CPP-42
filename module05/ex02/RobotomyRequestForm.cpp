@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 15:34:53 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 17:10:32 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/03 15:28:53 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm()
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string target )
-	: AForm("RobotomyRequestForm", 72, 45), _target(target)
+	: AForm("RobotomyRequestForm", target, 72, 45)
 {
 }
 
@@ -70,9 +70,9 @@ void	RobotomyRequestForm::execute( Bureaucrat const &executor ) const
 		int	success = rand() % 9;
 		std::cout << "GRGRGRGRGRGRGRG" << std::endl;
 		if (success < 5)
-			std::cout << _target << " has been robotomized successfully" << std::endl;
+			std::cout << getTarget() << " has been robotomized successfully" << std::endl;
 		else
-			std::cout << _target << " has not been robotomized" << std::endl;
+			std::cout << getTarget() << " has not been robotomized" << std::endl;
 	}
 	else
 		throw AForm::GradeTooLowException();

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 17:29:04 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 17:29:10 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/03 15:29:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 /* #region ------------------------- CONSTRUCTOR ---------------------------- */
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target )
-	: AForm("PresidentialPardonForm", 25, 5), _target(target)
+	: AForm("PresidentialPardonForm", target, 25, 5)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &src )
 {
+	*this = src;
 }
 
 /* #endregion */
@@ -38,16 +39,16 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		AForm::operator = (rhs);
+	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << (AForm&)i << std::endl;
 	return o;
 }
 
@@ -57,7 +58,12 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 
 void	PresidentialPardonForm::execute( Bureaucrat const &executor ) const
 {
-
+	if (executor.getGrade() <= getExecGrade())
+	{
+		std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	}
+	else
+		throw AForm::GradeTooLowException();
 }
 
 /* #endregion */

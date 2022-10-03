@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
 class PresidentialPardonForm : public AForm
 {
@@ -16,8 +17,6 @@ class PresidentialPardonForm : public AForm
 		void	execute( Bureaucrat const &executor ) const;
 	private:
 		PresidentialPardonForm();
-
-		const std::string	_target;
 };
 
 std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );
