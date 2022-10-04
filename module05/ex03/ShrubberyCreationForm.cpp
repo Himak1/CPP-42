@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/08 14:27:00 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/03 15:52:26 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/04 10:55:14 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target )
-	: AForm("ShrubberyCreationForm", target, 145, 137)
+	: AForm("Shrubbery creation", target, 145, 137)
 {
 }
 

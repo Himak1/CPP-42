@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Intern.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jhille <jhille@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/04 13:17:54 by jhille        #+#    #+#                 */
+/*   Updated: 2022/10/04 14:24:53 by jhille        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
@@ -15,15 +27,19 @@ class Intern
 		Intern( Intern const & src );
 		~Intern();
 
-		Intern &		operator=( Intern const & rhs );
+		Intern&	operator=( Intern const & rhs );
 
-		AForm	*makeForm( std::string formName, std::string formTarget );
+		AForm	*makeForm( std::string const formName, std::string const formTarget );
 	private:
-		ShrubberyCreationForm	*srf;
-		RobotomyRequestForm		*rrf;
-		PresidentialPardonForm	*ppf;
+		typedef	AForm*	(Intern::*funcptr)( std::string const& );
+		std::string		_formNames[3];
+		funcptr			_formList[3];
+
+		AForm		*shrubberyCreation( std::string const &formName );
+		AForm		*robotomyRequest( std::string const &formName );
+		AForm		*presidentialPardon( std::string const &formName );
 };
 
-std::ostream &			operator<<( std::ostream & o, Intern const & i );
+std::ostream &			operator<<( std::ostream & o, Intern const &i );
 
-#endif /* ********************************************************** INTERN_H */
+#endif
