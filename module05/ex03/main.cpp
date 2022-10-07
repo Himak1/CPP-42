@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/07 13:21:37 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 14:41:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main()
 	Intern		Kate;
 	AForm		*form1;
 
-	form1 = Kate.makeForm("shrubbery creation", "garden");
+	form1 = Kate.makeForm("blabbobb", "garden");
+	form1 = Kate.makeForm("ShrubberyCreation", "garden");
 	Bob.signForm(*form1);
 	Bob.executeForm(*form1);
 

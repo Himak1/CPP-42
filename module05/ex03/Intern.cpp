@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 16:10:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/04 14:26:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 14:41:53 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 Intern::Intern()
 {
-	_formNames[0] = "shrubbery creation";
-	_formNames[1] = "robotomy request";
-	_formNames[2] = "presidential pardon";
+	_formNames[0] = "ShrubberyCreation";
+	_formNames[1] = "RobotomyRequest";
+	_formNames[2] = "PresidentialPardon";
 	_formList[0] = &Intern::shrubberyCreation;
 	_formList[1] = &Intern::robotomyRequest;
 	_formList[2] = &Intern::presidentialPardon;
@@ -28,9 +28,9 @@ Intern::Intern()
 
 Intern::Intern( const Intern &src )
 {
-	_formNames[0] = "shrubbery creation";
-	_formNames[1] = "robotomy request";
-	_formNames[2] = "presidential pardon";
+	_formNames[0] = "ShrubberyCreation";
+	_formNames[1] = "RobotomyRequest";
+	_formNames[2] = "PresidentialPardon";
 	_formList[0] = &Intern::shrubberyCreation;
 	_formList[1] = &Intern::robotomyRequest;
 	_formList[2] = &Intern::presidentialPardon;
@@ -96,9 +96,10 @@ AForm*	Intern::makeForm( std::string const formName, std::string const formTarge
 		if (!formName.compare(_formNames[i]))
 		{
 			output = (this->*_formList[i])(formTarget);
-			break ;
+			std::cout << "Intern creates " << formName << " form" << std::endl;
+			return (output);
 		}
 	}
-	std::cout << "Intern creates " << formName << std::endl;
-	return (output);
+	std::cout << formName << " form doesn't exist" << std::endl;
+	return (NULL);
 }
