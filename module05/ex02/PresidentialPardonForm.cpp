@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 17:29:04 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/03 15:29:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 12:05:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm( std::string target )
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &src )
+	: AForm(src)
 {
 	*this = src;
 }

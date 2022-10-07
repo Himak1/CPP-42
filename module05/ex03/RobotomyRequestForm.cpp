@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 15:34:53 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/04 10:55:17 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 12:04:33 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm()
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string target )
-	: AForm("Robotomy request", target, 72, 45)
+	: AForm("RobotomyRequestForm", target, 72, 45)
 {
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
+	: AForm(src)
 {
 	*this = src;
 }

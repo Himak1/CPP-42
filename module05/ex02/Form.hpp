@@ -25,7 +25,7 @@ class AForm
 	public:
 		AForm( std::string name, std::string target, uint signGrade, uint execGrade );
 		AForm( AForm const &src );
-		~AForm();
+		virtual ~AForm();
 		AForm&	operator=( AForm const &rhs );
 
 		std::string		getName( void ) const;

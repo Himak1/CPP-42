@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 17:29:04 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/04 10:55:18 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 12:05:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 /* #region ------------------------- CONSTRUCTOR ---------------------------- */
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target )
-	: AForm("Presidential pardon", target, 25, 5)
+	: AForm("PresidentialPardonForm", target, 25, 5)
 {
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &src )
+	: AForm(src)
 {
 	*this = src;
 }

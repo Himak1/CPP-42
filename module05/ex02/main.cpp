@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/03 15:43:03 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 13:25:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,8 @@ int	main()
 	Tom.executeForm(form2);
 	Kate.signForm(form3);
 	Kate.executeForm(form3);
+
+	AForm	*generic = new RobotomyRequestForm("Bender");
+	delete generic;
 	return (0);
 }

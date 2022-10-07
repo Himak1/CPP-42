@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/13 13:18:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/02 15:29:32 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 12:12:05 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal
 		Animal();
 		Animal( Animal const & src );
 		virtual ~Animal();
-	
+
 		Animal&		operator=( Animal const & rhs );
 
 		virtual void	makeSound() const = 0;

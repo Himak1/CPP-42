@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/08 14:27:01 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/04 14:23:30 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 12:13:09 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fstream>
 # include "Form.hpp"
 
-class ShrubberyCreationForm : virtual public AForm
+class ShrubberyCreationForm : public AForm
 {
 	public:
 		ShrubberyCreationForm( std::string target );

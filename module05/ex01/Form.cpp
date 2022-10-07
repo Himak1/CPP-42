@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/05 17:02:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 17:47:26 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 11:38:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 Form::Form()
 	: _name(""), _isSigned(false), _signGrade(0), _execGrade(0)
 {
-	
 }
 
 Form::Form( std::string name, uint signGrade, uint execGrade )
@@ -53,7 +52,7 @@ Form &Form::operator=(Form const &rhs)
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
+		_isSigned = rhs._isSigned;
 	}
 	return *this;
 }
