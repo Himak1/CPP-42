@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 15:34:37 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/03 15:23:22 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 13:53:23 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm
 {

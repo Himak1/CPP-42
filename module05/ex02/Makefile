@@ -3,7 +3,7 @@ NAME = ex02
 
 SRC_FILES = main.cpp\
 			Bureaucrat.cpp\
-			Form.cpp\
+			AForm.cpp\
 			ShrubberyCreationForm.cpp\
 			RobotomyRequestForm.cpp\
 			PresidentialPardonForm.cpp

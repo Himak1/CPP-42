@@ -6,12 +6,12 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/01 15:27:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 14:16:28 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -96,7 +96,9 @@ void	Bureaucrat::signForm( AForm &f ) const
 	{
 		std::cerr << _name << " couldn't sign " << f.getName()
 					<< " because their signing " << e.what() << std::endl;
+		return ;
 	}
+	std::cout << getName() << " signed " << f.getName() << std::endl;
 }
 
 void	Bureaucrat::executeForm( AForm const &f ) const
@@ -109,7 +111,9 @@ void	Bureaucrat::executeForm( AForm const &f ) const
 	{
 		std::cerr << _name << " couldn't execute " << f.getName()
 					<< " because their signing " << e.what() << std::endl;
+		return ;
 	}
+	std::cout << getName() << " executed " << f.getName() << std::endl;
 }
 
 /*

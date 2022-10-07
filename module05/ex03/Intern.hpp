@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 13:17:54 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/04 14:24:53 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/07 13:53:06 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
