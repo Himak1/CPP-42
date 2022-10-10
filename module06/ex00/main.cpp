@@ -6,13 +6,15 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 14:48:06 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/07 18:44:25 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/10 16:26:46 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "StringToLiterals.hpp"
+
+int	
 
 int	main(int argc, char *argv[])
 {
@@ -23,6 +25,7 @@ int	main(int argc, char *argv[])
 	}
 
 	int	type = literalType(argv[1]);
-	if (type)
+	if (type == CHAR)
+		assign_char()
 	return (0);
 }

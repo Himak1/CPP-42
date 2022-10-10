@@ -6,10 +6,11 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/07 15:57:47 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/10 17:39:00 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include "StringToLiterals.hpp"
 
 /*
@@ -17,6 +18,7 @@
 */
 
 StringToLiterals::StringToLiterals()
+	: charSet(false), intSet(false), floatSet(false), doubleSet(false)
 {
 }
 
@@ -40,10 +42,13 @@ StringToLiterals::~StringToLiterals()
 
 StringToLiterals &				StringToLiterals::operator=( StringToLiterals const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		charValue = rhs.charValue;
+		intValue = rhs.intValue;
+		floatValue = rhs.floatValue;
+		doubleValue = rhs.doubleValue;
+	}
 	return *this;
 }
 
@@ -58,10 +63,16 @@ std::ostream &			operator<<( std::ostream & o, StringToLiterals const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	StringToLiterals::setChar(char *str)
+{
+	char		*ptr = NULL;
+	long int	c = strtol(str, &ptr, 10);
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
+	if (c == 0 && errno == )
+}
 
-
-/* ************************************************************************** */
+void	StringToLiterals::setDouble( double input )
+{
+	doubleValue = input;
+	double
+}
