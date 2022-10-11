@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:47 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/10 17:33:45 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/11 14:41:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ class StringToLiterals
 
 		StringToLiterals&	operator=( StringToLiterals const & rhs );
 
-		void	setChar(char *str);
+		int	setChar( const char *str );
+		int	setInt( const char *str );
 	private:
 		char	charValue;
 		int		intValue;
@@ -44,6 +45,6 @@ class StringToLiterals
 
 std::ostream&	operator<<( std::ostream & o, StringToLiterals const & i );
 
-int	literalType(const char *str);
+int	literalType( const char *str );
 
 #endif

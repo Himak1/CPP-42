@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/10 17:39:00 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/11 14:41:23 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,34 @@ std::ostream &			operator<<( std::ostream & o, StringToLiterals const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	StringToLiterals::setChar(char *str)
+int	StringToLiterals::setChar( const char *str )
 {
-	char		*ptr = NULL;
-	long int	c = strtol(str, &ptr, 10);
-
-	if (c == 0 && errno == )
+	if (strlen(str) == 1 && (str[0] >= 32 && str[0] <= 127))
+	{
+		charValue = str[0];
+		charSet = true;
+		return (1);
+	}
+	return (0)
 }
 
-void	StringToLiterals::setDouble( double input )
+int	StringToLiterals::setInt( const char *str )
 {
-	doubleValue = input;
-	double
+	char	*ptr = NULL;
+	long	c = strtol(str, &ptr, 10);
+
+	//if (c == 0 && errno == )
+	intValue = c;
+	intSet = true;
+	return (1);
+}
+
+int	literalType(const char *str)
+{
+	if (setChar(str) == 1)
+		return (CHAR);
+	else if (setInt(str) == 1)
+		return (INT);
+	else
+		return (-1);
 }
