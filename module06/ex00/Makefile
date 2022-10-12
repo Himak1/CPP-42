@@ -1,7 +1,8 @@
 
 NAME = convert
 
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp\
+			StringToLiterals.cpp
 
 OBJ = obj/$(SRC_FILES:.cpp=.o)
 
