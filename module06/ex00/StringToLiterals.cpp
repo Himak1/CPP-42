@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 17:31:17 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 17:36:09 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,23 @@ void	StringToLiterals::assignFromInt()
 	floatValue = static_cast<float>(intValue);
 	floatSet = SET;
 	doubleValue = static_cast<double>(intValue);
+	doubleSet = SET;
+}
+
+void	StringToLiterals::assignFromFloat()
+{
+	if (!(floatValue >= 0 && floatValue <= 255))
+		charSet = ERROR;
+	else if (!isprint(floatValue))
+		charSet = NONDISPLAY;
+	else
+	{
+		charValue = static_cast<char>(floatValue);
+		charSet = SET;
+	}
+	intValue = static_cast<int>(floatValue);
+	intSet = SET;
+	doubleValue = static_cast<double>(floatValue);
 	doubleSet = SET;
 }
 

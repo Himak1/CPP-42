@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:47 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 17:25:43 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 17:36:27 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ class StringToLiterals
 
 		void	assignFromChar();
 		void	assignFromInt();
+		void	assignFromFloat();
 };
 
 std::ostream&	operator<<( std::ostream& o, StringToLiterals const& i );
