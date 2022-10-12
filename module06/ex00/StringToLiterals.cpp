@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 11:57:00 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 13:53:06 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ StringToLiterals::~StringToLiterals()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-StringToLiterals &				StringToLiterals::operator=( StringToLiterals const & rhs )
+StringToLiterals&	StringToLiterals::operator=( StringToLiterals const& rhs )
 {
 	if ( this != &rhs )
 	{
@@ -52,13 +52,12 @@ StringToLiterals &				StringToLiterals::operator=( StringToLiterals const & rhs 
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, StringToLiterals const & i )
+std::ostream &	operator<<( std::ostream& o, StringToLiterals const& i )
 {
 	o	<< std::fixed
-		<< "char: " << i.charValue << "\n"
-		<< "int: " << i.intValue << "\n"
-		<< "float: " << i.floatValue << 'f';
-		
+		<< "char: " << i.getCharStrm() << "\n"
+		<< "int: " << i.getIntStrm() << "\n"
+		<< "float: " << i.getFloatStrm() << 'f';
 	return o;
 }
 
@@ -67,12 +66,48 @@ std::ostream &			operator<<( std::ostream & o, StringToLiterals const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+std::ostream&	StringToLiterals::getCharStrm(std::ostream&)
+{
+	std::ostream	o;
+
+	if (charSet == SET)
+		o << charValue;
+	else if (charSet == NONDISPLAY)
+		o << "Non displayable";
+	else
+		o << "impossible";
+	return (o);
+}
+
+std::ostream&	StringToLiterals::getIntStrm()
+{
+	std::ostream	o;
+
+	if (intSet == SET)
+		o << intValue;
+	else
+		o << "impossible";
+}
+
+std::ostream&	StringToLiterals::getFloatStrm()
+{
+	std::ostream	o;
+
+	if (floatSet == SET)
+		o << floatValue;
+	else
+		o << "impossible";
+	return (o);
+}
+
 void	StringToLiterals::assignFromChar()
 {
 	intValue = static_cast<int>(charValue);
-	intSet = true;
+//	intSet = true;
 	floatValue = static_cast<float>(charValue);
-	floatSet = true;
+//	floatSet = true;
+	doubleValue = static_cast<double>(charValue);
+
 }
 
 int	StringToLiterals::setChar( const char *str )

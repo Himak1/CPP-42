@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 14:48:06 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 11:53:40 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 12:11:02 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,7 @@ int	main(int argc, char *argv[])
 		std::cout << "convert: give precisely 1 string as input" << std::endl;
 		return (1);
 	}
-
-	int	type = literals.literalType(argv[1]);
-	if (type == CHAR)
-		literals.assignFromChar();
-	// else if (type == INT)
-	// 	assignInt();
-	// else if (type == FLOAT)
-	// 	assign_float();
-	// else if (type == DOUBLE)
-	// 	assign_float();
-	else
+	if (literals.literalType(argv[1]) == -1)
 	{
 		std::cout << "convert: input isn't convertible to any literal type" << std::endl;
 		return (1);

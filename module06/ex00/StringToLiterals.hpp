@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:47 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 11:42:41 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 13:32:59 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,41 @@
 # include <iostream>
 # include <string>
 
-# define CHAR 0
-# define INT 1
-# define FLOAT 2
-# define DOUBLE 3
+# define SET 0
+# define ERROR 1
+# define NONDISPLAY 2
 
 class StringToLiterals
 {
 	public:
 		StringToLiterals();
-		StringToLiterals( StringToLiterals const & src );
+		StringToLiterals( StringToLiterals const& src );
 		~StringToLiterals();
 
-		StringToLiterals&	operator=( StringToLiterals const & rhs );
+		StringToLiterals&	operator=( StringToLiterals const& rhs );
 
 		int	literalType( const char *str );
-		int	setChar( const char *str );
-		int	setInt( const char *str );
 
-		void	assignFromChar();
-	//private:
+		std::ostream&	getCharStrm();
+		std::ostream&	getIntStrm();
+		std::ostream&	getFloatStrm();
+		std::ostream&	getDoubleStrm();
+	private:
 		char	charValue;
 		int		intValue;
 		float	floatValue;
 		double	doubleValue;
-		bool	charSet;
-		bool	intSet;
-		bool	floatSet;
-		bool	doubleSet;
+		int		charSet;
+		int		intSet;
+		int		floatSet;
+		int		doubleSet;
+
+		int	setChar( const char *str );
+		int	setInt( const char *str );
+
+		void	assignFromChar();
 };
 
-std::ostream&	operator<<( std::ostream & o, StringToLiterals const & i );
+std::ostream&	operator<<( std::ostream& o, StringToLiterals const& i );
 
 #endif
