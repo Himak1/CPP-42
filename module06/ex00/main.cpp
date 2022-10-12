@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 14:48:06 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 12:11:02 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 16:50:16 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	main(int argc, char *argv[])
 		std::cout << "convert: input isn't convertible to any literal type" << std::endl;
 		return (1);
 	}
-	std::cout.precision(1);
-	std::cout << literals << std::endl;
+	literals.printChar();
+	literals.printInt();
+	literals.printFloat();
+	literals.printDouble();
 	return (0);
 }

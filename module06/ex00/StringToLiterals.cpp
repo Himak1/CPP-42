@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 13:53:06 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 17:31:17 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 */
 
 StringToLiterals::StringToLiterals()
-	: charSet(false), intSet(false), floatSet(false), doubleSet(false)
+	: charSet(NOTSET), intSet(NOTSET), floatSet(NOTSET), doubleSet(NOTSET)
 {
 }
 
-StringToLiterals::StringToLiterals( const StringToLiterals & src )
+StringToLiterals::StringToLiterals( const StringToLiterals& src )
 {
 }
 
@@ -54,80 +54,132 @@ StringToLiterals&	StringToLiterals::operator=( StringToLiterals const& rhs )
 
 std::ostream &	operator<<( std::ostream& o, StringToLiterals const& i )
 {
-	o	<< std::fixed
-		<< "char: " << i.getCharStrm() << "\n"
-		<< "int: " << i.getIntStrm() << "\n"
-		<< "float: " << i.getFloatStrm() << 'f';
+	o << o;
 	return o;
 }
 
+/*
+** --------------------------------- PRINT METHODS ----------------------------------
+*/
+
+
+void	StringToLiterals::printChar()
+{
+	std::cout << "char: ";
+	if (charSet == SET)
+		std::cout << charValue;
+	else if (charSet == NONDISPLAY)
+		std::cout << "Non displayable";
+	else
+		std::cout << "impossible";
+	std::cout << "\n";
+}
+
+void	StringToLiterals::printInt()
+{
+	std::cout << "int: ";
+	if (intSet == SET)
+		std::cout << intValue;
+	else
+		std::cout << "impossible";
+	std::cout << "\n";
+}
+
+void	StringToLiterals::printFloat()
+{
+	std::cout << "float: ";
+	std::cout.precision(1);
+	if (floatSet == SET)
+		std::cout << std::fixed << floatValue << "f";
+	else
+		std::cout << "impossible";
+	std::cout << "\n";
+}
+
+void	StringToLiterals::printDouble()
+{
+	std::cout << "double: ";
+	std::cout.precision(1);
+	if (floatSet == SET)
+		std::cout << std::fixed << doubleValue;
+	else
+		std::cout << "impossible";
+	std::cout << std::endl;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::ostream&	StringToLiterals::getCharStrm(std::ostream&)
-{
-	std::ostream	o;
-
-	if (charSet == SET)
-		o << charValue;
-	else if (charSet == NONDISPLAY)
-		o << "Non displayable";
-	else
-		o << "impossible";
-	return (o);
-}
-
-std::ostream&	StringToLiterals::getIntStrm()
-{
-	std::ostream	o;
-
-	if (intSet == SET)
-		o << intValue;
-	else
-		o << "impossible";
-}
-
-std::ostream&	StringToLiterals::getFloatStrm()
-{
-	std::ostream	o;
-
-	if (floatSet == SET)
-		o << floatValue;
-	else
-		o << "impossible";
-	return (o);
-}
-
 void	StringToLiterals::assignFromChar()
 {
 	intValue = static_cast<int>(charValue);
-//	intSet = true;
+	intSet = SET;
 	floatValue = static_cast<float>(charValue);
-//	floatSet = true;
+	floatSet = SET;
 	doubleValue = static_cast<double>(charValue);
+	doubleSet = SET;
 
 }
 
-int	StringToLiterals::setChar( const char *str )
+void	StringToLiterals::assignFromInt()
 {
-	if (strlen(str) == 1 && (str[0] >= 32 && str[0] <= 127))
+	if (!(intValue >= 0 && intValue <= 255))
+		charSet = ERROR;
+	else if (!isprint(intValue))
+		charSet = NONDISPLAY;
+	else
+	{
+		charValue = static_cast<int>(intValue);
+		charSet = SET;
+	}
+	floatValue = static_cast<float>(intValue);
+	floatSet = SET;
+	doubleValue = static_cast<double>(intValue);
+	doubleSet = SET;
+}
+
+int	StringToLiterals::setChar( std::string const& str )
+{
+	if (str.length() == 1 && (isprint(str[0]) && !isdigit(str[0])))
 	{
 		charValue = str[0];
-		charSet = true;
+		charSet = SET;
 		return (1);
 	}
 	return (0);
 }
 
-int	StringToLiterals::setInt( const char *str )
+int	StringToLiterals::setInt( std::string const& str )
 {
-	char	*ptr = NULL;
-	long	c = strtol(str, &ptr, 10);
+	char	*ptr;
+	long	c;
 
+	ptr = NULL;
+	errno = 0;
+	c = strtol(str.c_str(), &ptr, 10);
+	if (errno != 0 || ptr == str)
+		return (0);
+	else if (str.find_first_not_of("-0123456789") != std::string::npos)
+		return (0);
 	intValue = c;
-	intSet = true;
+	intSet = SET;
+	return (1);
+}
+
+int	StringToLiterals::setFloat( std::string const& str )
+{
+	char	*ptr;
+	float	f;
+
+	errno = 0;
+	f = strtof(str.c_str(), &ptr);
+	if (errno != 0 || ptr == str)
+		return (0);
+	else if (str.back() != 'f')
+		return (0);
+	floatValue = f;
+	floatSet = SET;
 	return (1);
 }
 
@@ -135,8 +187,8 @@ int	StringToLiterals::literalType(const char *str)
 {
 	if (setChar(str) == 1)
 		assignFromChar();
-	// else if (setInt(str) == 1)
-	// 	assignFromInt()
+	else if (setInt(str) == 1)
+		assignFromInt();
 	else
 		return (-1);
 	return (0);

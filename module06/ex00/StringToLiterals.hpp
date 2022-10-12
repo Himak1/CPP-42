@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:47 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 13:32:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/12 17:25:43 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include <iostream>
 # include <string>
 
-# define SET 0
-# define ERROR 1
-# define NONDISPLAY 2
+# define NOTSET 0
+# define SET 1
+# define ERROR 2
+# define NONDISPLAY 3
 
 class StringToLiterals
 {
@@ -31,10 +32,10 @@ class StringToLiterals
 
 		int	literalType( const char *str );
 
-		std::ostream&	getCharStrm();
-		std::ostream&	getIntStrm();
-		std::ostream&	getFloatStrm();
-		std::ostream&	getDoubleStrm();
+		void	printChar();
+		void	printInt();
+		void	printFloat();
+		void	printDouble();
 	private:
 		char	charValue;
 		int		intValue;
@@ -45,10 +46,12 @@ class StringToLiterals
 		int		floatSet;
 		int		doubleSet;
 
-		int	setChar( const char *str );
-		int	setInt( const char *str );
+		int	setChar( std::string const& str );
+		int	setInt( std::string const& str );
+		int	setFloat( std::string const& str );
 
 		void	assignFromChar();
+		void	assignFromInt();
 };
 
 std::ostream&	operator<<( std::ostream& o, StringToLiterals const& i );
