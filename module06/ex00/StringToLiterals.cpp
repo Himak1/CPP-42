@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/13 14:06:29 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/13 14:12:08 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ StringToLiterals::StringToLiterals()
 
 StringToLiterals::StringToLiterals( const StringToLiterals& src )
 {
+	*this = src;
 }
 
 
@@ -50,12 +51,17 @@ StringToLiterals&	StringToLiterals::operator=( StringToLiterals const& rhs )
 		intValue = rhs.intValue;
 		floatValue = rhs.floatValue;
 		doubleValue = rhs.doubleValue;
+		charSet = rhs.charSet;
+		intSet = rhs.intSet;
+		floatSet = rhs.floatSet;
+		doubleSet = rhs.doubleSet;
 	}
 	return *this;
 }
 
 std::ostream &	operator<<( std::ostream& o, StringToLiterals const& i )
 {
+	(void)i;
 	o << o;
 	return o;
 }

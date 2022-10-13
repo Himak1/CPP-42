@@ -4,7 +4,7 @@ NAME = convert
 SRC_FILES = main.cpp\
 			StringToLiterals.cpp
 
-OBJ = obj/$(SRC_FILES:.cpp=.o)
+OBJ = $(addprefix obj/, $(SRC_FILES:.cpp=.o))
 
 CXX = c++
 FLAGS = -Wextra -Wall -Werror
