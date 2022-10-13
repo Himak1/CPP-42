@@ -6,11 +6,13 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/12 17:36:09 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/13 14:06:29 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
+#include <climits>
+#include <cfloat>
 #include "StringToLiterals.hpp"
 
 /*
@@ -100,7 +102,7 @@ void	StringToLiterals::printDouble()
 {
 	std::cout << "double: ";
 	std::cout.precision(1);
-	if (floatSet == SET)
+	if (doubleSet == SET)
 		std::cout << std::fixed << doubleValue;
 	else
 		std::cout << "impossible";
@@ -124,7 +126,7 @@ void	StringToLiterals::assignFromChar()
 
 void	StringToLiterals::assignFromInt()
 {
-	if (!(intValue >= 0 && intValue <= 255))
+	if (!(intValue >= CHAR_MIN && intValue <= CHAR_MAX))
 		charSet = ERROR;
 	else if (!isprint(intValue))
 		charSet = NONDISPLAY;
@@ -141,7 +143,7 @@ void	StringToLiterals::assignFromInt()
 
 void	StringToLiterals::assignFromFloat()
 {
-	if (!(floatValue >= 0 && floatValue <= 255))
+	if (!(floatValue >= CHAR_MIN && floatValue <= CHAR_MAX))
 		charSet = ERROR;
 	else if (!isprint(floatValue))
 		charSet = NONDISPLAY;
@@ -154,6 +156,33 @@ void	StringToLiterals::assignFromFloat()
 	intSet = SET;
 	doubleValue = static_cast<double>(floatValue);
 	doubleSet = SET;
+}
+
+void	StringToLiterals::assignFromDouble()
+{
+	if (!(doubleValue >= CHAR_MIN && doubleValue <= CHAR_MAX))
+		charSet = ERROR;
+	else if (!isprint(doubleValue))
+		charSet = NONDISPLAY;
+	else
+	{
+		charValue = static_cast<char>(doubleValue);
+		charSet = SET;
+	}
+	if (doubleValue < INT_MIN || doubleValue > INT_MAX)
+		intSet = ERROR;
+	else
+	{
+		intValue = static_cast<int>(doubleValue);
+		intSet = SET;
+	}
+	if (doubleValue < FLT_MIN || doubleValue > FLT_MAX)
+		floatSet = ERROR;
+	else
+	{
+		floatValue = static_cast<float>(doubleValue);
+		floatSet = SET;
+	}
 }
 
 int	StringToLiterals::setChar( std::string const& str )
@@ -179,6 +208,8 @@ int	StringToLiterals::setInt( std::string const& str )
 		return (0);
 	else if (str.find_first_not_of("-0123456789") != std::string::npos)
 		return (0);
+	if (c < INT_MIN || c > INT_MAX)
+		return (0);
 	intValue = c;
 	intSet = SET;
 	return (1);
@@ -200,12 +231,30 @@ int	StringToLiterals::setFloat( std::string const& str )
 	return (1);
 }
 
+int	StringToLiterals::setDouble( std::string const& str )
+{
+	char	*ptr;
+	double	d;
+
+	errno = 0;
+	d = strtof(str.c_str(), &ptr);
+	if (errno != 0 || ptr == str)
+		return (0);
+	doubleValue = d;
+	doubleSet = SET;
+	return (1);
+}
+
 int	StringToLiterals::literalType(const char *str)
 {
 	if (setChar(str) == 1)
 		assignFromChar();
 	else if (setInt(str) == 1)
 		assignFromInt();
+	else if (setFloat(str))
+		assignFromFloat();
+	else if (setDouble(str))
+		assignFromDouble();
 	else
 		return (-1);
 	return (0);
