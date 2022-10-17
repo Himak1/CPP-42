@@ -23,8 +23,6 @@ typedef unsigned int	uint;
 class AForm
 {
 	public:
-		AForm( std::string name, std::string target, uint signGrade, uint execGrade );
-		AForm( AForm const &src );
 		virtual ~AForm();
 		AForm&	operator=( AForm const &rhs );
 
@@ -42,6 +40,8 @@ class AForm
 				const char*	what() const throw();
 		};
 	protected:
+		AForm( std::string name, std::string target, uint signGrade, uint execGrade );
+		AForm( AForm const &src );
 		AForm();
 	private:
 		const std::string	_name;
