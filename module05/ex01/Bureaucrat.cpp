@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 17:58:31 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/17 14:17:34 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ Bureaucrat&				Bureaucrat::operator=( Bureaucrat const& rhs )
 	return *this;
 }
 
+std::ostream&	operator<<( std::ostream &o, Bureaucrat const &i )
+{
+	o << "name: " << i.getName() << std::endl
+		<< "grade: " << i.getGrade();
+	return (o);
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -75,16 +82,16 @@ uint	Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::raiseGrade( void )
 {
-	_grade--;
-	if (_grade < 1)
+	if (_grade == 1)
 		throw GradeTooHighException();
+	_grade--;
 }
 
 void	Bureaucrat::lowerGrade( void )
 {
-	_grade++;
-	if (_grade > 150)
+	if (_grade == 150)
 		throw GradeTooLowException();
+	_grade++;
 }
 
 void	Bureaucrat::signForm( Form &f ) const

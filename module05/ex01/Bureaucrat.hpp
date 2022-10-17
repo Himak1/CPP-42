@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:15:22 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 17:49:36 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/17 14:18:47 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ class Bureaucrat
 				const char*	what() const throw();
 		};
 };
+
+std::ostream&	operator<<( std::ostream &o, Bureaucrat const &i );
 
 #endif /* ****************************************************** BUREAUCRAT_H */
