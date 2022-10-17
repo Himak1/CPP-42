@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 17:34:03 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/17 16:32:29 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/17 17:24:42 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ class C : public Base
 		~C();
 };
 
-Base	*generate( void );
+Base*	generate( void );
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif
