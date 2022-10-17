@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/22 15:39:43 by jhille        #+#    #+#                 */
-/*   Updated: 2022/09/07 18:10:12 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/17 13:47:52 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	main()
 
 	Bureaucrat	ike("Ike", 1);
 
-	std::cout << ike.getName() << std::endl;
-	std::cout << ike.getGrade() << std::endl;
+	std::cout << ike << std::endl;
 
 	try
 	{
