@@ -53,7 +53,7 @@ AForm &AForm::operator=(AForm const &rhs)
 {
 	if ( this != &rhs )
 	{
-	
+		_isSigned = rhs._isSigned;
 	}
 	return *this;
 }
