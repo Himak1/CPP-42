@@ -1,7 +1,8 @@
 
-NAME = ex01
+NAME = ex02
 
 SRC_FILES = main.cpp
+
 
 OBJ = $(addprefix obj/, $(SRC_FILES:.cpp=.o))
 

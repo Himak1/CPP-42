@@ -6,22 +6,23 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 17:06:19 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/19 12:46:53 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/19 17:05:21 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#pragma once
 
-template < typename T >
+template< typename T >
 class Array
 {
 	public:
 		Array();
+		Array( unsigned int length );
 		~Array();
 	
+		unsigned int	size();
+	private:
+		T	*_arr;
 };
 
-
-
-#endif
+#include "Array.tpp"

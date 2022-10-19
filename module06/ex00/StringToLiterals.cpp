@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/19 15:56:35 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/19 16:00:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ StringToLiterals::StringToLiterals( const StringToLiterals& src )
 	*this = src;
 }
 
-
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
@@ -38,7 +37,6 @@ StringToLiterals::StringToLiterals( const StringToLiterals& src )
 StringToLiterals::~StringToLiterals()
 {
 }
-
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
