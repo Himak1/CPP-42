@@ -6,13 +6,14 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 15:54:51 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/13 14:12:08 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/19 15:56:35 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <climits>
 #include <cfloat>
+#include <cmath>
 #include "StringToLiterals.hpp"
 
 /*
@@ -57,13 +58,6 @@ StringToLiterals&	StringToLiterals::operator=( StringToLiterals const& rhs )
 		doubleSet = rhs.doubleSet;
 	}
 	return *this;
-}
-
-std::ostream &	operator<<( std::ostream& o, StringToLiterals const& i )
-{
-	(void)i;
-	o << o;
-	return o;
 }
 
 /*
@@ -158,8 +152,13 @@ void	StringToLiterals::assignFromFloat()
 		charValue = static_cast<char>(floatValue);
 		charSet = SET;
 	}
-	intValue = static_cast<int>(floatValue);
-	intSet = SET;
+	if (floatValue < INT_MIN || floatValue > INT_MAX || floatValue != floatValue)
+		intSet = ERROR;
+	else
+	{
+		intValue = static_cast<int>(floatValue);
+		intSet = SET;
+	}
 	doubleValue = static_cast<double>(floatValue);
 	doubleSet = SET;
 }
@@ -175,7 +174,7 @@ void	StringToLiterals::assignFromDouble()
 		charValue = static_cast<char>(doubleValue);
 		charSet = SET;
 	}
-	if (doubleValue < INT_MIN || doubleValue > INT_MAX)
+	if (doubleValue < INT_MIN || doubleValue > INT_MAX || doubleValue != doubleValue)
 		intSet = ERROR;
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 17:06:19 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/18 17:18:06 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/19 12:46:53 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 template < typename T >
 class Array
 {
-	
 	public:
 		Array();
 		~Array();
