@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 17:05:25 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/19 16:54:59 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/20 15:32:53 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int	main()
 {
-	int* a = new int();
-	*a = 1;
-	std::cout << *a << std::endl;
+	Array<int>	a(42);
 
-	delete a;
+	a[0] = 1;
+	std::cout << a[0] << std::endl;
+	std::cout << a.size() << std::endl;
 	return (0);
 }
