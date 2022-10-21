@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 17:06:19 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/20 15:36:30 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/21 14:44:04 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ class Array
 		Array( const Array& src );
 		~Array();
 	
-		T&	operator[]( const unsigned int& index ) const;
+		Array&	operator=( const Array<T>& rhs );
+		T&		operator[]( const unsigned int& index ) const;
 		unsigned int	size() const;
-
 		class IndexOutOfBoundsException : public std::exception
 		{
 			public:
 				const char* what() const throw();
 		};
 	private:
-		const unsigned int	_length;
+		unsigned int	_length;
 		T	*_arr;
 };
 
