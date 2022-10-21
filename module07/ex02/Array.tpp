@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 12:40:08 by jhille        #+#    #+#                 */
-/*   Updated: 2022/10/21 14:45:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/10/21 16:16:41 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ Array<T>::Array( const unsigned int length )
 
 template< typename T >
 Array<T>::Array( const Array& src )
+	: _arr(NULL)
 {
-	_arr = new T[0];
 	*this = src;
 }
 
@@ -53,7 +53,8 @@ Array<T>&  Array<T>::operator=( const Array<T>& rhs )
 	if (this != &rhs)
 	{
 		_length = rhs._length;
-		delete[] _arr;
+		if (_arr)
+			delete[] _arr;
 		_arr = new T[_length];
 		for (unsigned int i = 0; i < _length; i++)
 			_arr[i] = rhs._arr[i];
