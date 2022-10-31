@@ -7,7 +7,7 @@ SRC_FILES = main.cpp
 OBJ = $(addprefix obj/, $(SRC_FILES:.cpp=.o))
 
 CXX = c++
-FLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -std=c++98
 
 all: $(NAME)
 
@@ -16,7 +16,7 @@ $(NAME): $(OBJ)
 
 obj/%.o: %.cpp
 		@mkdir -p obj
-		$(CXX) -c $(FLAGS) -o $@ $^
+		$(CXX) -c $(CFLAGS) -o $@ $^
 
 clean:
 		rm -rf obj
