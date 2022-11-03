@@ -6,13 +6,16 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 17:25:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/01 18:07:18 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/03 16:02:34 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
 #include <utility>
+#include <ctime>
+#include <cstdlib>
+#include <climits>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -68,38 +71,62 @@ Span&			Span::operator=(const Span& rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void			Span::addNumber(int number)
+void	Span::addNumber(int number)
 {
 	if (_vec.size() == _max_length)
 		throw std::exception();
 	_vec.push_back(number);
 }
 
-int			Span::shortestSpan()
+void	Span::addNRandom(unsigned int numbersToAdd)
 {
-	std::vector<int>	cp;
+	std::vector<int>::iterator	it;
 
-	if (_vec.size() < 2)
+	if (_vec.size() + numbersToAdd >= _max_length)
 		throw std::exception();
-	// cp = _vec;
-	// while (cp.size() > 2)
-	// {
-
-	// }
-	return (-42);
+	srand(time(NULL));
+	if (_vec.size() != 0)
+	{
+		it =  --_vec.end();
+		_vec.resize(_vec.size() + numbersToAdd);
+		generate(it, _vec.end(), rand);
+	}
+	else
+	{
+		_vec.resize(numbersToAdd);
+		generate(_vec.begin(), _vec.end(), rand);
+	}
 }
 
-int				Span::longestSpan()
+int		Span::shortestSpan()
 {
+	std::vector<int>::iterator	it;
+	int							diff;
+
 	if (_vec.size() < 2)
 		throw std::exception();
-	std::pair<int> a = std::minmax(_vec);
-	return (a.second - a.first);
+	diff = INT_MAX;
+	it = _vec.begin();
+	std::sort(_vec.begin(), _vec.end());
+	while (it != _vec.end())
+	{
+		if ((it + 1) != _vec.end() && *(it + 1) - *it < diff)
+			diff = *(it + 1) - *it;
+		++it;
+	}
+	return (diff);
+}
+
+int		Span::longestSpan()
+{
+	int	output;
+
+	if (_vec.size() < 2)
+		throw std::exception();
+	output = *std::max_element(_vec.begin(), _vec.end()) - *std::min_element(_vec.begin(), _vec.end());
+	return (output);
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-
-/* ************************************************************************** */
