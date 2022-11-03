@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 17:25:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/03 16:02:34 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/03 17:04:09 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,31 @@ Span&			Span::operator=(const Span& rhs)
 	return *this;
 }
 
-// std::ostream&	operator<<(std::ostream& o, const Span& input)
-// {
-// 	for (int i = 0; i < _vec.size(); i++)
-// 		o << input._vec
-// 	return o;
-// }
+int			Span::operator[](const unsigned int& index) const
+{
+	if (index >= _vec.size())
+		throw std::exception();
+	return (_vec[index]);
+}
+
+std::ostream&	operator<<(std::ostream& o, const Span& input)
+{
+	o << '[';
+	for (int i = 0; i < input.size(); i++)
+		o << input[i] << ", ";
+	o << ']';
+	return o;
+}
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+int		Span::size() const
+{
+	return (_vec.size());
+}
 
 void	Span::addNumber(int number)
 {
