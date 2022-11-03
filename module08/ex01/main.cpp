@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 17:24:42 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/03 16:59:46 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/03 17:13:28 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ int	main()
 	d.addNumber(3);
 	d.addNumber(0);
 	d.addNumber(6);
-	d.addNRandom(2);
+	d.addNRandom(7);
 	std::cout << d << std::endl;
+
+	Span	f(10);
+	f.addNRandom(10);
+	std::cout << f << std::endl;
 	return (0);
 }

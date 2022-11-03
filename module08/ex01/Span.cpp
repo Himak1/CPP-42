@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 17:25:56 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/03 17:04:09 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/03 17:14:46 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,20 +96,12 @@ void	Span::addNRandom(unsigned int numbersToAdd)
 {
 	std::vector<int>::iterator	it;
 
-	if (_vec.size() + numbersToAdd >= _max_length)
+	if (_vec.size() + numbersToAdd > _max_length)
 		throw std::exception();
 	srand(time(NULL));
-	if (_vec.size() != 0)
-	{
-		it =  --_vec.end();
-		_vec.resize(_vec.size() + numbersToAdd);
-		generate(it, _vec.end(), rand);
-	}
-	else
-	{
-		_vec.resize(numbersToAdd);
-		generate(_vec.begin(), _vec.end(), rand);
-	}
+	_vec.resize(_vec.size() + numbersToAdd);
+	it = _vec.end() - numbersToAdd;
+	generate(it, _vec.end(), rand);
 }
 
 int		Span::shortestSpan()
