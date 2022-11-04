@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:17:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/04 17:33:54 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/04 17:55:40 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class MutantStack : public Container
 	private:
 
 };
+
+
 
 # include "MutantStack.tpp"
 
