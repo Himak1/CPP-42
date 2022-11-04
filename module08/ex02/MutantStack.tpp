@@ -6,40 +6,48 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:18:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/03 17:48:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/04 17:47:07 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-template< typename T >
-MutantStack<T>::MutantStack()
+#pragma once
+
+template< class T, class Container >
+MutantStack<T, Container>::MutantStack()
 {
 }
 
-~MutantStack<T>::MutantStack()
+template< class T, class Container >
+MutantStack<T, Container>::~MutantStack()
 {
 }
 
-bool		MutantStack::empty() const
+template< class T, class Container >
+bool	MutantStack<T, Container>::empty() const
 {
-	return (_stack.empty());
+	return (Container::empty());
 }
 
-size_t		MutantStack::size() const
+template< class T, class Container >
+typename MutantStack<T, Container>::size_type	MutantStack<T, Container>::size() const
 {
-	return (_stack.size());
+	return (Container::size());
 }
 
-T&			MutantStack::top() const
+template< class T, class Container >
+T&	MutantStack<T, Container>::top()
 {
-	return (_stack.top());
+	return (Container::back());
 }
 
-void		MutantStack::push(const T& val)
+template< class T, class Container >
+void	MutantStack<T, Container>::push(const T& val)
 {
-	_stack.push(val);
+	Container::push_back(val);
 }
 
-void		MutantStack::pop()
+template< class T, class Container >
+void	MutantStack<T, Container>::pop()
 {
-	_stack.pop();
+	Container::pop_back();
 }
