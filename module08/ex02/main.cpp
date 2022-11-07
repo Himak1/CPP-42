@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:18:04 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/04 17:52:41 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/07 14:09:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,22 @@ int main()
 		{
 			std::cout << *it << std::endl;
 			++it;
+		}
+	}
+	std::cout << std::endl;
+	{
+		MutantStack<float>						stack;
+		MutantStack<float>::reverse_iterator	ri;
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+		ri = stack.rbegin();
+		while (ri != stack.rend())
+		{
+			std::cout << *ri << std::endl;
+			++ri;
 		}
 	}
 	return (0);
