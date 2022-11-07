@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:18:04 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/07 14:09:24 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/07 14:17:31 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,18 @@ int main()
 	}
 	std::cout << std::endl;
 	{
-		MutantStack<float>						stack;
+		MutantStack<float>						st1;
 		MutantStack<float>::reverse_iterator	ri;
-		stack.push(1);
-		stack.push(2);
-		stack.push(3);
-		stack.push(4);
-		stack.push(5);
-		ri = stack.rbegin();
-		while (ri != stack.rend())
+		st1.push(1);
+		st1.push(2);
+		st1.push(3);
+		st1.push(4);
+		st1.push(5);
+		MutantStack<float>	st2(st1);
+		MutantStack<float>	st3;
+		st3 = st2;
+		ri = st3.rbegin();
+		while (ri != st3.rend())
 		{
 			std::cout << *ri << std::endl;
 			++ri;

@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:18:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/04 17:47:07 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/07 14:35:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,24 @@ MutantStack<T, Container>::MutantStack()
 }
 
 template< class T, class Container >
+MutantStack<T, Container>::MutantStack(const MutantStack& src)
+	: Container(src)
+{
+}
+
+template< class T, class Container >
 MutantStack<T, Container>::~MutantStack()
 {
+}
+
+template< class T, class Container >
+MutantStack<T, Container>&	MutantStack<T, Container>::operator=(const MutantStack& rhs)
+{
+	if (this != &rhs)
+	{
+		Container::operator = (rhs);
+	}
+	return (*this);
 }
 
 template< class T, class Container >

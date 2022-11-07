@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:17:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/04 17:55:40 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/07 14:27:03 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ class MutantStack : public Container
 		typedef	typename Container::const_reverse_iterator	const_reverse_iterator;
 
 		MutantStack();
+		MutantStack(const MutantStack& src);
 		~MutantStack();
+		MutantStack&	operator=(const MutantStack& rhs);
+
 		bool		empty() const;
 		size_type	size() const;
 		T&			top();
