@@ -6,7 +6,7 @@ SRC = main.cpp
 OBJ = $(addprefix obj/, $(SRC:.cpp=.o))
 
 CXX = c++
-CFLAGS = -Wextra -Wall -Werror -std=c++98 -g
+CFLAGS = -Wextra -Wall -Werror -std=c++98
 
 all: $(NAME)
 
