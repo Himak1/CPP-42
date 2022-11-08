@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:18:28 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/07 14:35:03 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/08 15:47:24 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,7 @@ MutantStack<T, Container>&	MutantStack<T, Container>::operator=(const MutantStac
 }
 
 template< class T, class Container >
-bool	MutantStack<T, Container>::empty() const
+typename MutantStack<T, Container>::iterator	MutantStack<T, Container>::begin()
 {
-	return (Container::empty());
-}
-
-template< class T, class Container >
-typename MutantStack<T, Container>::size_type	MutantStack<T, Container>::size() const
-{
-	return (Container::size());
-}
-
-template< class T, class Container >
-T&	MutantStack<T, Container>::top()
-{
-	return (Container::back());
-}
-
-template< class T, class Container >
-void	MutantStack<T, Container>::push(const T& val)
-{
-	Container::push_back(val);
-}
-
-template< class T, class Container >
-void	MutantStack<T, Container>::pop()
-{
-	Container::pop_back();
+	return (this->c.begin());
 }

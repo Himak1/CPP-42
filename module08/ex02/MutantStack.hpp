@@ -6,7 +6,7 @@
 /*   By: jhille <jhille@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 17:17:48 by jhille        #+#    #+#                 */
-/*   Updated: 2022/11/07 14:27:03 by jhille        ########   odam.nl         */
+/*   Updated: 2022/11/08 15:46:58 by jhille        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,27 @@
 # include <deque>
 
 template< class T, class Container = std::deque<T> >
-class MutantStack : public Container
+class MutantStack : public std::stack<T, Container>
 {
 	public:
-		typedef typename Container::value_type				value_type;
-   		typedef typename Container::reference				reference;
-		typedef typename Container::const_reference			const_reference;
-		typedef typename Container::size_type				size_type;
-		typedef	typename Container::iterator				iterator;
-		typedef	typename Container::const_iterator			const_iterator;
-		typedef	typename Container::reverse_iterator		reverse_iterator;
-		typedef	typename Container::const_reverse_iterator	const_reverse_iterator;
+		typedef typename std::stack<T, Container>::container_type	container_type;
+		typedef typename Container::value_type						value_type;
+   		typedef typename Container::reference						reference;
+		typedef typename Container::const_reference					const_reference;
+		typedef typename Container::size_type						size_type;
+		typedef	typename container_type::iterator					iterator;
 
 		MutantStack();
-		MutantStack(const MutantStack& src);
 		~MutantStack();
-		MutantStack&	operator=(const MutantStack& rhs);
 
-		bool		empty() const;
-		size_type	size() const;
-		T&			top();
-		void		push(const T& val);
-		void		pop();
+		iterator	begin();
+		//iterator	begin() { return (this->c.begin()); }
+		iterator	end() { return (this->c.end()); }
+		iterator	rbegin() { return (this->c.rbegin()); }
+		iterator	rend() { return (this->c.rend()); }
 	private:
-
+		MutantStack(const MutantStack& src);
+		MutantStack&	operator=(const MutantStack& rhs);
 };
 
 
